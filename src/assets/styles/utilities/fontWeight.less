@@ -1,0 +1,32 @@
+/**
+ * [Utility First Class (Less Version)]
+ * module: font-weight
+ * Author: xiaoluoboding
+ * Create At: 2020-04-01
+ */
+
+@fontWeight:
+  hairline 100,
+  thin 200,
+  light 300,
+  normal 400,
+  medium 500,
+  semibold 600,
+  bold 700,
+  extrabold 800,
+  black 900
+;
+
+.generateFontWeight(@array, @i: 1) when (@i <= length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  .font-@{key} {
+    font-weight: @value;
+  }
+  .generateFontWeight(@array, (@i + 1));
+}
+
+.generateFontWeight(@fontWeight);
+

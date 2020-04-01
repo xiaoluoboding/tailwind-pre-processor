@@ -1,0 +1,43 @@
+/**
+ * [Utility First Class (Less Version)]
+ * module: padding
+ * Author: xiaoluoboding
+ * Create At: 2020-04-01
+ */
+.generatePadding(@n, @i: 1) when (@i =< @n) {
+  @basePadding: (@i / 4) * 1rem;
+
+  // p-*
+  .p-@{i} {
+    padding: @basePadding;
+  }
+  // px-*
+  .px-@{i} {
+    padding-left: @basePadding;
+    padding-right: @basePadding;
+  }
+  // py-*
+  .py-@{i} {
+    padding-top: @basePadding;
+    padding-bottom: @basePadding;
+  }
+  // pt-*
+  .pt-@{i} {
+    padding-top: @basePadding;
+  }
+  // pr-*
+  .pr-@{i} {
+    padding-right: @basePadding;
+  }
+  // pb-*
+  .pb-@{i} {
+    padding-bottom: @basePadding;
+  }
+  // pl-*
+  .pl-@{i} {
+    padding-left: @basePadding;
+  }
+  .generatePadding(@n, (@i + 1));
+}
+
+.generatePadding(64);

@@ -1,0 +1,43 @@
+/**
+ * [Utility First Class (Less Version)]
+ * module: margin
+ * Author: xiaoluoboding
+ * Create At: 2020-04-01
+ */
+.generateMargin(@n, @i: 1) when (@i =< @n) {
+  @baseMargin: (@i / 4) * 1rem;
+
+  // m-*
+  .m-@{i} {
+    margin: @baseMargin;
+  }
+  // mx-*
+  .mx-@{i} {
+    margin-left: @baseMargin;
+    margin-right: @baseMargin;
+  }
+  // my-*
+  .my-@{i} {
+    margin-top: @baseMargin;
+    margin-bottom: @baseMargin;
+  }
+  // mt-*
+  .mt-@{i} {
+    margin-top: @baseMargin;
+  }
+  // mr-*
+  .mr-@{i} {
+    margin-right: @baseMargin;
+  }
+  // mb-*
+  .mb-@{i} {
+    margin-bottom: @baseMargin;
+  }
+  // ml-*
+  .ml-@{i} {
+    margin-left: @baseMargin;
+  }
+  .generateMargin(@n, (@i + 1));
+}
+
+.generateMargin(64);

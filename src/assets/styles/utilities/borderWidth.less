@@ -1,0 +1,72 @@
+/**
+ * [Utility First Class (Less Version)]
+ * module: border-width
+ * Author: xiaoluoboding
+ * Create At: 2020-04-01
+ */
+
+@borderWidth:
+  default '1px',
+  0 '0',
+  2 '2px',
+  4 '4px',
+  8 '8px'
+;
+
+.default (@key, @value) when (@key = default) {
+  .border {
+    border-width: @value;
+  }
+
+  .border-t {
+    border-top-width: @value;
+  }
+
+  .border-r {
+    border-right-width: @value;
+  }
+
+  .border-b {
+    border-bottom-width: @value;
+  }
+
+  .border-l {
+    border-left-width: @value;
+  }
+}
+
+.notDefault (@key, @value) when not (@key = default) {
+  .border-@{key} {
+    border-width: @value;
+  }
+
+  .border-t-@{key} {
+    border-top-width: @value;
+  }
+
+  .border-r-@{key} {
+    border-right-width: @value;
+  }
+
+  .border-b-@{key} {
+    border-bottom-width: @value;
+  }
+
+  .border-l-@{key} {
+    border-left-width: @value;
+  }
+}
+
+.generateBorderWidth(@array, @i: 1) when (@i <= length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  .default(@key, @value);
+
+  .notDefault(@key, @value);
+
+  .generateBorderWidth(@array, (@i + 1));
+}
+
+.generateBorderWidth(@borderWidth);

@@ -1,0 +1,33 @@
+/**
+ * [Utility First Class (Less Version)]
+ * module: font-size
+ * Author: xiaoluoboding
+ * Create At: 2020-04-01
+ */
+
+@fontSize:
+  xs 0.75rem,
+  sm 0.875rem,
+  base 1rem,
+  lg 1.125rem,
+  xl 1.25rem,
+  2xl 1.5rem,
+  3xl 1.875rem,
+  4xl 2.25rem,
+  5xl 3rem,
+  6xl 4rem
+;
+
+.generateFontSize(@array, @i: 1) when (@i <= length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  .font-@{key} {
+    font-size: @value;
+  }
+  .generateFontSize(@array, (@i + 1));
+}
+
+.generateFontSize(@fontSize);
+
