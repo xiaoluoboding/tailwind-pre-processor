@@ -1,0 +1,34 @@
+/**
+ * [Utility First Class (Less Version)]
+ * property: background-position
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+@bgPosition:
+  bottom 'bottom',
+  center 'center',
+  left 'left',
+  'left-bottom' 'left bottom',
+  'left-top' 'left top',
+  right 'right',
+  'right-bottom' 'right bottom',
+  'right-top' 'right top',
+  top 'top'
+;
+
+.background-position(@array, @i: 1) when (@i <= length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @property: e(@key);
+
+  .bg-@{property} {
+    background-position: e(@value);
+  }
+  .background-position(@array, (@i + 1));
+}
+
+.background-position(@bgPosition);
+

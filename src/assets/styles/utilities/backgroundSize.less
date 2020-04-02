@@ -1,0 +1,28 @@
+/**
+ * [Utility First Class (Less Version)]
+ * property: background-size
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+@bgSize:
+  auto auto,
+  cover cover,
+  contain contain
+;
+
+.background-size(@array, @i: 1) when (@i <= length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @property: e(@key);
+
+  .bg-@{key} {
+    background-size: @value;
+  }
+  .background-size(@array, (@i + 1));
+}
+
+.background-size(@bgSize);
+

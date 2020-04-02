@@ -1,0 +1,64 @@
+/**
+ * [Utility First Class (Less Version)]
+ * property: border-color
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+// generate one particular border-color
+.border-class(@name, @common: false, @property: border-color) {
+  @color-name: ~"@{name}-list";
+  @color-list: @@color-name;
+  @list-length: length(@color-list);
+  @selector: e(@name);
+
+  .bd-color(@color-list, @i: 1) when (@i <= @list-length) {
+    @pair: extract(@color-list, @i);
+    @key: extract(@pair, 1);
+    @value: extract(@pair, 2);
+
+    @modifier: e(@key);
+
+    & when(@common = true) {
+      .bd-@{modifier} {
+        @{property}: @value;
+      }
+    }
+
+    & when (@common = false) {
+      .bd-@{selector}-@{modifier} {
+        @{property}: @value;
+      }
+      .hover\:bd-@{selector}-@{modifier}:hover {
+        @{property}: @value;
+      }
+    }
+
+    .bd-color(@color-list, @i + 1);
+  }
+
+  .bd-color(@color-list);
+}
+
+// generate all palette colors
+.border-all(@palette, @i: 1) when (@i <=length(@palette)) {
+  @color-name: extract(@palette, @i);
+
+  // If this is the first iteration
+  & when (@i = 1) {
+    .border-class(@color-name, true);
+  }
+
+  & when (@i > 1) {
+    .border-class(@color-name, false);
+  }
+
+  .border-all(@palette, @i + 1);
+}
+
+.border-all(@color-palette);
+
+// default border, palette gray-300
+.border {
+  border: 0 solid extract(extract(@gray-list, 3), 2);
+}

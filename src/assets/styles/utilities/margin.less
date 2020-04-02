@@ -1,43 +1,91 @@
 /**
  * [Utility First Class (Less Version)]
- * module: margin
+ * property: margin
  * Author: xiaoluoboding
- * Create At: 2020-04-01
+ * Code for fun!
  */
-.generateMargin(@n, @i: 1) when (@i =< @n) {
-  @baseMargin: (@i / 4) * 1rem;
 
+.margin(@property, @value) {
   // m-*
-  .m-@{i} {
-    margin: @baseMargin;
+  .m-@{property} {
+    margin: @value;
   }
   // mx-*
-  .mx-@{i} {
-    margin-left: @baseMargin;
-    margin-right: @baseMargin;
+  .mx-@{property} {
+    margin-left: @value;
+    margin-right: @value;
   }
   // my-*
-  .my-@{i} {
-    margin-top: @baseMargin;
-    margin-bottom: @baseMargin;
+  .my-@{property} {
+    margin-top: @value;
+    margin-bottom: @value;
   }
   // mt-*
-  .mt-@{i} {
-    margin-top: @baseMargin;
+  .mt-@{property} {
+    margin-top: @value;
   }
   // mr-*
-  .mr-@{i} {
-    margin-right: @baseMargin;
+  .mr-@{property} {
+    margin-right: @value;
   }
   // mb-*
-  .mb-@{i} {
-    margin-bottom: @baseMargin;
+  .mb-@{property} {
+    margin-bottom: @value;
   }
   // ml-*
-  .ml-@{i} {
-    margin-left: @baseMargin;
+  .ml-@{property} {
+    margin-left: @value;
   }
-  .generateMargin(@n, (@i + 1));
 }
 
-.generateMargin(64);
+.negativeMargin(@property, @value) {
+  // -m-*
+  .-m-@{property} {
+    margin: @value;
+  }
+  // -mx-*
+  .-mx-@{property} {
+    margin-left: @value;
+    margin-right: @value;
+  }
+  // -my-*
+  .-my-@{property} {
+    margin-top: @value;
+    margin-bottom: @value;
+  }
+  // -mt-*
+  .-mt-@{property} {
+    margin-top: @value;
+  }
+  // -mr-*
+  .-mr-@{property} {
+    margin-right: @value;
+  }
+  // -mb-*
+  .-mb-@{property} {
+    margin-bottom: @value;
+  }
+  // -ml-*
+  .-ml-@{property} {
+    margin-left: @value;
+  }
+}
+
+.generateMargin(@array, @i: 1) when (@i =< length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @property: e(@key);
+
+  .margin(@property, @value);
+
+  .negativeMargin(@property, @value);
+  
+  .generateMargin(@array, (@i + 1));
+}
+
+.margin(auto, auto);
+.generateMargin(@space);
+
+

@@ -1,8 +1,8 @@
 /**
  * [Utility First Class (Less Version)]
- * module: font-size
+ * property: font-size
  * Author: xiaoluoboding
- * Create At: 2020-04-01
+ * Code for fun!
  */
 
 @fontSize:
@@ -23,7 +23,7 @@
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
 
-  .font-@{key} {
+  .text-@{key} {
     font-size: @value;
   }
   .generateFontSize(@array, (@i + 1));

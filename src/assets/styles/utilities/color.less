@@ -1,0 +1,59 @@
+/**
+ * [Utility First Class (Less Version)]
+ * property: color
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+// generate one particular color
+.color-class(@name, @common: false, @property: color) {
+  @color-name: ~"@{name}-list";
+  @color-list: @@color-name;
+  @list-length: length(@color-list);
+  @selector: e(@name);
+
+  .text-color(@color-list, @i: 1) when (@i <= @list-length) {
+    @pair: extract(@color-list, @i);
+    @key: extract(@pair, 1);
+    @value: extract(@pair, 2);
+
+    @modifier: e(@key);
+
+    & when(@common = true) {
+      .text-@{modifier} {
+        @{property}: @value;
+      }
+    }
+
+    & when (@common = false) {
+      .text-@{selector}-@{modifier} {
+        @{property}: @value;
+      }
+      .hover\:text-@{selector}-@{modifier}:hover {
+        @{property}: @value;
+      }
+    }
+
+    .text-color(@color-list, @i + 1);
+  }
+
+  .text-color(@color-list);
+}
+
+// generate all palette colors
+.color-all(@palette, @i: 1) when (@i <= length(@palette)) {
+  @color-name: extract(@palette, @i);
+
+  // If this is the first iteration
+  & when (@i = 1) {
+    .color-class(@color-name, true);
+  }
+
+  & when (@i > 1) {
+    .color-class(@color-name, false);
+  }
+
+  .color-all(@palette, @i + 1);
+}
+
+.color-all(@color-palette);

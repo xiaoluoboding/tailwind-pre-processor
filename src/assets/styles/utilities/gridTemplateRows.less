@@ -1,0 +1,33 @@
+/**
+ * [Utility First Class (Less Version)]
+ * property: grid-template-row
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+@grid-template-row:
+  none 'none',
+  '1' 'repeat(1, minmax(0, 1fr))',
+  '2' 'repeat(2, minmax(0, 1fr))',
+  '3' 'repeat(3, minmax(0, 1fr))',
+  '4' 'repeat(4, minmax(0, 1fr))',
+  '5' 'repeat(5, minmax(0, 1fr))',
+  '6' 'repeat(6, minmax(0, 1fr))'
+;
+
+.grid-template-row(@array, @i: 1, @property: grid-template-row) when (@i <=length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @prefix: e(@key);
+
+  .grid-rows-@{prefix} {
+    @{property}: e(@value);
+  }
+  
+  .grid-template-row(@array, (@i + 1));
+}
+
+.grid-template-row(@grid-template-row);
+

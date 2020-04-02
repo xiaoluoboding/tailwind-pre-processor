@@ -1,0 +1,40 @@
+/**
+ * [Utility First Class (Less Version)]
+ * property: grid-column-start
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+@grid-column-start:
+  auto 'auto',
+  '1' '1',
+  '2' '2',
+  '3' '3',
+  '4' '4',
+  '5' '5',
+  '6' '6',
+  '7' '7',
+  '8' '8',
+  '9' '9',
+  '10' '10',
+  '11' '11',
+  '12' '12',
+  '13' '13'
+;
+
+.grid-column-start(@array, @i: 1, @property: grid-column-start) when (@i <=length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @prefix: e(@key);
+
+  .col-@{prefix} {
+    @{property}: e(@value);
+  }
+  
+  .grid-column-start(@array, (@i + 1));
+}
+
+.grid-column-start(@grid-column-start);
+

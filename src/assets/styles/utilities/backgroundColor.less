@@ -1,0 +1,59 @@
+/**
+ * [Utility First Class (Less Version)]
+ * property: background-color
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+// generate one particular background-color
+.background-class(@name, @common: false, @property: background-color) {
+  @color-name: ~"@{name}-list";
+  @color-list: @@color-name;
+  @list-length: length(@color-list);
+  @selector: e(@name);
+
+  .bg-color(@color-list, @i: 1) when (@i <= @list-length) {
+    @pair: extract(@color-list, @i);
+    @key: extract(@pair, 1);
+    @value: extract(@pair, 2);
+
+    @modifier: e(@key);
+
+    & when(@common = true) {
+      .bg-@{modifier} {
+        @{property}: @value;
+      }
+    }
+
+    & when (@common = false) {
+      .bg-@{selector}-@{modifier} {
+        @{property}: @value;
+      }
+      .hover\:bg-@{selector}-@{modifier}:hover {
+        @{property}: @value;
+      }
+    }
+
+    .bg-color(@color-list, @i + 1);
+  }
+
+  .bg-color(@color-list);
+}
+
+// generate all palette colors
+.background-all(@palette, @i: 1) when (@i <=length(@palette)) {
+  @color-name: extract(@palette, @i);
+
+  // If this is the first iteration
+  & when (@i = 1) {
+    .background-class(@color-name, true);
+  }
+
+  & when (@i > 1) {
+    .background-class(@color-name, false);
+  }
+
+  .background-all(@palette, @i + 1);
+}
+
+.background-all(@color-palette);

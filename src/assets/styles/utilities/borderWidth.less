@@ -1,19 +1,19 @@
 /**
  * [Utility First Class (Less Version)]
- * module: border-width
+ * property: border-width
  * Author: xiaoluoboding
- * Create At: 2020-04-01
+ * Code for fun!
  */
 
 @borderWidth:
-  default '1px',
-  0 '0',
-  2 '2px',
-  4 '4px',
-  8 '8px'
+  default 1px,
+  0 0,
+  2 2px,
+  4 4px,
+  8 8px
 ;
 
-.default (@key, @value) when (@key = default) {
+.defaultBorderWidth (@key, @value) when (@key =default) {
   .border {
     border-width: @value;
   }
@@ -35,7 +35,7 @@
   }
 }
 
-.notDefault (@key, @value) when not (@key = default) {
+.modifierBorderWidth (@key, @value) when not (@key = default) {
   .border-@{key} {
     border-width: @value;
   }
@@ -62,9 +62,16 @@
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
 
-  .default(@key, @value);
+  // If this is the first iteration - create primary color without a suffix
+  // & when (@i = 1) {
+  //   .@{selector} {
+  //     @{property}: extract(@color-list, 6);
+  //   }
+  // }
 
-  .notDefault(@key, @value);
+  .defaultBorderWidth(@key, @value);
+
+  .modifierBorderWidth(@key, @value);
 
   .generateBorderWidth(@array, (@i + 1));
 }

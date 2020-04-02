@@ -1,0 +1,32 @@
+/**
+ * [Utility First Class (Less Version)]
+ * property: letter-spacing
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+@letter-spacing:
+  tighter '-0.05em',
+  tight '-0.025em',
+  normal '0',
+  wide '0.025em',
+  wider '0.05em',
+  widest '0.1em'
+;
+
+.letter-spacing(@array, @i: 1, @property: letter-spacing) when (@i <=length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @prefix: e(@key);
+
+  .tracking-@{prefix} {
+    @{property}: e(@value);
+  }
+  
+  .letter-spacing(@array, (@i + 1));
+}
+
+.letter-spacing(@letter-spacing);
+

@@ -1,0 +1,32 @@
+/**
+ * [Utility First Class (Less Version)]
+ * property: cursor
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+@cursor:
+  auto 'auto',
+  default 'default',
+  pointer 'pointer',
+  wait 'wait',
+  text 'text',
+  move 'move',
+  'not-allowed' 'not-allowed'
+;
+
+.cursor(@array, @i: 1) when (@i <= length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @property: e(@key);
+
+  .cursor-@{property} {
+    cursor: e(@value);
+  }
+  .cursor(@array, (@i + 1));
+}
+
+.cursor(@cursor);
+

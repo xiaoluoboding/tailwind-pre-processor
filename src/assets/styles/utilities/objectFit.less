@@ -1,0 +1,31 @@
+/**
+ * [Utility First Class (Less Version)]
+ * property: object-fit
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+@object-fit:
+  contain 'contain',
+  cover 'cover',
+  fill 'fill',
+  none 'none',
+  'scale-down''scale-down'
+;
+
+.object-fit(@array, @i: 1, @property: object-fit) when (@i <= length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @modifier: e(@key);
+
+  .object-@{modifier} {
+    @{property}: e(@value);
+  }
+  
+  .object-fit(@array, (@i + 1));
+}
+
+.object-fit(@object-fit);
+

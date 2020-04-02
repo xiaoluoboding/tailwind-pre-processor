@@ -1,0 +1,31 @@
+/**
+ * [Utility First Class (Less Version)]
+ * modifier: gap
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+.gap(@array, @i: 1) when (@i =< length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @modifier: e(@key);
+
+  // gap-*
+  .gap-@{modifier} {
+    gap: @value;
+  }
+  // row-gap-*
+  .row-gap-@{modifier} {
+    row-gap: @value;
+  }
+  // column-gap-*
+  .column-gap-@{modifier} {
+    column-gap: @value;
+  }
+
+  .gap(@array, (@i + 1));
+}
+
+.gap(@space);

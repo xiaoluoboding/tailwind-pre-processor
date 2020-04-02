@@ -1,0 +1,117 @@
+/**
+ * [Utility First Class (Less Version)]
+ * property: border-radius
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+ @borderRadius:
+  default 0.25rem,
+  none 0,
+  sm 0.125rem,
+  md 0.375rem,
+  lg 0.5rem,
+  full 9999px
+;
+
+.defaultBorderRadius (@key, @value) when (@key = default) {
+  .rounded {
+    border-radius: @value;
+  }
+
+  .rounded-t {
+    border-top-left-radius: @value;
+    border-top-right-radius: @value;
+  }
+
+  .rounded-r {
+    border-top-right-radius: @value;
+    border-bottom-right-radius: @value;
+  }
+
+  .rounded-b {
+    border-bottom-right-radius: @value;
+    border-bottom-left-radius: @value;
+  }
+
+  .rounded-l {
+    border-top-left-radius: @value;
+    border-bottom-left-radius: @value;
+  }
+
+  .rounded-tl {
+    border-top-left-radius: @value;
+  }
+
+  .rounded-tr {
+    border-top-right-radius: @value;
+  }
+
+  .rounded-br {
+    border-bottom-right-radius: @value;
+  }
+
+  .rounded-bl {
+    border-bottom-left-radius: @value;
+  }
+}
+
+.modifierBorderRadius (@key, @value) when not (@key = default) {
+  .rounded-@{key} {
+    border-radius: @value;
+  }
+
+  .rounded-t-@{key} {
+    border-top-left-radius: @value;
+    border-top-right-radius: @value;
+  }
+
+  .rounded-r-@{key} {
+    border-top-right-radius: @value;
+    border-bottom-right-radius: @value;
+  }
+
+  .rounded-b-@{key} {
+    border-bottom-right-radius: @value;
+    border-bottom-left-radius: @value;
+  }
+
+  .rounded-l-@{key} {
+    border-top-left-radius: @value;
+    border-bottom-left-radius: @value;
+  }
+}
+
+.cornerBorderRadius (@key, @value) when not (@key = default) {
+  .rounded-tl-@{key} {
+    border-top-left-radius: @value;
+  }
+
+  .rounded-tr-@{key} {
+    border-top-right-radius: @value;
+  }
+
+  .rounded-br-@{key} {
+    border-bottom-right-radius: @value;
+  }
+
+  .rounded-bl-@{key} {
+    border-bottom-left-radius: @value;
+  }
+}
+
+.generateBorderRadius(@array, @i: 1) when (@i <= length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  .defaultBorderRadius(@key, @value);
+
+  .modifierBorderRadius(@key, @value);
+
+  .cornerBorderRadius(@key, @value);
+
+  .generateBorderRadius(@array, (@i + 1));
+}
+
+.generateBorderRadius(@borderRadius);

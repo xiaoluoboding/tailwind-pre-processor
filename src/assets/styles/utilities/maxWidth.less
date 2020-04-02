@@ -1,0 +1,45 @@
+/**
+ * [Utility First Class (Less Version)]
+ * property: max-width
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+@max-width:
+  none 'none',
+  xs '20rem',
+  sm '24rem',
+  md '28rem',
+  lg '32rem',
+  xl '36rem',
+  '2xl' '42rem',
+  '3xl' '48rem',
+  '4xl' '56rem',
+  '5xl' '64rem',
+  '6xl' '72rem',
+  full '100%'
+;
+
+.max-width(@array, @i: 1, @property: max-width) when (@i <= length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @modifier: e(@key);
+
+  & when not (length(@array) = 12) {
+    .max-w-screen-@{modifier} {
+      @{property}: e(@value);
+    }
+  }
+
+  .max-w-@{modifier} {
+    @{property}: e(@value);
+  }
+
+  .max-width(@array, (@i + 1));
+}
+
+.max-width(@screens);
+.max-width(@max-width);
+

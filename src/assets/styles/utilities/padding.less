@@ -1,43 +1,53 @@
 /**
  * [Utility First Class (Less Version)]
- * module: padding
+ * modifier: padding
  * Author: xiaoluoboding
- * Create At: 2020-04-01
+ * Code for fun!
  */
-.generatePadding(@n, @i: 1) when (@i =< @n) {
-  @basePadding: (@i / 4) * 1rem;
 
+.padding(@modifier, @value) {
   // p-*
-  .p-@{i} {
-    padding: @basePadding;
+  .p-@{modifier} {
+    padding: @value;
   }
   // px-*
-  .px-@{i} {
-    padding-left: @basePadding;
-    padding-right: @basePadding;
+  .px-@{modifier} {
+    padding-left: @value;
+    padding-right: @value;
   }
   // py-*
-  .py-@{i} {
-    padding-top: @basePadding;
-    padding-bottom: @basePadding;
+  .py-@{modifier} {
+    padding-top: @value;
+    padding-bottom: @value;
   }
   // pt-*
-  .pt-@{i} {
-    padding-top: @basePadding;
+  .pt-@{modifier} {
+    padding-top: @value;
   }
   // pr-*
-  .pr-@{i} {
-    padding-right: @basePadding;
+  .pr-@{modifier} {
+    padding-right: @value;
   }
   // pb-*
-  .pb-@{i} {
-    padding-bottom: @basePadding;
+  .pb-@{modifier} {
+    padding-bottom: @value;
   }
-  // pl-*
-  .pl-@{i} {
-    padding-left: @basePadding;
+  // mp-*
+  .pl-@{modifier} {
+    padding-left: @value;
   }
-  .generatePadding(@n, (@i + 1));
 }
 
-.generatePadding(64);
+.generatePadding(@array, @i: 1) when (@i =< length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @modifier: e(@key);
+
+  .padding(@modifier, @value);
+
+  .generatePadding(@array, (@i + 1));
+}
+
+.generatePadding(@space);

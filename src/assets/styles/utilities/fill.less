@@ -1,0 +1,26 @@
+/**
+ * [Utility First Class (Less Version)]
+ * property: fill
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+@fill:
+  current currentColor
+;
+
+.fill(@array, @i: 1) when (@i <= length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @property: e(@key);
+
+  .fill-@{property} {
+    fill: e(@value);
+  }
+  .fill(@array, (@i + 1));
+}
+
+.fill(@fill);
+
