@@ -1,6 +1,6 @@
 /**
  * [Utility First Class (Less Version)]
- * property: font-size
+ * Property: font-size
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -18,7 +18,7 @@
   6xl 4rem
 ;
 
-.generateFontSize(@array, @i: 1) when (@i <= length(@array)) {
+.font-size(@array, @i: 1) when (@i <= length(@array)) {
   @pair: extract(@array, @i);
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
@@ -26,8 +26,8 @@
   .text-@{key} {
     font-size: @value;
   }
-  .generateFontSize(@array, (@i + 1));
+  .font-size(@array, (@i + 1));
 }
 
-.generateFontSize(@fontSize);
+.font-size(@fontSize);
 

@@ -1,6 +1,6 @@
 /**
  * [Utility First Class (Less Version)]
- * property: grid-row-end
+ * Property: grid-row-end
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -21,9 +21,9 @@
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
 
-  @prefix: e(@key);
+  @modifier: e(@key);
 
-  .row-end-@{prefix} {
+  .row-end-@{modifier} {
     @{property}: e(@value);
   }
   

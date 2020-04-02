@@ -1,6 +1,6 @@
 /**
  * [Utility First Class (Less Version)]
- * property: line-height
+ * Property: line-height
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -22,15 +22,15 @@
   '10' '2.5rem'
 ;
 
-.line-height(@array, @i: 1, @prefix: leading) when (@i <=length(@array)) {
+.line-height(@array, @i: 1, @property: line-height) when (@i <=length(@array)) {
   @pair: extract(@array, @i);
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
 
-  @property: e(@key);
+  @modifier: e(@key);
 
-  .@{prefix}-@{property} {
-    line-height: e(@value);
+  .leading-@{modifier} {
+    @{property}: e(@value);
   }
   
   .line-height(@array, (@i + 1));

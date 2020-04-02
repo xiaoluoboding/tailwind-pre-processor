@@ -1,6 +1,6 @@
 /**
  * [Utility First Class (Less Version)]
- * property: flex
+ * Property: flex
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -17,9 +17,9 @@
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
 
-  @property: e(@key);
+  @modifier: e(@key);
 
-  .flex-@{property} {
+  .flex-@{modifier} {
     flex: e(@value);
   }
   .flex(@array, (@i + 1));

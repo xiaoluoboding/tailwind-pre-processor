@@ -1,6 +1,6 @@
 /**
  * [Utility First Class (Less Version)]
- * property: font-weight
+ * Property: font-weight
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -17,7 +17,7 @@
   black 900
 ;
 
-.generateFontWeight(@array, @i: 1) when (@i <= length(@array)) {
+.font-weight(@array, @i: 1) when (@i <= length(@array)) {
   @pair: extract(@array, @i);
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
@@ -25,8 +25,8 @@
   .font-@{key} {
     font-weight: @value;
   }
-  .generateFontWeight(@array, (@i + 1));
+  .font-weight(@array, (@i + 1));
 }
 
-.generateFontWeight(@fontWeight);
+.font-weight(@fontWeight);
 

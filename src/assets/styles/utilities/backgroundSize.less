@@ -1,6 +1,6 @@
 /**
  * [Utility First Class (Less Version)]
- * property: background-size
+ * Property: background-size
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -16,9 +16,9 @@
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
 
-  @property: e(@key);
+  @modifier: e(@key);
 
-  .bg-@{key} {
+  .bg-@{modifier} {
     background-size: @value;
   }
   .background-size(@array, (@i + 1));

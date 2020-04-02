@@ -1,6 +1,6 @@
 /**
  * [Utility First Class (Less Version)]
- * property: box-shadow
+ * Property: box-shadow
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -23,10 +23,8 @@
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
 
-  @shadow: e(@value);
-
   .shadow-@{key} {
-    box-shadow: @shadow;
+    box-shadow: e(@value);
   }
   .generateBoxShadow(@array, (@i + 1));
 }

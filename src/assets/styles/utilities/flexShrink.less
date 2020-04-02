@@ -1,6 +1,6 @@
 /**
  * [Utility First Class (Less Version)]
- * property: flex-shrink
+ * Property: flex-shrink
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -15,7 +15,7 @@
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
 
-  @property: e(@key);
+  @modifier: e(@key);
 
   & when (@key = default) {
     .flex-shrink {
@@ -24,7 +24,7 @@
   }
   
   & when not (@key = default) {
-    .flex-shrink-@{property} {
+    .flex-shrink-@{modifier} {
       flex-shrink: e(@value);
     }
   }

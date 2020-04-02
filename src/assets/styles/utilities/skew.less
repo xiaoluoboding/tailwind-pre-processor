@@ -1,0 +1,40 @@
+/**
+ * [Utility First Class (Less Version)]
+ * Property: skew
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+@skew:
+  '-12' '-12deg',
+  '-6' '-6deg',
+  '-3' '-3deg',
+  '0' '0',
+  '3' '3deg',
+  '6' '6deg',
+  '12' '12deg'
+;
+
+.skew(@array, @i: 1, @property: skew) when (@i <= length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @modifier: e(@key);
+
+  & when(@i <= 3) {
+    .-skew@{modifier} {
+      @{property}: e(@value);
+    }
+  }
+
+  & when(@i > 3) {
+    .skew-@{modifier} {
+      @{property}: e(@value);
+    }
+  }
+  
+  .skew(@array, (@i + 1));
+}
+
+.skew(@skew);

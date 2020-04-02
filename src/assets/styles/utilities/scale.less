@@ -1,0 +1,35 @@
+/**
+ * [Utility First Class (Less Version)]
+ * Property: scale
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+@scale:
+  '0' '0',
+  '50' '.5',
+  '75' '.75',
+  '90' '.9',
+  '95' '.95',
+  '100' '1',
+  '105' '1.05',
+  '110' '1.1',
+  '125' '1.25',
+  '150' '1.5'
+;
+
+.scale(@array, @i: 1, @property: scale) when (@i <= length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @modifier: e(@key);
+
+  .scale-@{modifier} {
+    @{property}: e(@value);
+  }
+  
+  .scale(@array, (@i + 1));
+}
+
+.scale(@scale);

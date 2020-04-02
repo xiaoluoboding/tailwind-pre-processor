@@ -1,0 +1,40 @@
+/**
+ * [Utility First Class (Less Version)]
+ * Property: rotate
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+@rotate:
+  '-180' '-180deg',
+  '-90' '-90deg',
+  '-45' '-45deg',
+  '0' '0',
+  '45' '45deg',
+  '90' '90deg',
+  '180' '180deg'
+;
+
+.rotate(@array, @i: 1, @property: rotate) when (@i <= length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @modifier: e(@key);
+
+  & when(@i <= 3) {
+    .-rotate@{modifier} {
+      @{property}: e(@value);
+    }
+  }
+
+  & when(@i > 3) {
+    .rotate-@{modifier} {
+      @{property}: e(@value);
+    }
+  }
+  
+  .rotate(@array, (@i + 1));
+}
+
+.rotate(@rotate);

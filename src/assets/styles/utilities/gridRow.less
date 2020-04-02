@@ -1,6 +1,6 @@
 /**
  * [Utility First Class (Less Version)]
- * property: grid-row
+ * Property: grid-row
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -20,9 +20,9 @@
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
 
-  @prefix: e(@key);
+  @modifier: e(@key);
 
-  .row-@{prefix} {
+  .row-@{modifier} {
     @{property}: e(@value);
   }
   

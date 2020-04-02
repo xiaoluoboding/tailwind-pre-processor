@@ -1,0 +1,40 @@
+/**
+ * [Utility First Class (Less Version)]
+ * Property: transition-property
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+@transition-property:
+  none 'none',
+  all 'all',
+  default 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform',
+  colors 'background-color, border-color, color, fill, stroke',
+  opacity 'opacity',
+  shadow 'box-shadow',
+  transform 'transform'
+;
+
+.transition-property(@array, @i: 1, @property: transition-property) when (@i <= length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @modifier: e(@key);
+
+  & when(@modifier = default) {
+    .transition {
+      @{property}: e(@value);
+    }
+  }
+
+  & when not(@modifier = default) {
+    .transition-@{modifier} {
+      @{property}: e(@value);
+    }
+  }
+  
+  .transition-property(@array, (@i + 1));
+}
+
+.transition-property(@transition-property);

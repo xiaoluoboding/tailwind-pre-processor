@@ -1,6 +1,6 @@
 /**
  * [Utility First Class (Less Version)]
- * property: grid-template-columns
+ * Property: grid-template-columns
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -26,9 +26,9 @@
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
 
-  @prefix: e(@key);
+  @modifier: e(@key);
 
-  .grid-cols-@{prefix} {
+  .grid-cols-@{modifier} {
     @{property}: e(@value);
   }
   

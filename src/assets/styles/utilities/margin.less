@@ -1,73 +1,74 @@
 /**
  * [Utility First Class (Less Version)]
- * property: margin
+ * Property: margin
  * Author: xiaoluoboding
  * Code for fun!
  */
 
-.margin(@property, @value) {
+.margin(@modifier, @value) {
   // m-*
-  .m-@{property} {
+  .m-@{modifier} {
     margin: @value;
   }
   // mx-*
-  .mx-@{property} {
+  .mx-@{modifier} {
     margin-left: @value;
     margin-right: @value;
   }
   // my-*
-  .my-@{property} {
+  .my-@{modifier} {
     margin-top: @value;
     margin-bottom: @value;
   }
   // mt-*
-  .mt-@{property} {
+  .mt-@{modifier} {
     margin-top: @value;
   }
   // mr-*
-  .mr-@{property} {
+  .mr-@{modifier} {
     margin-right: @value;
   }
   // mb-*
-  .mb-@{property} {
+  .mb-@{modifier} {
     margin-bottom: @value;
   }
   // ml-*
-  .ml-@{property} {
+  .ml-@{modifier} {
     margin-left: @value;
   }
 }
 
-.negativeMargin(@property, @value) {
+.negativeMargin(@modifier, @value) {
+  @negativeValue: 0 - @value;
   // -m-*
-  .-m-@{property} {
-    margin: @value;
+  .-m-@{modifier} {
+    margin: @negativeValue;
   }
   // -mx-*
-  .-mx-@{property} {
-    margin-left: @value;
-    margin-right: @value;
+  .-mx-@{modifier} {
+    margin-left: @negativeValue;
+    margin-right: @negativeValue;
   }
   // -my-*
-  .-my-@{property} {
-    margin-top: @value;
-    margin-bottom: @value;
+  .-my-@{modifier} {
+    margin-top: @negativeValue;
+    margin-bottom: @negativeValue;
   }
   // -mt-*
-  .-mt-@{property} {
-    margin-top: @value;
+  .-mt-@{modifier} {
+    margin-top: @negativeValue;
   }
   // -mr-*
-  .-mr-@{property} {
-    margin-right: @value;
+  .-mr-@{modifier} {
+    margin-right: @negativeValue;
   }
   // -mb-*
-  .-mb-@{property} {
-    margin-bottom: @value;
+  .-mb-@{modifier} {
+    margin-bottom: @negativeValue;
   }
   // -ml-*
-  .-ml-@{property} {
-    margin-left: @value;
+  .-ml-@{modifier} {
+    margin-left: @negativeValue;
   }
 }
 
@@ -76,11 +77,11 @@
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
 
-  @property: e(@key);
+  @modifier: e(@key);
 
-  .margin(@property, @value);
+  .margin(@modifier, @value);
 
-  .negativeMargin(@property, @value);
+  .negativeMargin(@modifier, @value);
   
   .generateMargin(@array, (@i + 1));
 }

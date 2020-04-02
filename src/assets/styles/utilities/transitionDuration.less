@@ -1,0 +1,33 @@
+/**
+ * [Utility First Class (Less Version)]
+ * Property: transition-duration
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+@transition-duration:
+  '75' '75ms',
+  '100' '100ms',
+  '150' '150ms',
+  '200' '200ms',
+  '300' '300ms',
+  '500' '500ms',
+  '700' '700ms',
+  '1000' '1000ms'
+;
+
+.transition-duration(@array, @i: 1, @property: transition-duration) when (@i <= length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @modifier: e(@key);
+
+  .duration-@{modifier} {
+    @{property}: e(@value);
+  }
+  
+  .transition-duration(@array, (@i + 1));
+}
+
+.transition-duration(@transition-duration);
