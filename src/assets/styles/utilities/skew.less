@@ -15,7 +15,7 @@
   '12' '12deg'
 ;
 
-.skew(@array, @i: 1, @property: skew) when (@i <= length(@array)) {
+.skew(@array, @i: 1) when (@i <=length(@array)) {
   @pair: extract(@array, @i);
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
@@ -23,14 +23,20 @@
   @modifier: e(@key);
 
   & when(@i <= 3) {
-    .-skew@{modifier} {
-      @{property}: e(@value);
+    .-skew-x@{modifier} {
+      --transform-skew-x: e(@value);
+    }
+    .-skew-y@{modifier} {
+      --transform-skew-y: e(@value);
     }
   }
 
   & when(@i > 3) {
-    .skew-@{modifier} {
-      @{property}: e(@value);
+    .skew-x-@{modifier} {
+      --transform-skew-x: e(@value);
+    }
+    .skew-y-@{modifier} {
+      --transform-skew-x: e(@value);
     }
   }
   

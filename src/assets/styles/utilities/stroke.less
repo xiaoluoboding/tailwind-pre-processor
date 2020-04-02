@@ -1,27 +1,27 @@
 /**
  * [Utility First Class (Less Version)]
- * Property: fill
+ * Property: stroke
  * Author: xiaoluoboding
  * Code for fun!
  */
 
-@fill:
+@stroke:
   current 'currentColor',
   none 'none'
 ;
 
-.fill(@array, @i: 1) when (@i <= length(@array)) {
+.stroke(@array, @i: 1, @property: stroke) when (@i <= length(@array)) {
   @pair: extract(@array, @i);
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
 
   @modifier: e(@key);
 
-  .fill-@{modifier} {
-    fill: e(@value);
+  .stroke-@{modifier} {
+    @{property}: e(@value);
   }
-  .fill(@array, (@i + 1));
+  
+  .stroke(@array, (@i + 1));
 }
 
-.fill(@fill);
-
+.stroke(@stroke);

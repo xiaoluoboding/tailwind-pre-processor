@@ -5,25 +5,25 @@
  */
 /**
  * [Utility First Class (Less Version)]
- * property: Tailwindcss Color Palette
+ * Property: Tailwindcss Color Palette
  * Author: xiaoluoboding
  * Code for fun!
  */
 /**
  * [Utility First Class (Less Version)]
- * property: Screen
+ * Property: Screen
  * Author: xiaoluoboding
  * Code for fun!
  */
 /**
  * [Utility First Class (Less Version)]
- * property: base space
+ * Property: base space
  * Author: xiaoluoboding
  * Code for fun!
  */
 /**
  * [Utility First Class (Less Version)]
- * property: align-content
+ * Property: align-content
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -44,7 +44,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: align-items
+ * Property: align-items
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -65,7 +65,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: align-self
+ * Property: align-self
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -86,7 +86,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: background-color
+ * Property: background-color
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -644,7 +644,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: background-position
+ * Property: background-position
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -677,7 +677,31 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: background-size
+ * Property: background-repeat
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.bg-repeat {
+  background-repeat: repeat;
+}
+.bg-no-repeat {
+  background-repeat: no-repeat;
+}
+.bg-repeat-x {
+  background-repeat: repeat-x;
+}
+.bg-repeat-y {
+  background-repeat: repeat-y;
+}
+.bg-repeat-round {
+  background-repeat: round;
+}
+.bg-repeat-space {
+  background-repeat: space;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: background-size
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -692,7 +716,19 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: border-color
+ * Property: border-collapse
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.border-collapse {
+  border-collapse: collapse;
+}
+.border-separate {
+  border-collapse: separate;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: border-color
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -1253,7 +1289,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: border-radius
+ * Property: border-radius
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -1445,7 +1481,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: border-style
+ * Property: border-style
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -1466,7 +1502,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: border-width
+ * Property: border-width
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -1547,7 +1583,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: box-shadow
+ * Property: box-shadow
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -1583,7 +1619,37 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: color
+ * Property: box-sizing
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.box-border {
+  box-sizing: border-box;
+}
+.box-content {
+  box-sizing: content-box;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: clear
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.clear-left {
+  clear: left;
+}
+.clear-right {
+  clear: right;
+}
+.clear-both {
+  clear: both;
+}
+.clear-none {
+  clear: none;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: color
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2141,7 +2207,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: cursor
+ * Property: cursor
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2168,7 +2234,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: font-size
+ * Property: font-size
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2228,7 +2294,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: fill
+ * Property: fill
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2240,7 +2306,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: flex
+ * Property: flex
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2258,7 +2324,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: flex-grow
+ * Property: flex-grow
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2270,7 +2336,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: flex-shrink
+ * Property: flex-shrink
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2282,7 +2348,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: flex-wrap
+ * Property: flex-wrap
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2297,7 +2363,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: font-size
+ * Property: font-size
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2333,7 +2399,33 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: font-weight
+ * Property: font-smoothing
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.subpixel-antialiased {
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: font-style
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.italic {
+  font-style: italic;
+}
+.not-italic {
+  font-style: normal;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: font-weight
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2366,7 +2458,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * modifier: gap
+ * Property: gap
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2543,7 +2635,25 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: grid-column
+ * Property: grid-auto-flow
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.grid-flow-row {
+  grid-auto-flow: row;
+}
+.grid-flow-col {
+  grid-auto-flow: column;
+}
+.grid-flow-row-dense {
+  grid-auto-flow: row dense;
+}
+.grid-flow-col-dense {
+  grid-auto-flow: column dense;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: grid-column
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2588,7 +2698,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: grid-column-end
+ * Property: grid-column-end
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2636,7 +2746,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: grid-column-start
+ * Property: grid-column-start
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2684,7 +2794,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: grid-row
+ * Property: grid-row
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2711,7 +2821,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: grid-row-start
+ * Property: grid-row-start
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2741,7 +2851,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: grid-row-end
+ * Property: grid-row-end
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2771,7 +2881,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: grid-template-columns
+ * Property: grid-template-columns
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2816,34 +2926,34 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: grid-template-row
+ * Property: grid-template-rows
  * Author: xiaoluoboding
  * Code for fun!
  */
 .grid-rows-none {
-  grid-template-row: none;
+  grid-template-rows: none;
 }
 .grid-rows-1 {
-  grid-template-row: repeat(1, minmax(0, 1fr));
+  grid-template-rows: repeat(1, minmax(0, 1fr));
 }
 .grid-rows-2 {
-  grid-template-row: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
 }
 .grid-rows-3 {
-  grid-template-row: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
 }
 .grid-rows-4 {
-  grid-template-row: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(0, 1fr));
 }
 .grid-rows-5 {
-  grid-template-row: repeat(5, minmax(0, 1fr));
+  grid-template-rows: repeat(5, minmax(0, 1fr));
 }
 .grid-rows-6 {
-  grid-template-row: repeat(6, minmax(0, 1fr));
+  grid-template-rows: repeat(6, minmax(0, 1fr));
 }
 /**
  * [Utility First Class (Less Version)]
- * property: width
+ * Property: width
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2915,7 +3025,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: justify-content
+ * Property: justify-content
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2939,7 +3049,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: letter-spacing
+ * Property: letter-spacing
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -2963,7 +3073,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: line-height
+ * Property: line-height
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -3011,7 +3121,19 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: list-style-type
+ * Property: list-style-position
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.list-inside {
+  list-style-position: inside;
+}
+.list-outside {
+  list-style-position: outside;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: list-style-type
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -3026,7 +3148,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: margin
+ * Property: margin
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -3077,27 +3199,27 @@
   margin-left: 1px;
 }
 .-m-px {
-  margin: 1px;
+  margin: -1px;
 }
 .-mx-px {
-  margin-left: 1px;
-  margin-right: 1px;
+  margin-left: -1px;
+  margin-right: -1px;
 }
 .-my-px {
-  margin-top: 1px;
-  margin-bottom: 1px;
+  margin-top: -1px;
+  margin-bottom: -1px;
 }
 .-mt-px {
-  margin-top: 1px;
+  margin-top: -1px;
 }
 .-mr-px {
-  margin-right: 1px;
+  margin-right: -1px;
 }
 .-mb-px {
-  margin-bottom: 1px;
+  margin-bottom: -1px;
 }
 .-ml-px {
-  margin-left: 1px;
+  margin-left: -1px;
 }
 .m-0 {
   margin: 0;
@@ -3169,27 +3291,27 @@
   margin-left: 0.25rem;
 }
 .-m-1 {
-  margin: 0.25rem;
+  margin: -0.25rem;
 }
 .-mx-1 {
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
+  margin-left: -0.25rem;
+  margin-right: -0.25rem;
 }
 .-my-1 {
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
+  margin-top: -0.25rem;
+  margin-bottom: -0.25rem;
 }
 .-mt-1 {
-  margin-top: 0.25rem;
+  margin-top: -0.25rem;
 }
 .-mr-1 {
-  margin-right: 0.25rem;
+  margin-right: -0.25rem;
 }
 .-mb-1 {
-  margin-bottom: 0.25rem;
+  margin-bottom: -0.25rem;
 }
 .-ml-1 {
-  margin-left: 0.25rem;
+  margin-left: -0.25rem;
 }
 .m-2 {
   margin: 0.5rem;
@@ -3215,27 +3337,27 @@
   margin-left: 0.5rem;
 }
 .-m-2 {
-  margin: 0.5rem;
+  margin: -0.5rem;
 }
 .-mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
 }
 .-my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: -0.5rem;
+  margin-bottom: -0.5rem;
 }
 .-mt-2 {
-  margin-top: 0.5rem;
+  margin-top: -0.5rem;
 }
 .-mr-2 {
-  margin-right: 0.5rem;
+  margin-right: -0.5rem;
 }
 .-mb-2 {
-  margin-bottom: 0.5rem;
+  margin-bottom: -0.5rem;
 }
 .-ml-2 {
-  margin-left: 0.5rem;
+  margin-left: -0.5rem;
 }
 .m-3 {
   margin: 0.75rem;
@@ -3261,27 +3383,27 @@
   margin-left: 0.75rem;
 }
 .-m-3 {
-  margin: 0.75rem;
+  margin: -0.75rem;
 }
 .-mx-3 {
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
 }
 .-my-3 {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
+  margin-top: -0.75rem;
+  margin-bottom: -0.75rem;
 }
 .-mt-3 {
-  margin-top: 0.75rem;
+  margin-top: -0.75rem;
 }
 .-mr-3 {
-  margin-right: 0.75rem;
+  margin-right: -0.75rem;
 }
 .-mb-3 {
-  margin-bottom: 0.75rem;
+  margin-bottom: -0.75rem;
 }
 .-ml-3 {
-  margin-left: 0.75rem;
+  margin-left: -0.75rem;
 }
 .m-4 {
   margin: 1rem;
@@ -3307,27 +3429,27 @@
   margin-left: 1rem;
 }
 .-m-4 {
-  margin: 1rem;
+  margin: -1rem;
 }
 .-mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
 }
 .-my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: -1rem;
+  margin-bottom: -1rem;
 }
 .-mt-4 {
-  margin-top: 1rem;
+  margin-top: -1rem;
 }
 .-mr-4 {
-  margin-right: 1rem;
+  margin-right: -1rem;
 }
 .-mb-4 {
-  margin-bottom: 1rem;
+  margin-bottom: -1rem;
 }
 .-ml-4 {
-  margin-left: 1rem;
+  margin-left: -1rem;
 }
 .m-5 {
   margin: 1.25rem;
@@ -3353,27 +3475,27 @@
   margin-left: 1.25rem;
 }
 .-m-5 {
-  margin: 1.25rem;
+  margin: -1.25rem;
 }
 .-mx-5 {
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
 }
 .-my-5 {
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+  margin-top: -1.25rem;
+  margin-bottom: -1.25rem;
 }
 .-mt-5 {
-  margin-top: 1.25rem;
+  margin-top: -1.25rem;
 }
 .-mr-5 {
-  margin-right: 1.25rem;
+  margin-right: -1.25rem;
 }
 .-mb-5 {
-  margin-bottom: 1.25rem;
+  margin-bottom: -1.25rem;
 }
 .-ml-5 {
-  margin-left: 1.25rem;
+  margin-left: -1.25rem;
 }
 .m-6 {
   margin: 1.5rem;
@@ -3399,27 +3521,27 @@
   margin-left: 1.5rem;
 }
 .-m-6 {
-  margin: 1.5rem;
+  margin: -1.5rem;
 }
 .-mx-6 {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
 }
 .-my-6 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: -1.5rem;
+  margin-bottom: -1.5rem;
 }
 .-mt-6 {
-  margin-top: 1.5rem;
+  margin-top: -1.5rem;
 }
 .-mr-6 {
-  margin-right: 1.5rem;
+  margin-right: -1.5rem;
 }
 .-mb-6 {
-  margin-bottom: 1.5rem;
+  margin-bottom: -1.5rem;
 }
 .-ml-6 {
-  margin-left: 1.5rem;
+  margin-left: -1.5rem;
 }
 .m-8 {
   margin: 2rem;
@@ -3445,27 +3567,27 @@
   margin-left: 2rem;
 }
 .-m-8 {
-  margin: 2rem;
+  margin: -2rem;
 }
 .-mx-8 {
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-left: -2rem;
+  margin-right: -2rem;
 }
 .-my-8 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: -2rem;
+  margin-bottom: -2rem;
 }
 .-mt-8 {
-  margin-top: 2rem;
+  margin-top: -2rem;
 }
 .-mr-8 {
-  margin-right: 2rem;
+  margin-right: -2rem;
 }
 .-mb-8 {
-  margin-bottom: 2rem;
+  margin-bottom: -2rem;
 }
 .-ml-8 {
-  margin-left: 2rem;
+  margin-left: -2rem;
 }
 .m-10 {
   margin: 2.5rem;
@@ -3491,27 +3613,27 @@
   margin-left: 2.5rem;
 }
 .-m-10 {
-  margin: 2.5rem;
+  margin: -2.5rem;
 }
 .-mx-10 {
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
+  margin-left: -2.5rem;
+  margin-right: -2.5rem;
 }
 .-my-10 {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+  margin-top: -2.5rem;
+  margin-bottom: -2.5rem;
 }
 .-mt-10 {
-  margin-top: 2.5rem;
+  margin-top: -2.5rem;
 }
 .-mr-10 {
-  margin-right: 2.5rem;
+  margin-right: -2.5rem;
 }
 .-mb-10 {
-  margin-bottom: 2.5rem;
+  margin-bottom: -2.5rem;
 }
 .-ml-10 {
-  margin-left: 2.5rem;
+  margin-left: -2.5rem;
 }
 .m-12 {
   margin: 3rem;
@@ -3537,27 +3659,27 @@
   margin-left: 3rem;
 }
 .-m-12 {
-  margin: 3rem;
+  margin: -3rem;
 }
 .-mx-12 {
-  margin-left: 3rem;
-  margin-right: 3rem;
+  margin-left: -3rem;
+  margin-right: -3rem;
 }
 .-my-12 {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-top: -3rem;
+  margin-bottom: -3rem;
 }
 .-mt-12 {
-  margin-top: 3rem;
+  margin-top: -3rem;
 }
 .-mr-12 {
-  margin-right: 3rem;
+  margin-right: -3rem;
 }
 .-mb-12 {
-  margin-bottom: 3rem;
+  margin-bottom: -3rem;
 }
 .-ml-12 {
-  margin-left: 3rem;
+  margin-left: -3rem;
 }
 .m-16 {
   margin: 4rem;
@@ -3583,27 +3705,27 @@
   margin-left: 4rem;
 }
 .-m-16 {
-  margin: 4rem;
+  margin: -4rem;
 }
 .-mx-16 {
-  margin-left: 4rem;
-  margin-right: 4rem;
+  margin-left: -4rem;
+  margin-right: -4rem;
 }
 .-my-16 {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  margin-top: -4rem;
+  margin-bottom: -4rem;
 }
 .-mt-16 {
-  margin-top: 4rem;
+  margin-top: -4rem;
 }
 .-mr-16 {
-  margin-right: 4rem;
+  margin-right: -4rem;
 }
 .-mb-16 {
-  margin-bottom: 4rem;
+  margin-bottom: -4rem;
 }
 .-ml-16 {
-  margin-left: 4rem;
+  margin-left: -4rem;
 }
 .m-20 {
   margin: 5rem;
@@ -3629,27 +3751,27 @@
   margin-left: 5rem;
 }
 .-m-20 {
-  margin: 5rem;
+  margin: -5rem;
 }
 .-mx-20 {
-  margin-left: 5rem;
-  margin-right: 5rem;
+  margin-left: -5rem;
+  margin-right: -5rem;
 }
 .-my-20 {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: -5rem;
+  margin-bottom: -5rem;
 }
 .-mt-20 {
-  margin-top: 5rem;
+  margin-top: -5rem;
 }
 .-mr-20 {
-  margin-right: 5rem;
+  margin-right: -5rem;
 }
 .-mb-20 {
-  margin-bottom: 5rem;
+  margin-bottom: -5rem;
 }
 .-ml-20 {
-  margin-left: 5rem;
+  margin-left: -5rem;
 }
 .m-24 {
   margin: 6rem;
@@ -3675,27 +3797,27 @@
   margin-left: 6rem;
 }
 .-m-24 {
-  margin: 6rem;
+  margin: -6rem;
 }
 .-mx-24 {
-  margin-left: 6rem;
-  margin-right: 6rem;
+  margin-left: -6rem;
+  margin-right: -6rem;
 }
 .-my-24 {
-  margin-top: 6rem;
-  margin-bottom: 6rem;
+  margin-top: -6rem;
+  margin-bottom: -6rem;
 }
 .-mt-24 {
-  margin-top: 6rem;
+  margin-top: -6rem;
 }
 .-mr-24 {
-  margin-right: 6rem;
+  margin-right: -6rem;
 }
 .-mb-24 {
-  margin-bottom: 6rem;
+  margin-bottom: -6rem;
 }
 .-ml-24 {
-  margin-left: 6rem;
+  margin-left: -6rem;
 }
 .m-32 {
   margin: 8rem;
@@ -3721,27 +3843,27 @@
   margin-left: 8rem;
 }
 .-m-32 {
-  margin: 8rem;
+  margin: -8rem;
 }
 .-mx-32 {
-  margin-left: 8rem;
-  margin-right: 8rem;
+  margin-left: -8rem;
+  margin-right: -8rem;
 }
 .-my-32 {
-  margin-top: 8rem;
-  margin-bottom: 8rem;
+  margin-top: -8rem;
+  margin-bottom: -8rem;
 }
 .-mt-32 {
-  margin-top: 8rem;
+  margin-top: -8rem;
 }
 .-mr-32 {
-  margin-right: 8rem;
+  margin-right: -8rem;
 }
 .-mb-32 {
-  margin-bottom: 8rem;
+  margin-bottom: -8rem;
 }
 .-ml-32 {
-  margin-left: 8rem;
+  margin-left: -8rem;
 }
 .m-40 {
   margin: 10rem;
@@ -3767,27 +3889,27 @@
   margin-left: 10rem;
 }
 .-m-40 {
-  margin: 10rem;
+  margin: -10rem;
 }
 .-mx-40 {
-  margin-left: 10rem;
-  margin-right: 10rem;
+  margin-left: -10rem;
+  margin-right: -10rem;
 }
 .-my-40 {
-  margin-top: 10rem;
-  margin-bottom: 10rem;
+  margin-top: -10rem;
+  margin-bottom: -10rem;
 }
 .-mt-40 {
-  margin-top: 10rem;
+  margin-top: -10rem;
 }
 .-mr-40 {
-  margin-right: 10rem;
+  margin-right: -10rem;
 }
 .-mb-40 {
-  margin-bottom: 10rem;
+  margin-bottom: -10rem;
 }
 .-ml-40 {
-  margin-left: 10rem;
+  margin-left: -10rem;
 }
 .m-48 {
   margin: 12rem;
@@ -3813,27 +3935,27 @@
   margin-left: 12rem;
 }
 .-m-48 {
-  margin: 12rem;
+  margin: -12rem;
 }
 .-mx-48 {
-  margin-left: 12rem;
-  margin-right: 12rem;
+  margin-left: -12rem;
+  margin-right: -12rem;
 }
 .-my-48 {
-  margin-top: 12rem;
-  margin-bottom: 12rem;
+  margin-top: -12rem;
+  margin-bottom: -12rem;
 }
 .-mt-48 {
-  margin-top: 12rem;
+  margin-top: -12rem;
 }
 .-mr-48 {
-  margin-right: 12rem;
+  margin-right: -12rem;
 }
 .-mb-48 {
-  margin-bottom: 12rem;
+  margin-bottom: -12rem;
 }
 .-ml-48 {
-  margin-left: 12rem;
+  margin-left: -12rem;
 }
 .m-56 {
   margin: 14rem;
@@ -3859,27 +3981,27 @@
   margin-left: 14rem;
 }
 .-m-56 {
-  margin: 14rem;
+  margin: -14rem;
 }
 .-mx-56 {
-  margin-left: 14rem;
-  margin-right: 14rem;
+  margin-left: -14rem;
+  margin-right: -14rem;
 }
 .-my-56 {
-  margin-top: 14rem;
-  margin-bottom: 14rem;
+  margin-top: -14rem;
+  margin-bottom: -14rem;
 }
 .-mt-56 {
-  margin-top: 14rem;
+  margin-top: -14rem;
 }
 .-mr-56 {
-  margin-right: 14rem;
+  margin-right: -14rem;
 }
 .-mb-56 {
-  margin-bottom: 14rem;
+  margin-bottom: -14rem;
 }
 .-ml-56 {
-  margin-left: 14rem;
+  margin-left: -14rem;
 }
 .m-64 {
   margin: 16rem;
@@ -3905,31 +4027,31 @@
   margin-left: 16rem;
 }
 .-m-64 {
-  margin: 16rem;
+  margin: -16rem;
 }
 .-mx-64 {
-  margin-left: 16rem;
-  margin-right: 16rem;
+  margin-left: -16rem;
+  margin-right: -16rem;
 }
 .-my-64 {
-  margin-top: 16rem;
-  margin-bottom: 16rem;
+  margin-top: -16rem;
+  margin-bottom: -16rem;
 }
 .-mt-64 {
-  margin-top: 16rem;
+  margin-top: -16rem;
 }
 .-mr-64 {
-  margin-right: 16rem;
+  margin-right: -16rem;
 }
 .-mb-64 {
-  margin-bottom: 16rem;
+  margin-bottom: -16rem;
 }
 .-ml-64 {
-  margin-left: 16rem;
+  margin-left: -16rem;
 }
 /**
  * [Utility First Class (Less Version)]
- * property: max-height
+ * Property: max-height
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -3941,7 +4063,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: max-width
+ * Property: max-width
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -4007,7 +4129,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: min-height
+ * Property: min-height
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -4022,7 +4144,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: min-width
+ * Property: min-width
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -4034,7 +4156,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: object-fit
+ * Property: object-fit
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -4055,7 +4177,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: object-position
+ * Property: object-position
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -4088,7 +4210,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: opacity
+ * Property: opacity
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -4109,7 +4231,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: order
+ * Property: order
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -4160,7 +4282,7 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: order
+ * Property: order
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -4169,7 +4291,55 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * modifier: padding
+ * Property: overflow
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.overflow-auto {
+  overflow: auto;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.overflow-visible {
+  overflow: visible;
+}
+.overflow-scroll {
+  overflow: scroll;
+}
+.overflow-x-auto {
+  overflow-x: auto;
+}
+.overflow-y-auto {
+  overflow-y: auto;
+}
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+.overflow-x-visible {
+  overflow-x: visible;
+}
+.overflow-y-visible {
+  overflow-y: visible;
+}
+.overflow-x-scroll {
+  overflow-x: scroll;
+}
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
+.scrolling-touch {
+  -webkit-overflow-scrolling: touch;
+}
+.scrolling-auto {
+  -webkit-overflow-scrolling: auto;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: padding
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -4612,7 +4782,19 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: position
+ * Property: pointer-events
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.pointer-events-none {
+  pointer-events: none;
+}
+.pointer-events-auto {
+  pointer-events: auto;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: position
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -4633,7 +4815,658 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: width
+ * Property: resize
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.resize-none {
+  resize: none;
+}
+.resize-y {
+  resize: vertical;
+}
+.resize-x {
+  resize: horizontal;
+}
+.resize {
+  resize: both;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: rotate
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.-rotate-180 {
+  rotate: -180deg;
+}
+.-rotate-90 {
+  rotate: -90deg;
+}
+.-rotate-45 {
+  rotate: -45deg;
+}
+.rotate-0 {
+  rotate: 0;
+}
+.rotate-45 {
+  rotate: 45deg;
+}
+.rotate-90 {
+  rotate: 90deg;
+}
+.rotate-180 {
+  rotate: 180deg;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: scale
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.scale-0 {
+  scale: 0;
+}
+.scale-50 {
+  scale: .5;
+}
+.scale-75 {
+  scale: .75;
+}
+.scale-90 {
+  scale: .9;
+}
+.scale-95 {
+  scale: .95;
+}
+.scale-100 {
+  scale: 1;
+}
+.scale-105 {
+  scale: 1.05;
+}
+.scale-110 {
+  scale: 1.1;
+}
+.scale-125 {
+  scale: 1.25;
+}
+.scale-150 {
+  scale: 1.5;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: skew
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.-skew-x-12 {
+  --transform-skew-x: -12deg;
+}
+.-skew-y-12 {
+  --transform-skew-y: -12deg;
+}
+.-skew-x-6 {
+  --transform-skew-x: -6deg;
+}
+.-skew-y-6 {
+  --transform-skew-y: -6deg;
+}
+.-skew-x-3 {
+  --transform-skew-x: -3deg;
+}
+.-skew-y-3 {
+  --transform-skew-y: -3deg;
+}
+.skew-x-0 {
+  --transform-skew-x: 0;
+}
+.skew-y-0 {
+  --transform-skew-x: 0;
+}
+.skew-x-3 {
+  --transform-skew-x: 3deg;
+}
+.skew-y-3 {
+  --transform-skew-x: 3deg;
+}
+.skew-x-6 {
+  --transform-skew-x: 6deg;
+}
+.skew-y-6 {
+  --transform-skew-x: 6deg;
+}
+.skew-x-12 {
+  --transform-skew-x: 12deg;
+}
+.skew-y-12 {
+  --transform-skew-x: 12deg;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: text-align
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-justify {
+  text-align: justify;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: text-decoration
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.underline {
+  text-decoration: underline;
+}
+.line-through {
+  text-decoration: line-through;
+}
+.no-underline {
+  text-decoration: none;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: text-decoration
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.uppercase {
+  text-transform: uppercase;
+}
+.lowercase {
+  text-transform: lowercase;
+}
+.capitalize {
+  text-transform: capitalize;
+}
+.normal-case {
+  text-transform: none;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: transform-origin
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.origin-center {
+  transform-origin: center;
+}
+.origin-top {
+  transform-origin: top;
+}
+.origin-top-right {
+  transform-origin: top right;
+}
+.origin-right {
+  transform-origin: right;
+}
+.origin-bottom-right {
+  transform-origin: bottom right;
+}
+.origin-bottom {
+  transform-origin: bottom;
+}
+.origin-bottom-left {
+  transform-origin: bottom left;
+}
+.origin-left {
+  transform-origin: left;
+}
+.origin-top-left {
+  transform-origin: top left;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: transition-delay
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.delay-75 {
+  transition-delay: 75ms;
+}
+.delay-100 {
+  transition-delay: 100ms;
+}
+.delay-150 {
+  transition-delay: 150ms;
+}
+.delay-200 {
+  transition-delay: 200ms;
+}
+.delay-300 {
+  transition-delay: 300ms;
+}
+.delay-500 {
+  transition-delay: 500ms;
+}
+.delay-700 {
+  transition-delay: 700ms;
+}
+.delay-1000 {
+  transition-delay: 1000ms;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: transition-duration
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.duration-75 {
+  transition-duration: 75ms;
+}
+.duration-100 {
+  transition-duration: 100ms;
+}
+.duration-150 {
+  transition-duration: 150ms;
+}
+.duration-200 {
+  transition-duration: 200ms;
+}
+.duration-300 {
+  transition-duration: 300ms;
+}
+.duration-500 {
+  transition-duration: 500ms;
+}
+.duration-700 {
+  transition-duration: 700ms;
+}
+.duration-1000 {
+  transition-duration: 1000ms;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: transition-property
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.transition-none {
+  transition-property: none;
+}
+.transition-all {
+  transition-property: all;
+}
+.transition {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+}
+.transition-colors {
+  transition-property: background-color, border-color, color, fill, stroke;
+}
+.transition-opacity {
+  transition-property: opacity;
+}
+.transition-shadow {
+  transition-property: box-shadow;
+}
+.transition-transform {
+  transition-property: transform;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: transition-timing-function
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.ease-linear {
+  transition-timing-function: linear;
+}
+.ease-in {
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+.ease-out {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: translate
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.-transition-x-full {
+  translate: -100%;
+}
+.-transition-y-full {
+  translate: -100%;
+}
+.-transition-x-1\/2 {
+  translate: -50%;
+}
+.-transition-y-1\/2 {
+  translate: -50%;
+}
+.transition-x-1\/2 {
+  translate: 50%;
+}
+.transition-y-1\/2 {
+  translate: 50%;
+}
+.transition-x-full {
+  translate: 100%;
+}
+.transition-y-full {
+  translate: 100%;
+}
+.-transition-x-px {
+  translate: -1px;
+}
+.-transition-y-px {
+  translate: -1px;
+}
+.transition-x-px {
+  translate: 1px;
+}
+.transition-y-px {
+  translate: 1px;
+}
+.-transition-x-0 {
+  translate: 0;
+}
+.-transition-y-0 {
+  translate: 0;
+}
+.transition-x-0 {
+  translate: 0;
+}
+.transition-y-0 {
+  translate: 0;
+}
+.-transition-x-1 {
+  translate: -0.25rem;
+}
+.-transition-y-1 {
+  translate: -0.25rem;
+}
+.transition-x-1 {
+  translate: 0.25rem;
+}
+.transition-y-1 {
+  translate: 0.25rem;
+}
+.-transition-x-2 {
+  translate: -0.5rem;
+}
+.-transition-y-2 {
+  translate: -0.5rem;
+}
+.transition-x-2 {
+  translate: 0.5rem;
+}
+.transition-y-2 {
+  translate: 0.5rem;
+}
+.-transition-x-3 {
+  translate: -0.75rem;
+}
+.-transition-y-3 {
+  translate: -0.75rem;
+}
+.transition-x-3 {
+  translate: 0.75rem;
+}
+.transition-y-3 {
+  translate: 0.75rem;
+}
+.-transition-x-4 {
+  translate: -1rem;
+}
+.-transition-y-4 {
+  translate: -1rem;
+}
+.transition-x-4 {
+  translate: 1rem;
+}
+.transition-y-4 {
+  translate: 1rem;
+}
+.-transition-x-5 {
+  translate: -1.25rem;
+}
+.-transition-y-5 {
+  translate: -1.25rem;
+}
+.transition-x-5 {
+  translate: 1.25rem;
+}
+.transition-y-5 {
+  translate: 1.25rem;
+}
+.-transition-x-6 {
+  translate: -1.5rem;
+}
+.-transition-y-6 {
+  translate: -1.5rem;
+}
+.transition-x-6 {
+  translate: 1.5rem;
+}
+.transition-y-6 {
+  translate: 1.5rem;
+}
+.-transition-x-8 {
+  translate: -2rem;
+}
+.-transition-y-8 {
+  translate: -2rem;
+}
+.transition-x-8 {
+  translate: 2rem;
+}
+.transition-y-8 {
+  translate: 2rem;
+}
+.-transition-x-10 {
+  translate: -2.5rem;
+}
+.-transition-y-10 {
+  translate: -2.5rem;
+}
+.transition-x-10 {
+  translate: 2.5rem;
+}
+.transition-y-10 {
+  translate: 2.5rem;
+}
+.-transition-x-12 {
+  translate: -3rem;
+}
+.-transition-y-12 {
+  translate: -3rem;
+}
+.transition-x-12 {
+  translate: 3rem;
+}
+.transition-y-12 {
+  translate: 3rem;
+}
+.-transition-x-16 {
+  translate: -4rem;
+}
+.-transition-y-16 {
+  translate: -4rem;
+}
+.transition-x-16 {
+  translate: 4rem;
+}
+.transition-y-16 {
+  translate: 4rem;
+}
+.-transition-x-20 {
+  translate: -5rem;
+}
+.-transition-y-20 {
+  translate: -5rem;
+}
+.transition-x-20 {
+  translate: 5rem;
+}
+.transition-y-20 {
+  translate: 5rem;
+}
+.-transition-x-24 {
+  translate: -6rem;
+}
+.-transition-y-24 {
+  translate: -6rem;
+}
+.transition-x-24 {
+  translate: 6rem;
+}
+.transition-y-24 {
+  translate: 6rem;
+}
+.-transition-x-32 {
+  translate: -8rem;
+}
+.-transition-y-32 {
+  translate: -8rem;
+}
+.transition-x-32 {
+  translate: 8rem;
+}
+.transition-y-32 {
+  translate: 8rem;
+}
+.-transition-x-40 {
+  translate: -10rem;
+}
+.-transition-y-40 {
+  translate: -10rem;
+}
+.transition-x-40 {
+  translate: 10rem;
+}
+.transition-y-40 {
+  translate: 10rem;
+}
+.-transition-x-48 {
+  translate: -12rem;
+}
+.-transition-y-48 {
+  translate: -12rem;
+}
+.transition-x-48 {
+  translate: 12rem;
+}
+.transition-y-48 {
+  translate: 12rem;
+}
+.-transition-x-56 {
+  translate: -14rem;
+}
+.-transition-y-56 {
+  translate: -14rem;
+}
+.transition-x-56 {
+  translate: 14rem;
+}
+.transition-y-56 {
+  translate: 14rem;
+}
+.-transition-x-64 {
+  translate: -16rem;
+}
+.-transition-y-64 {
+  translate: -16rem;
+}
+.transition-x-64 {
+  translate: 16rem;
+}
+.transition-y-64 {
+  translate: 16rem;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: user-select
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.select-none {
+  user-select: none;
+}
+.select-text {
+  user-select: text;
+}
+.select-all {
+  user-select: all;
+}
+.select-auto {
+  user-select: auto;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: vertical-align
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.align-baseline {
+  vertical-align: baseline;
+}
+.align-top {
+  vertical-align: top;
+}
+.align-middle {
+  vertical-align: middle;
+}
+.align-bottom {
+  vertical-align: bottom;
+}
+.align-text-top {
+  vertical-align: text-top;
+}
+.align-text-bottom {
+  vertical-align: text-bottom;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: visibility
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.visible {
+  visibility: visible;
+}
+.invisible {
+  visibility: hidden;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: white-space
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.whitespace-normal {
+  white-space: normal;
+}
+.whitespace-no-wrap {
+  white-space: nowrap;
+}
+.whitespace-pre {
+  white-space: pre;
+}
+.whitespace-pre-line {
+  white-space: pre-line;
+}
+.whitespace-pre-wrap {
+  white-space: pre-wrap;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: width
  * Author: xiaoluoboding
  * Code for fun!
  */
@@ -4787,7 +5620,28 @@
 }
 /**
  * [Utility First Class (Less Version)]
- * property: z-index
+ * Property: word-break pattern
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.break-normal {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.break-words {
+  overflow-wrap: break-word;
+}
+.break-all {
+  word-break: break-all;
+}
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/**
+ * [Utility First Class (Less Version)]
+ * Property: z-index
  * Author: xiaoluoboding
  * Code for fun!
  */
