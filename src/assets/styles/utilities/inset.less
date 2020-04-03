@@ -1,0 +1,62 @@
+/**
+ * [Utility First Class (Less Version)]
+ * Property: top/right/bottom/left/inset
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+@inset:
+  '0' '0',
+  auto auto
+;
+
+.inset(@array, @i: 1) when (@i <= length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @modifier: e(@key);
+
+  .inset-@{modifier} {
+    top: e(@value);
+    right: e(@value);
+    bottom: e(@value);
+    left: e(@value);
+  }
+  .inset-x-@{modifier} {
+    right: e(@value);
+    left: e(@value);
+  }
+  .inset-y-@{modifier} {
+    top: e(@value);
+    bottom: e(@value);
+  }
+
+  .inset(@array, (@i + 1));
+}
+
+.unInset(@array, @i: 1) when (@i <= length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @modifier: e(@key);
+
+  .top-@{modifier} {
+    top: e(@value);
+  }
+  .right-@{modifier} {
+    right: e(@value);
+  }
+  .bottom-@{modifier} {
+    bottom: e(@value);
+  }
+  .left-@{modifier} {
+    left: e(@value);
+  }
+
+  .unInset(@array, (@i + 1));
+}
+
+.inset(@inset);
+.unInset(@inset);

@@ -15,7 +15,7 @@
   '180' '180deg'
 ;
 
-.rotate(@array, @i: 1, @property: rotate) when (@i <= length(@array)) {
+.rotate(@array, @i: 1, @property: transform-rotate) when (@i <= length(@array)) {
   @pair: extract(@array, @i);
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
@@ -24,13 +24,13 @@
 
   & when(@i <= 3) {
     .-rotate@{modifier} {
-      @{property}: e(@value);
+      --@{property}: e(@value);
     }
   }
 
   & when(@i > 3) {
     .rotate-@{modifier} {
-      @{property}: e(@value);
+      --@{property}: e(@value);
     }
   }
   

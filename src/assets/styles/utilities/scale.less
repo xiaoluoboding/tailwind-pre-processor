@@ -18,7 +18,7 @@
   '150' '1.5'
 ;
 
-.scale(@array, @i: 1, @property: scale) when (@i <= length(@array)) {
+.scale(@array, @i: 1, @property: --transform-scale) when (@i <=length(@array)) {
   @pair: extract(@array, @i);
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
@@ -26,7 +26,29 @@
   @modifier: e(@key);
 
   .scale-@{modifier} {
-    @{property}: e(@value);
+    @{property}-x: e(@value);
+    @{property}-y: e(@value);
+  }
+
+  .hover\:scale-@{modifier}:hover {
+    @{property}-x: e(@value);
+    @{property}-y: e(@value);
+  }
+  
+  .scale-x-@{modifier} {
+    @{property}-x: e(@value);
+  }
+
+  .hover\:scale-x-@{modifier}:hover {
+    @{property}-x: e(@value);
+  }
+
+  .scale-y-@{modifier} {
+    @{property}-y: e(@value);
+  }
+
+  .hover\:scale-y-@{modifier}:hover {
+    @{property}-y: e(@value);
   }
   
   .scale(@array, (@i + 1));

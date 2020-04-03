@@ -1,0 +1,16 @@
+@import '../utilities/palette.less';
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  line-height: 1.5;
+}
+
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 0 solid extract(extract(@gray-list, 3), 2);
+}

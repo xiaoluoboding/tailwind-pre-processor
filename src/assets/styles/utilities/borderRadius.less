@@ -5,113 +5,130 @@
  * Code for fun!
  */
 
- @borderRadius:
-  default 0.25rem,
+@borderRadius:
   none 0,
   sm 0.125rem,
+  default 0.25rem,
   md 0.375rem,
   lg 0.5rem,
   full 9999px
 ;
 
-.defaultBorderRadius (@key, @value) when (@key = default) {
-  .rounded {
-    border-radius: @value;
-  }
+@borderCorner: all, t, r, b, l, tl, tr, br, bl;
 
-  .rounded-t {
-    border-top-left-radius: @value;
-    border-top-right-radius: @value;
-  }
+.radiusPreset {
+  .rounded(@corner, @val) {
+    & when (@corner =all) {
+      border-radius: @val;
+    }
 
-  .rounded-r {
-    border-top-right-radius: @value;
-    border-bottom-right-radius: @value;
-  }
+    & when (@corner =t) {
+      border-top-left-radius: @val;
+      border-top-right-radius: @val;
+    }
 
-  .rounded-b {
-    border-bottom-right-radius: @value;
-    border-bottom-left-radius: @value;
-  }
+    & when (@corner =r) {
+      border-top-right-radius: @val;
+      border-bottom-right-radius: @val;
+    }
 
-  .rounded-l {
-    border-top-left-radius: @value;
-    border-bottom-left-radius: @value;
-  }
+    & when (@corner =b) {
+      border-bottom-right-radius: @val;
+      border-bottom-left-radius: @val;
+    }
 
-  .rounded-tl {
-    border-top-left-radius: @value;
-  }
+    & when (@corner =l) {
+      border-top-left-radius: @val;
+      border-bottom-left-radius: @val;
+    }
 
-  .rounded-tr {
-    border-top-right-radius: @value;
-  }
+    & when (@corner =tl) {
+      border-top-left-radius: @val;
+    }
 
-  .rounded-br {
-    border-bottom-right-radius: @value;
-  }
+    & when (@corner =tr) {
+      border-top-right-radius: @val;
+    }
 
-  .rounded-bl {
-    border-bottom-left-radius: @value;
-  }
-}
+    & when (@corner =br) {
+      border-bottom-right-radius: @val;
+    }
 
-.modifierBorderRadius (@key, @value) when not (@key = default) {
-  .rounded-@{key} {
-    border-radius: @value;
-  }
-
-  .rounded-t-@{key} {
-    border-top-left-radius: @value;
-    border-top-right-radius: @value;
-  }
-
-  .rounded-r-@{key} {
-    border-top-right-radius: @value;
-    border-bottom-right-radius: @value;
-  }
-
-  .rounded-b-@{key} {
-    border-bottom-right-radius: @value;
-    border-bottom-left-radius: @value;
-  }
-
-  .rounded-l-@{key} {
-    border-top-left-radius: @value;
-    border-bottom-left-radius: @value;
+    & when (@corner =bl) {
+      border-bottom-left-radius: @val;
+    }
   }
 }
 
-.cornerBorderRadius (@key, @value) when not (@key = default) {
-  .rounded-tl-@{key} {
-    border-top-left-radius: @value;
+// generate default border-radius
+.defaultBorderRadius (@m, @value) {
+  // loop definition
+  .g-radius(@list, @i: 1) when (@i <= length(@list)) {
+    // extract the right direction from the list
+    @corner: extract(@list, @i);
+
+    // apply the property to the selector
+    & when (@m = default) and (@i = 1) {
+      .rounded {
+        .radiusPreset.rounded(@corner, @value);
+      }
+    }
+    & when not (@m = default) and (@i = 1) {
+      .rounded-@{m} {
+        .radiusPreset.rounded(@corner, @value);
+      }
+    }
+    & when (@m = default) and (@i > 1) {
+      .rounded-@{corner} {
+        .radiusPreset.rounded(@corner, @value);
+      }
+    }
+    & when not (@m = default) and (@i > 1) {
+      .rounded-@{corner}-@{m} {
+        .radiusPreset.rounded(@corner, @value);
+      }
+    }
+
+    // recursive call for the next color
+    .g-radius(@list, @i + 1);
   }
 
-  .rounded-tr-@{key} {
-    border-top-right-radius: @value;
-  }
-
-  .rounded-br-@{key} {
-    border-bottom-right-radius: @value;
-  }
-
-  .rounded-bl-@{key} {
-    border-bottom-left-radius: @value;
-  }
+  // application
+  .g-radius(@borderCorner);
 }
 
-.generateBorderRadius(@array, @i: 1) when (@i <= length(@array)) {
+.border-responsive (@array, @radius, @i: 1) when (@i <= length(@array)) {
+  @screenKey: extract(extract(@array, @i), 1);
+
+  @modifier: extract(@radius, 1);
+  @value: extract(@radius, 2);
+
+  @prefix: e(@screenKey);
+
+  & when (@modifier = default) {
+    .@{prefix}\:rounded {
+      border-radius: @value;
+    }
+  }
+  & when not (@modifier = default) {
+    .@{prefix}\:rounded-@{modifier} {
+      border-radius: @value;
+    }
+  }
+
+  .border-responsive(@array, @radius, @i + 1);
+}
+
+.border-radius (@array, @i: 1) when (@i <= length(@array)) {
   @pair: extract(@array, @i);
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
 
   .defaultBorderRadius(@key, @value);
 
-  .modifierBorderRadius(@key, @value);
+  .border-responsive(@screens, @pair);
 
-  .cornerBorderRadius(@key, @value);
-
-  .generateBorderRadius(@array, (@i + 1));
+  .border-radius(@array, (@i + 1));
 }
 
-.generateBorderRadius(@borderRadius);
+.border-radius(@borderRadius);

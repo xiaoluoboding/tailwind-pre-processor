@@ -1,6 +1,11 @@
 <template>
-  <section class="card">
-    <div class="border border-solid max-w-sm rounded overflow-hidden shadow-lg">
+  <section class="card flex justify-center mx-auto">
+    <div
+      class="
+        bg-white border border-solid max-w-sm rounded overflow-hidden shadow-lg
+        transform duration-300
+        hover:shadow-2xl hover:scale-105"
+    >
       <img class="w-full object-scale-down h-64 m-auto" :src="require('@/assets/logo.png')" alt="Sunset in the mountains">
       <div class="px-6 py-4 hover:bg-gray-300 hover:text-purple-700">
         <div class="font-bold text-xl mb-2">The Coldest Sunset</div>

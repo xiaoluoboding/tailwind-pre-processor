@@ -20,16 +20,16 @@
     @modifier: e(@key);
 
     & when(@common = true) {
-      .bd-@{modifier} {
+      .border-@{modifier} {
         @{property}: @value;
       }
     }
 
     & when (@common = false) {
-      .bd-@{selector}-@{modifier} {
+      .border-@{selector}-@{modifier} {
         @{property}: @value;
       }
-      .hover\:bd-@{selector}-@{modifier}:hover {
+      .hover\:border-@{selector}-@{modifier}:hover {
         @{property}: @value;
       }
     }
@@ -56,9 +56,9 @@
   .border-all(@palette, @i + 1);
 }
 
-.border-all(@color-palette);
-
 // default border, palette gray-300
 .border {
   border: 0 solid extract(extract(@gray-list, 3), 2);
 }
+
+.border-all(@color-palette);

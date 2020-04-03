@@ -1,7 +1,7 @@
 .DS_Store
 node_modules
 /dist
-
+src/assets/styles/utilities/*.css
 # local env files
 .env.local
 .env.*.local

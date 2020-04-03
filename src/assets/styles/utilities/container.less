@@ -1,7 +1,26 @@
 /**
  * [Utility First Class (Less Version)]
- * Property: container
+ * Component: container
  * Author: xiaoluoboding
  * Code for fun!
  */
 
+.container-component(@array, @i: 1) when (@i <= length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @media (min-width: e(@value)) {
+    .container {
+      max-width: e(@value);
+    }
+  }
+
+  .container-component(@array, (@i + 1));
+}
+
+.container {
+  width: 100%;
+}
+
+.container-component(@screens);

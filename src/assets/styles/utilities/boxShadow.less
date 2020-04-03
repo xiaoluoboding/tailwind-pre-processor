@@ -18,16 +18,25 @@
   none 'none'
 ;
 
-.generateBoxShadow(@array, @i: 1) when (@i <= length(@array)) {
+.box-shadow(@array, @i: 1, @property: box-shadow) when (@i <= length(@array)) {
   @pair: extract(@array, @i);
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
 
   .shadow-@{key} {
-    box-shadow: e(@value);
+    @{property}: e(@value);
   }
-  .generateBoxShadow(@array, (@i + 1));
+
+  .hover\:shadow-@{key}:hover {
+    @{property}: e(@value);
+  }
+
+  .focus\:shadow-@{key}:focus {
+    @{property}: e(@value);
+  }
+
+  .box-shadow(@array, (@i + 1));
 }
 
-.generateBoxShadow(@boxShadow);
+.box-shadow(@boxShadow);
 

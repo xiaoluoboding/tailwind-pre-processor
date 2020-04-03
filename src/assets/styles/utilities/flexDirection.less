@@ -1,0 +1,29 @@
+/**
+ * [Utility First Class (Less Version)]
+ * Property: flex-direction
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+@flex-direction:
+  row 'row',
+  'row-reverse' 'row-reverse',
+  col 'column',
+  'col-reverse' 'column-reverse'
+;
+
+.flex-direction(@array, @i: 1) when (@i <= length(@array)) {
+  @pair: extract(@array, @i);
+  @key: extract(@pair, 1);
+  @value: extract(@pair, 2);
+
+  @modifier: e(@key);
+
+  .flex-@{modifier} {
+    flex-direction: e(@value);
+  }
+
+  .flex-direction(@array, (@i + 1));
+}
+
+.flex-direction(@flex-direction);
