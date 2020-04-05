@@ -5,75 +5,15 @@
  * Code for fun!
  */
 
-@borderWidth:
-  default 1px,
-  0 0,
-  2 2px,
-  4 4px,
-  8 8px
-;
+.border-width-all(@list, @i: 1) when (@i <= length(@list)) {
 
-.defaultBorderWidth (@key, @value) when (@key =default) {
-  .border {
-    border-width: @value;
-  }
+  .class-generator(
+    @theme[@borderWidth],
+    extract(@list, @i),
+    @variants[@borderWidth]
+  );
 
-  .border-t {
-    border-top-width: @value;
-  }
-
-  .border-r {
-    border-right-width: @value;
-  }
-
-  .border-b {
-    border-bottom-width: @value;
-  }
-
-  .border-l {
-    border-left-width: @value;
-  }
+  .border-width-all(@list, @i + 1);
 }
 
-.modifierBorderWidth (@key, @value) when not (@key = default) {
-  .border-@{key} {
-    border-width: @value;
-  }
-
-  .border-t-@{key} {
-    border-top-width: @value;
-  }
-
-  .border-r-@{key} {
-    border-right-width: @value;
-  }
-
-  .border-b-@{key} {
-    border-bottom-width: @value;
-  }
-
-  .border-l-@{key} {
-    border-left-width: @value;
-  }
-}
-
-.border-width(@array, @i: 1) when (@i <= length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
-
-  // If this is the first iteration - create primary color without a suffix
-  // & when (@i = 1) {
-  //   .@{selector} {
-  //     @{property}: extract(@color-list, 6);
-  //   }
-  // }
-
-  .defaultBorderWidth(@key, @value);
-
-  .modifierBorderWidth(@key, @value);
-
-  .border-width(@array, (@i + 1));
-}
-
-.border-width(@borderWidth);
+.border-width-all(@preset[@borderWidth]);

@@ -5,27 +5,15 @@
  * Code for fun!
  */
 
-.gap(@array, @i: 1) when (@i =< length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
+ .gap-all(@list, @i: 1) when (@i <= length(@list)) {
 
-  @modifier: e(@key);
+  .class-generator(
+    @theme[@spacing],
+    extract(@list, @i),
+    @variants[@gap]
+  );
 
-  // gap-*
-  .gap-@{modifier} {
-    gap: @value;
-  }
-  // row-gap-*
-  .row-gap-@{modifier} {
-    row-gap: @value;
-  }
-  // column-gap-*
-  .column-gap-@{modifier} {
-    column-gap: @value;
-  }
-
-  .gap(@array, (@i + 1));
+  .gap-all(@list, @i + 1);
 }
 
-.gap(@space);
+.gap-all(@preset[@gap]);

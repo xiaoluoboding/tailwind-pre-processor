@@ -5,25 +5,8 @@
  * Code for fun!
  */
 
-@min-height:
-  '0' '0',
-  full '100%',
-  screen '100vh'
-;
-
-.min-height(@array, @i: 1, @property: min-height) when (@i <= length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
-
-  @modifier: e(@key);
-
-  .min-h-@{modifier} {
-    @{property}: e(@value);
-  }
-  
-  .min-height(@array, (@i + 1));
-}
-
-.min-height(@min-height);
-
+.class-generator(
+  @theme[@minHeight],
+  @preset[@minHeight],
+  @variants[@minHeight]
+);

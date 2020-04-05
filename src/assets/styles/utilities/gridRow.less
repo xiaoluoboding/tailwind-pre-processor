@@ -5,29 +5,8 @@
  * Code for fun!
  */
 
-@grid-row:
-  auto 'auto',
-  'span-1' 'span 1 / span 1',
-  'span-2' 'span 2 / span 2',
-  'span-3' 'span 3 / span 3',
-  'span-4' 'span 4 / span 4',
-  'span-5' 'span 5 / span 5',
-  'span-6' 'span 6 / span 6'
-;
-
-.grid-row(@array, @i: 1, @property: grid-row) when (@i <=length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
-
-  @modifier: e(@key);
-
-  .row-@{modifier} {
-    @{property}: e(@value);
-  }
-  
-  .grid-row(@array, (@i + 1));
-}
-
-.grid-row(@grid-row);
-
+.class-generator(
+  @theme[@gridRow],
+  @preset[@gridRow],
+  @variants[@gridRow]
+);

@@ -5,22 +5,20 @@
  * Code for fun!
  */
 
-.container-component(@array, @i: 1) when (@i <= length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
-
-  @media (min-width: e(@value)) {
-    .container {
-      max-width: e(@value);
-    }
-  }
-
-  .container-component(@array, (@i + 1));
-}
-
 .container {
   width: 100%;
-}
 
-.container-component(@screens);
+  .container-media(@array, @i: 1) when (@i <= length(@array)) {
+    @pair: extract(@array, @i);
+    @prefix: e(extract(@pair, 1));
+    @value: e(extract(@pair, 2));
+
+    @media (min-width: @value) {
+      max-width: @value;
+    }
+
+    .container-media(@array, (@i + 1));
+  }
+
+  .container-media(@theme[@screens]);
+}

@@ -4,22 +4,9 @@
  * Author: xiaoluoboding
  * Code for fun!
  */
-.static {
-  position: static;
-}
 
-.fixed {
-  position: fixed;
-}
-
-.absolute {
-  position: absolute;
-}
-
-.relative {
-  position: relative;
-}
-
-.sticky {
-  position: sticky;
-}
+ .class-generator(
+  @theme[@position],
+  @preset[@position],
+  @variants[@position]
+);

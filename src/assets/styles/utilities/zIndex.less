@@ -5,29 +5,8 @@
  * Code for fun!
  */
 
-@z-index:
-  auto 'auto',
-  '0' '0',
-  '10' '10',
-  '20' '20',
-  '30' '30',
-  '40' '40',
-  '50' '50'
-;
-
-.z-index(@array, @i: 1, @property: z-index) when (@i <= length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
-
-  @modifier: e(@key);
-
-  .z-@{modifier} {
-    @{property}: e(@value);
-  }
-  
-  .z-index(@array, (@i + 1));
-}
-
-.z-index(@z-index);
-
+.class-generator(
+  @theme[@zIndex],
+  @preset[@zIndex],
+  @variants[@zIndex]
+);

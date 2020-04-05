@@ -5,17 +5,11 @@
  * Code for fun!
  */
 
-.float-right {
-  float: right;
-}
-
-.float-left {
-  float: left;
-}
-
-.float-none {
-  float: none;
-}
+.class-generator(
+  @theme[@float],
+  @preset[@float],
+  @variants[@float]
+);
 
 .clearfix:after {
   content: "";

@@ -5,31 +5,8 @@
  * Code for fun!
  */
 
-@flex-grow:
-  '0' '0',
-  default '1'
-;
-
-.flex-grow(@array, @i: 1) when (@i <= length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
-
-  @modifier: e(@key);
-
-  & when (@key = default) {
-    .flex-grow {
-      flex-grow: e(@value);
-    }
-  }
-  
-  & when not (@key = default) {
-    .flex-grow-@{modifier} {
-      flex-grow: e(@value);
-    }
-  }
-
-  .flex-grow(@array, (@i + 1));
-}
-
-.flex-grow(@flex-grow);
+.class-generator(
+  @theme[@flexGrow],
+  @preset[@flexGrow],
+  @variants[@flexGrow]
+);

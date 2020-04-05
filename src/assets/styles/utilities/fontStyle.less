@@ -5,10 +5,8 @@
  * Code for fun!
  */
 
-.italic {
-  font-style: italic;
-}
-
-.not-italic {
-  font-style: normal;
-}
+.class-generator(
+  @theme[@fontStyle],
+  @preset[@fontStyle],
+  @variants[@fontStyle]
+);

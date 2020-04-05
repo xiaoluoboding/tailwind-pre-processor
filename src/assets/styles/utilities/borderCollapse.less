@@ -5,10 +5,8 @@
  * Code for fun!
  */
 
-.border-collapse {
-  border-collapse: collapse;
-}
-
-.border-separate {
-  border-collapse: separate;
-}
+.class-generator(
+  @theme[@borderCollapse],
+  @preset[@borderCollapse],
+  @variants[@borderCollapse]
+);

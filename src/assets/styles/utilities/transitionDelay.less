@@ -5,29 +5,8 @@
  * Code for fun!
  */
 
-@transition-delay:
-  '75' '75ms',
-  '100' '100ms',
-  '150' '150ms',
-  '200' '200ms',
-  '300' '300ms',
-  '500' '500ms',
-  '700' '700ms',
-  '1000' '1000ms'
-;
-
-.transition-delay(@array, @i: 1, @property: transition-delay) when (@i <= length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
-
-  @modifier: e(@key);
-
-  .delay-@{modifier} {
-    @{property}: e(@value);
-  }
-  
-  .transition-delay(@array, (@i + 1));
-}
-
-.transition-delay(@transition-delay);
+.class-generator(
+  @theme[@transitionDelay],
+  @preset[@transitionDelay],
+  @variants[@transitionDelay]
+);

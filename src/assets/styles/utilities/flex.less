@@ -5,25 +5,8 @@
  * Code for fun!
  */
 
-@flex:
-  '1' '1 1 0%',
-  auto '1 1 auto',
-  initial '0 1 auto',
-  none 'none'
-;
-
-.flex(@array, @i: 1) when (@i <= length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
-
-  @modifier: e(@key);
-
-  .flex-@{modifier} {
-    flex: e(@value);
-  }
-  .flex(@array, (@i + 1));
-}
-
-.flex(@flex);
-
+.class-generator(
+  @theme[@flex],
+  @preset[@flex],
+  @variants[@flex]
+);

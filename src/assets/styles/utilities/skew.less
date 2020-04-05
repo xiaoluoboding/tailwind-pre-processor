@@ -5,42 +5,15 @@
  * Code for fun!
  */
 
-@skew:
-  '-12' '-12deg',
-  '-6' '-6deg',
-  '-3' '-3deg',
-  '0' '0',
-  '3' '3deg',
-  '6' '6deg',
-  '12' '12deg'
-;
+.skew-all(@list, @i: 1) when (@i <= length(@list)) {
 
-.skew(@array, @i: 1, @property: --transform-skew) when (@i <=length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
+  .class-generator(
+    @theme[@skew],
+    extract(@list, @i),
+    @variants[@skew]
+  );
 
-  @modifier: e(@key);
-
-  & when(@i <= 3) {
-    .-skew-x@{modifier} {
-      @{property}-x: e(@value);
-    }
-    .-skew-y@{modifier} {
-      @{property}-y: e(@value);
-    }
-  }
-
-  & when(@i > 3) {
-    .skew-x-@{modifier} {
-      @{property}-x: e(@value);
-    }
-    .skew-y-@{modifier} {
-      @{property}-x: e(@value);
-    }
-  }
-  
-  .skew(@array, (@i + 1));
+  .skew-all(@list, @i + 1);
 }
 
-.skew(@skew);
+.skew-all(@preset[@skew]);

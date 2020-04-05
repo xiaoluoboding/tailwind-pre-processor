@@ -1,0 +1,88 @@
+/**
+ * [Utility First Class (Less Version)]
+ * Utils: class-generator
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+
+/**
+ * [@params]: Property Presets (key-value pairs)
+ * [@params]: Class prefix
+ * [@params]: Property Name
+ */
+
+// loop presets
+.class-generator (@themePairs, @presetPairs, @variantsList, @i: 1) when (@i =< length(@themePairs)) {
+  // extract theme pair
+  @key: extract(extract(@themePairs, @i), 1);
+  // input: '1/2' | output: 1\/2
+  @modifier: if(isnumber(@key), e(@key), e(replace(~"@{key}", '\/', '\/')));
+  @value: e(extract(extract(@themePairs, @i), 2));
+
+  // extract perset pair
+  @prefix: e(extract(@presetPairs, 1));
+  @property: e(extract(@presetPairs, 2));
+
+  // eg. @prefix = none ? flex : gap-4
+  // eg. @modifier = default ? shadow : shadow-sm
+  // eg. isnumber(@key) and (@key < 0) ? -rotate-180 : rotate-180
+  @selector: if((@prefix = none),
+    @modifier,
+    if((@key = default),
+      @prefix,
+      if(isnumber(@key) and (@key < 0),
+        ~"-@{prefix}@{modifier}",
+        ~"@{prefix}-@{modifier}"
+      )
+    )
+  );
+
+  .@{selector} {
+    @{property}: @value;
+  }
+
+  // loop variants
+  .loop-variants (@list, @j: 1) when (@j =< length(@list)) {
+    @variant: extract(@list, @j);
+    
+    & when (@variant = 'responsive') {
+      // loop responsive presets
+      @responsiveParams: @selector @property @value;
+      .responsive-generator(@theme[@screens], @responsiveParams);
+    }
+
+    & when (@variant = 'hover') {
+      .hover\:@{selector}:hover {
+        @{property}: @value;
+      }
+    }
+
+    & when (@variant = 'focus') {
+      .focus\:@{selector}:focus {
+        @{property}: @value;
+      }
+    }
+
+    .loop-variants(@list, @j + 1);
+  }
+
+  .loop-variants(@variantsList);
+
+  .class-generator(@themePairs, @presetPairs, @variantsList, (@i + 1));
+}
+
+.responsive-generator (@screens, @params, @i: 1) when (@i =< length(@screens)) {
+  // extract screen pair
+  @screenSize: e(extract(extract(@screens, @i), 1));
+
+  // extract params
+  @selector: extract(@params, 1);
+  @property: extract(@params, 2);
+  @value: extract(@params, 3);
+
+  .@{screenSize}\:@{selector} {
+    @{property}: @value;
+  }
+
+  .responsive-generator(@screens, @params, @i + 1);
+}

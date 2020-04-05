@@ -5,36 +5,8 @@
  * Code for fun!
  */
 
-@line-height:
-  none '1',
-  tight '1.25',
-  snug '1.375',
-  normal '1.5',
-  relaxed '1.625',
-  loose '2',
-  '3' '.75rem',
-  '4' '1rem',
-  '5' '1.25rem',
-  '6' '1.5rem',
-  '7' '1.75rem',
-  '8' '2rem',
-  '9' '2.25rem',
-  '10' '2.5rem'
-;
-
-.line-height(@array, @i: 1, @property: line-height) when (@i <=length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
-
-  @modifier: e(@key);
-
-  .leading-@{modifier} {
-    @{property}: e(@value);
-  }
-  
-  .line-height(@array, (@i + 1));
-}
-
-.line-height(@line-height);
-
+.class-generator(
+  @theme[@lineHeight],
+  @preset[@lineHeight],
+  @variants[@lineHeight]
+);

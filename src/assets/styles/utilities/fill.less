@@ -5,23 +5,8 @@
  * Code for fun!
  */
 
-@fill:
-  current 'currentColor',
-  none 'none'
-;
-
-.fill(@array, @i: 1) when (@i <= length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
-
-  @modifier: e(@key);
-
-  .fill-@{modifier} {
-    fill: e(@value);
-  }
-  .fill(@array, (@i + 1));
-}
-
-.fill(@fill);
-
+.class-generator(
+  @theme[@fill],
+  @preset[@fill],
+  @variants[@fill]
+);

@@ -1,29 +1,20 @@
 /**
  * [Utility First Class (Less Version)]
- * Property: width
+ * Property: height
  * Author: xiaoluoboding
  * Code for fun!
  */
 
-@height:
-  auto auto,
-  full 100%,
-  screen 100vw
-;
+// default height
+.class-generator(
+  @theme[@height],
+  @preset[@height],
+  @variants[@height]
+);
 
-.generateHeight(@array, @i: 1) when (@i <=length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
-
-  @modifier: e(@key);
-
-  .h-@{modifier} {
-    height: @value;
-  }
-
-  .generateHeight(@array, (@i + 1));
-}
-
-.generateHeight(@space);
-.generateHeight(@height);
+// spacing height
+.class-generator(
+  @theme[@spacing],
+  @preset[@height],
+  @variants[@height]
+);

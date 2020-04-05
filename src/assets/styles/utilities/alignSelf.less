@@ -5,22 +5,8 @@
  * Code for fun!
  */
 
-.self-auto {
-  align-self: auto;
-}
-
-.self-start {
-  align-self: flex-start;
-}
-
-.self-end {
-  align-self: flex-end;
-}
-
-.self-center {
-  align-self: center;
-}
-
-.self-stretch {
-  align-self: stretch;
-}
+.class-generator(
+  @theme[@alignSelf],
+  @preset[@alignSelf],
+  @variants[@alignSelf]
+);

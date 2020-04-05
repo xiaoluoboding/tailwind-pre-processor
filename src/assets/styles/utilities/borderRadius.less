@@ -18,53 +18,53 @@
 
 .radiusPreset {
   .rounded(@corner, @val) {
-    & when (@corner =all) {
+    & when (@corner = all) {
       border-radius: @val;
     }
 
-    & when (@corner =t) {
+    & when (@corner = t) {
       border-top-left-radius: @val;
       border-top-right-radius: @val;
     }
 
-    & when (@corner =r) {
+    & when (@corner = r) {
       border-top-right-radius: @val;
       border-bottom-right-radius: @val;
     }
 
-    & when (@corner =b) {
+    & when (@corner = b) {
       border-bottom-right-radius: @val;
       border-bottom-left-radius: @val;
     }
 
-    & when (@corner =l) {
+    & when (@corner = l) {
       border-top-left-radius: @val;
       border-bottom-left-radius: @val;
     }
 
-    & when (@corner =tl) {
+    & when (@corner = tl) {
       border-top-left-radius: @val;
     }
 
-    & when (@corner =tr) {
+    & when (@corner = tr) {
       border-top-right-radius: @val;
     }
 
-    & when (@corner =br) {
+    & when (@corner = br) {
       border-bottom-right-radius: @val;
     }
 
-    & when (@corner =bl) {
+    & when (@corner = bl) {
       border-bottom-left-radius: @val;
     }
   }
 }
 
 // generate default border-radius
-.defaultBorderRadius (@m, @value) {
+.border-default (@m, @value) {
   // loop definition
   .g-radius(@list, @i: 1) when (@i <= length(@list)) {
-    // extract the right direction from the list
+    // extract the right corner from the list
     @corner: extract(@list, @i);
 
     // apply the property to the selector
@@ -89,7 +89,7 @@
       }
     }
 
-    // recursive call for the next color
+    // recursive call for the next corner
     .g-radius(@list, @i + 1);
   }
 
@@ -97,26 +97,55 @@
   .g-radius(@borderCorner);
 }
 
-.border-responsive (@array, @radius, @i: 1) when (@i <= length(@array)) {
-  @screenKey: extract(extract(@array, @i), 1);
+.border-responsive (@screenSize, @m, @value) {
+
+  // loop definition
+  .g-radius(@list, @i: 1) when (@i <=length(@list)) {
+    // extract the right corner from the list
+    @corner: extract(@list, @i);
+
+    // apply the property to the selector
+    & when (@m = default) and (@i =1) {
+      .@{screenSize}\:rounded {
+        .radiusPreset.rounded(@corner, @value);
+      }
+    }
+
+    & when not (@m = default) and (@i =1) {
+      .@{screenSize}\:rounded-@{m} {
+        .radiusPreset.rounded(@corner, @value);
+      }
+    }
+
+    & when (@m = default) and (@i > 1) {
+      .@{screenSize}\:rounded-@{corner} {
+        .radiusPreset.rounded(@corner, @value);
+      }
+    }
+
+    & when not (@m = default) and (@i > 1) {
+      .@{screenSize}\:rounded-@{corner}-@{m} {
+        .radiusPreset.rounded(@corner, @value);
+      }
+    }
+
+    // recursive call for the next corner
+    .g-radius(@list, @i + 1);
+  }
+
+  // application
+  .g-radius(@borderCorner);
+}
+
+.border-screens (@array, @radius, @i: 1) when (@i <= length(@array)) {
+  @screenSize: e(extract(extract(@array, @i), 1));
 
   @modifier: extract(@radius, 1);
   @value: extract(@radius, 2);
 
-  @prefix: e(@screenKey);
+  .border-responsive(@screenSize, @modifier, @value);
 
-  & when (@modifier = default) {
-    .@{prefix}\:rounded {
-      border-radius: @value;
-    }
-  }
-  & when not (@modifier = default) {
-    .@{prefix}\:rounded-@{modifier} {
-      border-radius: @value;
-    }
-  }
-
-  .border-responsive(@array, @radius, @i + 1);
+  .border-screens(@array, @radius, @i + 1);
 }
 
 .border-radius (@array, @i: 1) when (@i <= length(@array)) {
@@ -124,11 +153,11 @@
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
 
-  .defaultBorderRadius(@key, @value);
+  .border-default(@key, @value);
 
-  .border-responsive(@screens, @pair);
+  .border-screens(@theme[@screens], @pair);
 
   .border-radius(@array, (@i + 1));
 }
 
-.border-radius(@borderRadius);
+.border-radius(@theme[@borderRadius]);

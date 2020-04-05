@@ -5,14 +5,8 @@
  * Code for fun!
  */
 
-.underline {
-  text-decoration: underline;
-}
-
-.line-through {
-  text-decoration: line-through;
-}
-
-.no-underline {
-  text-decoration: none;
-}
+.class-generator(
+  @theme[@textDecoration],
+  @preset[@textDecoration],
+  @variants[@textDecoration]
+);

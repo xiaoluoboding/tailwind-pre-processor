@@ -5,10 +5,8 @@
  * Code for fun!
  */
 
-.list-inside {
-  list-style-position: inside;
-}
-
-.list-outside {
-  list-style-position: outside;
-}
+.class-generator(
+  @theme[@listStylePosition],
+  @preset[@listStylePosition],
+  @variants[@listStylePosition]
+);

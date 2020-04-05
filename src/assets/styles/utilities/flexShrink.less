@@ -5,32 +5,8 @@
  * Code for fun!
  */
 
-@flex-shrink:
-  '0' '0',
-  default '1'
-;
-
-.flex-shrink(@array, @i: 1) when (@i <= length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
-
-  @modifier: e(@key);
-
-  & when (@key = default) {
-    .flex-shrink {
-      flex-shrink: e(@value);
-    }
-  }
-  
-  & when not (@key = default) {
-    .flex-shrink-@{modifier} {
-      flex-shrink: e(@value);
-    }
-  }
-
-  .flex-shrink(@array, (@i + 1));
-}
-
-.flex-shrink(@flex-shrink);
-
+.class-generator(
+  @theme[@flexShrink],
+  @preset[@flexShrink],
+  @variants[@flexShrink]
+);

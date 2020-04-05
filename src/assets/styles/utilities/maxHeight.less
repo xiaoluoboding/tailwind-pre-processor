@@ -5,24 +5,8 @@
  * Code for fun!
  */
 
-@max-height:
-  full '100%',
-  screen '100vh'
-;
-
-.max-height(@array, @i: 1, @property: max-height) when (@i <= length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
-
-  @modifier: e(@key);
-
-  .max-h-@{modifier} {
-    @{property}: e(@value);
-  }
-  
-  .max-height(@array, (@i + 1));
-}
-
-.max-height(@max-height);
-
+.class-generator(
+  @theme[@maxHeight],
+  @preset[@maxHeight],
+  @variants[@maxHeight]
+);

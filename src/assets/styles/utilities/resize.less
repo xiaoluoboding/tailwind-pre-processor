@@ -5,18 +5,8 @@
  * Code for fun!
  */
 
-.resize-none {
-  resize: none;
-}
-
-.resize-y {
-  resize: vertical;
-}
-
-.resize-x {
-  resize: horizontal;
-}
-
-.resize {
-  resize: both;
-}
+ .class-generator(
+  @theme[@resize],
+  @preset[@resize],
+  @variants[@resize]
+);

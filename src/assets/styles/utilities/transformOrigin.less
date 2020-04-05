@@ -5,30 +5,8 @@
  * Code for fun!
  */
 
-@transform-origin:
-  center 'center',
-  top 'top',
-  'top-right' 'top right',
-  right 'right',
-  'bottom-right' 'bottom right',
-  bottom 'bottom',
-  'bottom-left' 'bottom left',
-  left 'left',
-  'top-left' 'top left'
-;
-
-.transform-origin(@array, @i: 1, @property: transform-origin) when (@i <= length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
-
-  @modifier: e(@key);
-
-  .origin-@{modifier} {
-    @{property}: e(@value);
-  }
-  
-  .transform-origin(@array, (@i + 1));
-}
-
-.transform-origin(@transform-origin);
+.class-generator(
+  @theme[@transformOrigin],
+  @preset[@transformOrigin],
+  @variants[@transformOrigin]
+);

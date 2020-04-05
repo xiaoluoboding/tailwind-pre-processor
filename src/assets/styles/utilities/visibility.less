@@ -5,10 +5,8 @@
  * Code for fun!
  */
 
-.visible {
-  visibility: visible;
-}
-
-.invisible {
-  visibility: hidden;
-}
+.class-generator(
+  @theme[@visibility],
+  @preset[@visibility],
+  @variants[@visibility]
+);

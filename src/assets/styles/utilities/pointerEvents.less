@@ -5,10 +5,8 @@
  * Code for fun!
  */
 
-.pointer-events-none {
-  pointer-events: none;
-}
-
-.pointer-events-auto {
-  pointer-events: auto;
-}
+ .class-generator(
+  @theme[@pointerEvents],
+  @preset[@pointerEvents],
+  @variants[@pointerEvents]
+);

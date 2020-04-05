@@ -5,27 +5,8 @@
  * Code for fun!
  */
 
-@opacity:
-  '0' '0',
-  '25' '.25',
-  '50' '.5',
-  '75' '.75',
-  '100' '1'
-;
-
-.opacity(@array, @i: 1, @property: opacity) when (@i <= length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
-
-  @modifier: e(@key);
-
-  .opacity-@{modifier} {
-    @{property}: e(@value);
-  }
-  
-  .opacity(@array, (@i + 1));
-}
-
-.opacity(@opacity);
-
+.class-generator(
+  @theme[@opacity],
+  @preset[@opacity],
+  @variants[@opacity]
+);

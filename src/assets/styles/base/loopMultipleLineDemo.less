@@ -1,0 +1,40 @@
+@theme: {
+  @padding:
+    p 'padding',
+    px 'padding-left' 'padding-right',
+    py 'padding-top' 'padding-bottom',
+    pt 'padding-top',
+    pr 'padding-right',
+    pb 'padding-bottom',
+    pl 'padding-left'
+  ;
+}
+
+@pairs: @theme[@padding];
+
+.loop-pairs(@array, @i: 1) when (@i =< length(@array)) {
+
+  @prefix: extract(extract(@array, @i), 1);
+
+  @list: extract(@array, @i);
+
+  .@{prefix} {
+    .loop-list(@list, @j: 2) when (@j =< length(@list)) {
+      @property: e(extract(@list, @j));
+
+      .prefix () {
+        @{property}: 2rem;
+      }
+
+      .loop-list(@list, @j + 1);
+    }
+
+    .loop-list(@list);
+    
+    .prefix()
+  }
+
+  .loop-pairs(@array, @i + 1);
+}
+
+.loop-pairs(@pairs);

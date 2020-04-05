@@ -5,31 +5,8 @@
  * Code for fun!
  */
 
-@object-position:
-  bottom 'bottom',
-  center 'center',
-  left 'left',
-  'left-bottom' 'left bottom',
-  'left-top' 'left top',
-  right 'right',
-  'right-bottom' 'right bottom',
-  'right-top' 'right top',
-  top 'top'
-;
-
-.object-position(@array, @i: 1, @property: object-position) when (@i <= length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
-
-  @modifier: e(@key);
-
-  .object-@{modifier} {
-    @{property}: e(@value);
-  }
-  
-  .object-position(@array, (@i + 1));
-}
-
-.object-position(@object-position);
-
+.class-generator(
+  @theme[@objectPosition],
+  @preset[@objectPosition],
+  @variants[@objectPosition]
+);

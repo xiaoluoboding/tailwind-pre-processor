@@ -5,66 +5,8 @@
  * Code for fun!
  */
 
-@display:
-  block 'block',
-  'inline-block' 'inline-block',
-  inline 'inline',
-  'flow-root' 'flow-root',
-  flex 'flex',
-  'inline-flex' 'inline-flex',
-  grid 'grid',
-  'inline-grid' 'inline-grid',
-  table 'table',
-  'table-caption' 'table-caption',
-  'table-cell' 'table-cell',
-  'table-column' 'table-column',
-  'table-column-group' 'table-column-group',
-  'table-footer-group' 'table-footer-group',
-  'table-header-group' 'table-header-group',
-  'table-row-group' 'table-row-group',
-  'table-row' 'table-row',
-  hidden 'none'
-;
-
-// generate the responsive display
-.display-responsive(@array, @display, @i: 1) when (@i <= length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-
-  @modifier: e(extract(@display, 1));
-  @value: extract(@display, 2);
-
-  @prefix: e(@key);
-
-  .@{prefix}\:@{modifier} {
-    @{property}: e(@value);
-  }
-
-  .display-responsive(@array, @display, (@i + 1))
-}
-
-.display(@array, @i: 1, @property: display) when (@i <= length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
-
-  @modifier: e(@key);
-
-  .@{modifier} {
-    @{property}: e(@value);
-  }
-
-  .hover\:@{modifier}:hover {
-    @{property}: e(@value);
-  }
-
-  .focus\:@{modifier}:focus {
-    @{property}: e(@value);
-  }
-
-  .display-responsive(@screens, @pair);
-
-  .display(@array, (@i + 1));
-}
-
-.display(@display);
+.class-generator(
+  @theme[@display],
+  @preset[@display],
+  @variants[@display]
+);
