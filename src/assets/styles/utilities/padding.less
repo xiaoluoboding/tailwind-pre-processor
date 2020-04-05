@@ -5,47 +5,84 @@
  * Code for fun!
  */
 
-.padding(@modifier, @value) {
-  // p-*
-  .p-@{modifier} {
-    padding: @value;
-  }
-  // px-*
-  .px-@{modifier} {
-    padding-left: @value;
-    padding-right: @value;
-  }
-  // py-*
-  .py-@{modifier} {
-    padding-top: @value;
-    padding-bottom: @value;
-  }
-  // pt-*
-  .pt-@{modifier} {
-    padding-top: @value;
-  }
-  // pr-*
-  .pr-@{modifier} {
-    padding-right: @value;
-  }
-  // pb-*
-  .pb-@{modifier} {
-    padding-bottom: @value;
-  }
-  // mp-*
-  .pl-@{modifier} {
-    padding-left: @value;
-  }
+.padding-props(@list, @value, @p: 2) when (@p =< length(@list)) {
+  @props: e(extract(@list, @p));
+
+  .padding-props(@list, @value, @p + 1);
+
+  @{props}: @value;
 }
 
-.generatePadding(@array, @i: 1) when (@i =< length(@array)) {
+.padding-preset(@modifier, @value) {
+  .loop-presets(@array, @i: 1) when (@i =< length(@array)) {
+
+    @prefix: extract(extract(@array, @i), 1);
+
+    @presetList: extract(@array, @i);
+
+    @selector: ~"@{prefix}-@{modifier}";
+
+    .@{selector} {
+      .padding-props(@presetList, @value);
+    }
+
+    // loop variants
+    .loop-variants (@list, @j: 1) when (@j =< length(@list)) {
+      @variant: extract(@list, @j);
+
+      & when (@variant = 'responsive') {
+        // loop responsive presets
+        @responsiveParams: @presetList @selector @value;
+        .padding-responsive(@theme[@screens], @responsiveParams);
+      }
+
+      & when (@variant = 'hover') {
+        .hover\:@{selector}:hover {
+          .padding-props(@presetList, @value);
+        }
+      }
+
+      & when (@variant = 'focus') {
+        .focus\:@{selector}:focus {
+          .padding-props(@presetList, @value);
+        }
+      }
+
+      .loop-variants(@list, @j + 1);
+    }
+
+    .loop-variants(@variants[@padding]);
+
+    .loop-presets(@array, @i + 1);
+  }
+
+  .loop-presets(@preset[@padding]);
+}
+
+.padding-responsive(@screens, @params, @i: 1) when (@i <= length(@screens)) {
+  // extract screen pair
+  @screenSize: e(extract(extract(@screens, @i), 1));
+
+  // extract params
+  @presetList: extract(@params, 1);
+  @selector: extract(@params, 2);
+  @value: extract(@params, 3);
+
+  .@{screenSize}\:@{selector} {
+    .padding-props(@presetList, @value);
+  }
+
+  .padding-responsive(@screens, @params, @i + 1);
+}
+
+.generate-padding(@array, @i: 1) when (@i =< length(@array)) {
   @pair: extract(@array, @i);
   @modifier: e(extract(@pair, 1));
   @value: e(extract(@pair, 2));
 
-  .padding(@modifier, @value);
+  .padding-preset(@modifier, @value);
 
-  .generatePadding(@array, (@i + 1));
+  .generate-padding(@array, (@i + 1));
 }
 
-.generatePadding(@theme[@spacing]);
+.generate-padding(@theme[@spacing]);

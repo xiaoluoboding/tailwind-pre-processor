@@ -5,88 +5,97 @@
  * Code for fun!
  */
 
-.margin(@modifier, @value) {
-  // m-*
-  .m-@{modifier} {
-    margin: @value;
-  }
-  // mx-*
-  .mx-@{modifier} {
-    margin-left: @value;
-    margin-right: @value;
-  }
-  // my-*
-  .my-@{modifier} {
-    margin-top: @value;
-    margin-bottom: @value;
-  }
-  // mt-*
-  .mt-@{modifier} {
-    margin-top: @value;
-  }
-  // mr-*
-  .mr-@{modifier} {
-    margin-right: @value;
-  }
-  // mb-*
-  .mb-@{modifier} {
-    margin-bottom: @value;
-  }
-  // ml-*
-  .ml-@{modifier} {
-    margin-left: @value;
-  }
+.margin-props(@list, @value, @p: 2) when (@p =< length(@list)) {
+  @props: e(extract(@list, @p));
+
+  .margin-props(@list, @value, @p + 1);
+
+  @{props}: @value;
 }
 
-.negativeMargin(@modifier, @value) {
-  @negativeValue: 0 - @value;
-  // -m-*
-  .-m-@{modifier} {
-    margin: @negativeValue;
+.margin-preset(@modifier, @value, @negative) {
+  .loop-presets(@array, @i: 1) when (@i =< length(@array)) {
+
+    @prefix: extract(extract(@array, @i), 1);
+
+    @presetList: extract(@array, @i);
+
+    @selector: if((@negative = true), ~"-@{prefix}-@{modifier}", ~"@{prefix}-@{modifier}");
+
+    .@{selector} {
+      .margin-props(@presetList, @value);
+    }
+
+    // loop variants
+    .loop-variants (@list, @j: 1) when (@j =< length(@list)) {
+      @variant: extract(@list, @j);
+
+      & when (@variant = 'responsive') {
+        // loop responsive presets
+        @responsiveParams: @presetList @selector @value;
+        .margin-responsive(@theme[@screens], @responsiveParams);
+      }
+
+      & when (@variant = 'hover') {
+        .hover\:@{selector}:hover {
+          .margin-props(@presetList, @value);
+        }
+      }
+
+      & when (@variant = 'focus') {
+        .focus\:@{selector}:focus {
+          .margin-props(@presetList, @value);
+        }
+      }
+
+      .loop-variants(@list, @j + 1);
+    }
+
+    .loop-variants(@variants[@margin]);
+
+    .loop-presets(@array, @i + 1);
   }
-  // -mx-*
-  .-mx-@{modifier} {
-    margin-left: @negativeValue;
-    margin-right: @negativeValue;
-  }
-  // -my-*
-  .-my-@{modifier} {
-    margin-top: @negativeValue;
-    margin-bottom: @negativeValue;
-  }
-  // -mt-*
-  .-mt-@{modifier} {
-    margin-top: @negativeValue;
-  }
-  // -mr-*
-  .-mr-@{modifier} {
-    margin-right: @negativeValue;
-  }
-  // -mb-*
-  .-mb-@{modifier} {
-    margin-bottom: @negativeValue;
-  }
-  // -ml-*
-  .-ml-@{modifier} {
-    margin-left: @negativeValue;
-  }
+
+  .loop-presets(@preset[@margin]);
 }
 
-.generateMargin(@array, @i: 1) when (@i =< length(@array)) {
+.margin-responsive(@screens, @params, @i: 1) when (@i <= length(@screens)) {
+  // extract screen pair
+  @screenSize: e(extract(extract(@screens, @i), 1));
+
+  // extract params
+  @presetList: extract(@params, 1);
+  @selector: extract(@params, 2);
+  @value: extract(@params, 3);
+
+  .@{screenSize}\:@{selector} {
+    .margin-props(@presetList, @value);
+  }
+
+  .margin-responsive(@screens, @params, @i + 1);
+}
+
+.generate-margin(@array, @negative, @i: 1) when (@i =< length(@array)) {
   @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
+  @modifier: e(extract(@pair, 1));
   @value: extract(@pair, 2);
 
-  @modifier: e(@key);
+  & when (@negative = true) {
+    .margin-preset(@modifier, 0 - @value, @negative);
+  }
 
-  .margin(@modifier, @value);
+  & when (@negative = false) {
+    .margin-preset(@modifier, @value, @negative);
+  }
 
-  .negativeMargin(@modifier, @value);
-  
-  .generateMargin(@array, (@i + 1));
+  .generate-margin(@array, @negative, (@i + 1));
 }
 
-.margin(auto, auto);
-.generateMargin(@theme[@spacing]);
+// generate default margin class
+.generate-margin(@theme[@margin], false);
 
+// generate positive margin class
+.generate-margin(@theme[@negativeSpacing], false);
 
+// generate negative margin class
+.generate-margin(@theme[@negativeSpacing], true);

@@ -5,15 +5,84 @@
  * Code for fun!
  */
 
-.scale-all(@list, @i: 1) when (@i <= length(@list)) {
+.scale-props(@list, @value, @p: 2) when (@p =< length(@list)) {
+  @props: e(extract(@list, @p));
 
-  .class-generator(
-    @theme[@scale],
-    extract(@list, @i),
-    @variants[@scale]
-  );
+  .scale-props(@list, @value, @p + 1);
 
-  .scale-all(@list, @i + 1);
+  @{props}: @value;
 }
 
-.scale-all(@preset[@scale]);
+.scale-preset(@modifier, @value) {
+  .loop-presets(@array, @i: 1) when (@i =< length(@array)) {
+
+    @prefix: extract(extract(@array, @i), 1);
+
+    @presetList: extract(@array, @i);
+
+    @selector: ~"@{prefix}-@{modifier}";
+
+    .@{selector} {
+      .scale-props(@presetList, @value);
+    }
+
+    // loop variants
+    .loop-variants (@list, @j: 1) when (@j =< length(@list)) {
+      @variant: extract(@list, @j);
+
+      & when (@variant = 'responsive') {
+        // loop responsive presets
+        @responsiveParams: @presetList @selector @value;
+        .scale-responsive(@theme[@screens], @responsiveParams);
+      }
+
+      & when (@variant = 'hover') {
+        .hover\:@{selector}:hover {
+          .scale-props(@presetList, @value);
+        }
+      }
+
+      & when (@variant = 'focus') {
+        .focus\:@{selector}:focus {
+          .scale-props(@presetList, @value);
+        }
+      }
+
+      .loop-variants(@list, @j + 1);
+    }
+
+    .loop-variants(@variants[@scale]);
+
+    .loop-presets(@array, @i + 1);
+  }
+
+  .loop-presets(@preset[@scale]);
+}
+
+.scale-responsive(@screens, @params, @i: 1) when (@i <= length(@screens)) {
+  // extract screen pair
+  @screenSize: e(extract(extract(@screens, @i), 1));
+
+  // extract params
+  @presetList: extract(@params, 1);
+  @selector: extract(@params, 2);
+  @value: extract(@params, 3);
+
+  .@{screenSize}\:@{selector} {
+    .scale-props(@presetList, @value);
+  }
+
+  .scale-responsive(@screens, @params, @i + 1);
+}
+
+.generate-scale(@array, @i: 1) when (@i =< length(@array)) {
+  @pair: extract(@array, @i);
+  @modifier: e(extract(@pair, 1));
+  @value: e(extract(@pair, 2));
+
+  .scale-preset(@modifier, @value);
+
+  .generate-scale(@array, (@i + 1));
+}
+
+.generate-scale(@theme[@scale]);

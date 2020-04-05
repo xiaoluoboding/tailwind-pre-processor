@@ -17,7 +17,9 @@
   @key: extract(extract(@themePairs, @i), 1);
   // input: '1/2' | output: 1\/2
   @modifier: if(isnumber(@key), e(@key), e(replace(~"@{key}", '\/', '\/')));
-  @value: e(extract(extract(@themePairs, @i), 2));
+  @originValue: extract(extract(@themePairs, @i), 2);
+  // @value: if((@originValue = 0) or isem(@originValue), @originValue, e(@originValue));
+  @value: e(@originValue);
 
   // extract perset pair
   @prefix: e(extract(@presetPairs, 1));

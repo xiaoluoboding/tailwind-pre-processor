@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "lessc": "lessc src/assets/styles/utilities/index.less > utilities.css"
+    "lessc": "lessc src/assets/styles/index.less > src/assets/styles/utilities.css"
   },
   "dependencies": {
     "core-js": "^3.6.4",

@@ -5,66 +5,102 @@
  * Code for fun!
  */
 
-@translate:
-  '-full' '-100%',
-  '-1/2' '-50%',
-  '1/2' '50%',
-  full '100%'
-;
+.translate-props(@list, @value, @p: 2) when (@p =< length(@list)) {
+  @props: e(extract(@list, @p));
 
-.translate(@array, @i: 1, @property: translate) when (@i <= length(@array)) {
+  .translate-props(@list, @value, @p + 1);
+
+  @{props}: @value;
+}
+
+.translate-preset(@modifier, @value, @negative) {
+  .loop-presets(@array, @i: 1) when (@i =< length(@array)) {
+
+    @prefix: extract(extract(@array, @i), 1);
+
+    @presetList: extract(@array, @i);
+
+    @selector: if((@negative = true), ~"-@{prefix}-@{modifier}", ~"@{prefix}-@{modifier}");
+
+    .@{selector} {
+      .translate-props(@presetList, @value);
+    }
+
+    // loop variants
+    .loop-variants (@list, @j: 1) when (@j =< length(@list)) {
+      @variant: extract(@list, @j);
+
+      & when (@variant = 'responsive') {
+        // loop responsive presets
+        @responsiveParams: @presetList @selector @value;
+        .translate-responsive(@theme[@screens], @responsiveParams);
+      }
+
+      & when (@variant = 'hover') {
+        .hover\:@{selector}:hover {
+          .translate-props(@presetList, @value);
+        }
+      }
+
+      & when (@variant = 'focus') {
+        .focus\:@{selector}:focus {
+          .translate-props(@presetList, @value);
+        }
+      }
+
+      .loop-variants(@list, @j + 1);
+    }
+
+    .loop-variants(@variants[@translate]);
+
+    .loop-presets(@array, @i + 1);
+  }
+
+  .loop-presets(@preset[@translate]);
+}
+
+.translate-responsive(@screens, @params, @i: 1) when (@i <= length(@screens)) {
+  // extract screen pair
+  @screenSize: e(extract(extract(@screens, @i), 1));
+
+  // extract params
+  @presetList: extract(@params, 1);
+  @selector: extract(@params, 2);
+  @value: extract(@params, 3);
+
+  .@{screenSize}\:@{selector} {
+    .translate-props(@presetList, @value);
+  }
+
+  .translate-responsive(@screens, @params, @i + 1);
+}
+
+.generate-translate(@array, @negative, @i: 1) when (@i =< length(@array)) {
   @pair: extract(@array, @i);
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
 
   @modifier: e(replace(@key, '\/', '\/'));
 
-  & when(@i <= 2) {
-    .-transition-x@{modifier} {
-      @{property}: e(@value);
-    }
-    .-transition-y@{modifier} {
-      @{property}: e(@value);
-    }
+  & when (@negative = true) {
+    .translate-preset(@modifier, 0 - @value, @negative);
   }
 
-  & when (@i > 2) {
-    .transition-x-@{modifier} {
-      @{property}: e(@value);
-    }
-    .transition-y-@{modifier} {
-      @{property}: e(@value);
-    }
+  & when (@negative = false) {
+    .translate-preset(@modifier, @value, @negative);
   }
-  
-  .translate(@array, (@i + 1));
+
+  .generate-translate(@array, @negative, (@i + 1));
 }
 
-.translateSpace(@array, @i: 1, @property: translate) when (@i <= length(@array)) {
-  @pair: extract(@array, @i);
-  @key: extract(@pair, 1);
-  @value: extract(@pair, 2);
+// generate default positive translate class
+.generate-translate(@theme[@translate], false);
 
-  @modifier: e(replace(@key, '\/', '\/'));
+// generate default negative translate class
+.generate-translate(@theme[@translate], true);
 
-  .-transition-x-@{modifier} {
-    @{property}: 0 - @value;
-  }
+// generate positive translate class
+.generate-translate(@theme[@negativeSpacing], false);
 
-  .-transition-y-@{modifier} {
-    @{property}: 0 - @value;
-  }
-
-  .transition-x-@{modifier} {
-    @{property}: @value;
-  }
-
-  .transition-y-@{modifier} {
-    @{property}: @value;
-  }
-
-  .translateSpace(@array, (@i + 1));
-}
-
-.translate(@translate);
-.translateSpace(@theme[@spacing]);
+// generate negative translate class
+.generate-translate(@theme[@negativeSpacing], true);

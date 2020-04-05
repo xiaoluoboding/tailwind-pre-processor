@@ -162,6 +162,27 @@
     '56' '14rem',
     '64' '16rem'
   ;
+  @negativeSpacing:
+    px 1px,
+    '0' 0,
+    '1' 0.25rem,
+    '2' 0.5rem,
+    '3' 0.75rem,
+    '4' 1rem,
+    '5' 1.25rem,
+    '6' 1.5rem,
+    '8' 2rem,
+    '10' 2.5rem,
+    '12' 3rem,
+    '16' 4rem,
+    '20' 5rem,
+    '24' 6rem,
+    '32' 8rem,
+    '40' 10rem,
+    '48' 12rem,
+    '56' 14rem,
+    '64' 16rem
+  ;
   @alignContent:
     center 'center',
     start 'flex-start',
@@ -184,7 +205,8 @@
     stretch 'stretch',
   ;
   @appearance:
-    none 'none'
+    none 'none',
+    unset 'unset'
   ;
   @backgroundAttachment:
     fixed 'fixed',
@@ -514,6 +536,10 @@
     disc 'disc',
     decimal 'decimal'
   ;
+  @margin:
+    auto auto,
+    unset unset
+  ;
   @maxHeight:
     full '100%',
     screen '100vh'
@@ -713,6 +739,12 @@
     out 'cubic-bezier(0, 0, 0.2, 1)',
     'in-out' 'cubic-bezier(0.4, 0, 0.2, 1)'
   ;
+  @translate:
+    // '-full' '-100%',
+    // '-1/2' '-50%',
+    '1/2' 50%,
+    full 100%
+  ;
   @userSelect:
     none 'none',
     text 'text',
@@ -870,6 +902,15 @@
   @lineHeight: leading 'line-height';
   @listStylePosition: list 'list-style-position';
   @listStyleType: list 'list-style-type';
+  @margin:
+    m 'margin',
+    mx 'margin-left' 'margin-right',
+    my 'margin-top' 'margin-bottom',
+    mt 'margin-top',
+    mr 'margin-right',
+    mb 'margin-bottom',
+    ml 'margin-left'
+  ;
   @maxHeight: 'max-h' 'max-height';
   @maxWidth: 'max-w' 'max-width';
   @maxWidthScreen: 'max-w-screen''max-width';
@@ -899,7 +940,7 @@
   @resize: resize 'resize';
   @rotate: rotate '--transform-rotate';
   @scale:
-    scale '--transform-scale',
+    scale '--transform-scale-x' '--transform-scale-y',
     'scale-x' '--transform-scale-x',
     'scale-y' '--transform-scale-y'
   ;
@@ -930,6 +971,10 @@
   @transitionDuration: duration 'transition-duration';
   @transitionProperty: transition 'transition-property';
   @transitionTimingFunction: ease 'transition-timing-function';
+  @translate:
+    'translate-x' '--transform-translate-x',
+    'translate-y' '--transform-translate-x'
+  ;
   @userSelect: select 'user-select';
   @verticalAlign: align 'vertical-align';
   @visibility: visible 'visibility';
