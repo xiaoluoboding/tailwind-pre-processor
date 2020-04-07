@@ -36,9 +36,9 @@
 
     @variantSelector: if((@variant = default),
       @selector,
-      if((@variant = 'responsive'),
-        ~"@{variant}\:@{selector}",
-        ~"@{variant}\:@{selector}:@{variant}"));
+      if((@variant = 'hover') or (@variant = 'focus'),
+        ~"@{variant}\:@{selector}:@{variant}",
+        ~"@{variant}\:@{selector}"));
 
     .@{variantSelector} {
       .translate-props(@presetList, @value);
@@ -72,7 +72,7 @@
 .translate-variants (@list, @j: 1) when (@j =< length(@list)) {
   @variant: extract(@list, @j);
 
-  & when (@variant ='responsive') {
+  & when (@variant = 'responsive') {
     // loop responsive presets
     .translate-responsive(@theme[@screens]);
   }
@@ -81,7 +81,7 @@
     .make-translate(@variant);
   }
 
-  & when (@variant ='focus') {
+  & when (@variant = 'focus') {
     .make-translate(@variant);
   }
 

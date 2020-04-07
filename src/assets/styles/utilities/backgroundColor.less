@@ -6,7 +6,7 @@
  */
 
 // generate all palette colors
-.background-all(@list, @i: 1) when (@i <=length(@list)) {
+.background-all(@list, @mode, @i: 1) when (@i <= length(@list)) {
   @prefix: extract(extract(@list, @i), 1);
 
   @colorName: e(replace(@prefix, 'bg-', ''));
@@ -16,7 +16,8 @@
     .class-generator(
       @theme[@colors][@common],
       extract(@list, @i),
-      @variants[@backgroundColor]
+      @variants[@backgroundColor],
+      @mode
     );
   }
 
@@ -24,11 +25,14 @@
     .class-generator(
       @theme[@colors][@@colorName],
       extract(@list, @i),
-      @variants[@backgroundColor]
+      @variants[@backgroundColor],
+      @mode
     );
   }
 
-  .background-all(@list, @i + 1);
+  .background-all(@list, @mode, @i + 1);
 }
 
-.background-all(@preset[@backgroundColor]);
+.background-all(@preset[@backgroundColor], 'default');
+
+.background-all(@preset[@backgroundColor], 'variant');

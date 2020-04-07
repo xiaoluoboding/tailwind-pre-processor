@@ -34,7 +34,11 @@
 
     @selector: ~"@{prefix}-@{modifier}";
 
-    @variantSelector: if((@variant = default), @selector, ~"@{variant}\:@{selector}");
+    @variantSelector: if((@variant = default),
+      @selector,
+      if((@variant = 'hover') or (@variant = 'focus'),
+        ~"@{variant}\:@{selector}:@{variant}",
+        ~"@{variant}\:@{selector}"));
 
     .@{variantSelector} {
       .padding-props(@presetList, @value);
@@ -67,15 +71,11 @@
   }
 
   & when (@variant = 'hover') {
-    .hover\:@{selector}:hover {
-      .padding-props(@presetList, @value);
-    }
+    .generate-padding(@theme[@spacing], @variant);
   }
 
   & when (@variant = 'focus') {
-    .focus\:@{selector}:focus {
-      .padding-props(@presetList, @value);
-    }
+    .generate-padding(@theme[@spacing], @variant);
   }
 
   .padding-variants(@list, @j + 1);

@@ -5,6 +5,9 @@
     lg '1024px',
     xl '1280px'
   ;
+}
+
+@preset: {
   @padding:
     p 'padding',
     px 'padding-left''padding-right',
@@ -16,15 +19,11 @@
   ;
 }
 
-@preset: {
-  @alignContent: content 'align-content';
-}
-
 @variants: {
-  @alignContent: 'responsive';
+  @padding: 'responsive';
 }
 
-@pairs: @theme[@padding];
+@pairs: @preset[@padding];
 
 .loop-pairs(@array, @variant, @i: 1) when (@i =< length(@array)) {
 
@@ -32,7 +31,7 @@
 
   @list: extract(@array, @i);
 
-  @selector: if((@variant = null), @prefix, ~"@{variant}\:@{prefix}");
+  @selector: if((@variant = default), @prefix, ~"@{variant}\:@{prefix}");
 
   .@{selector} {
     .loop-list(@list, @j: 2) when (@j =< length(@list)) {
@@ -53,7 +52,7 @@
   .loop-pairs(@array, @variant, @i + 1);
 }
 
-.loop-pairs(@pairs, null);
+.loop-pairs(@pairs, default);
 
 .responsive-generator (@screens, @i: 1) when (@i =< length(@screens)) {
   // extract screen pair

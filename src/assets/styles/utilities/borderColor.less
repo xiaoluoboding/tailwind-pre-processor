@@ -11,7 +11,7 @@
 }
 
 // generate all palette colors
-.border-all(@list, @i: 1) when (@i <= length(@list)) {
+.border-all(@list, @mode, @i: 1) when (@i <= length(@list)) {
   @prefix: extract(extract(@list, @i), 1);
 
   @colorName: e(replace(@prefix, 'border-', ''));
@@ -21,7 +21,8 @@
     .class-generator(
       @theme[@colors][@common],
       extract(@list, @i),
-      @variants[@borderColor]
+      @variants[@borderColor],
+      @mode
     );
   }
 
@@ -29,11 +30,14 @@
     .class-generator(
       @theme[@colors][@@colorName],
       extract(@list, @i),
-      @variants[@borderColor]
+      @variants[@borderColor],
+      @mode
     );
   }
 
-  .border-all(@list, @i + 1);
+  .border-all(@list, @mode, @i + 1);
 }
 
-.border-all(@preset[@borderColor]);
+.border-all(@preset[@borderColor], 'default');
+
+.border-all(@preset[@borderColor], 'variant');

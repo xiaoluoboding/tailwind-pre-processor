@@ -36,9 +36,9 @@
 
     @variantSelector: if((@variant = default),
       @selector,
-      if((@variant = 'responsive'),
-        ~"@{variant}\:@{selector}",
-        ~"@{variant}\:@{selector}:@{variant}"));
+      if((@variant = 'hover') or (@variant = 'focus'),
+        ~"@{variant}\:@{selector}:@{variant}",
+        ~"@{variant}\:@{selector}"));
 
     .@{variantSelector} {
       .margin-props(@presetList, @value);

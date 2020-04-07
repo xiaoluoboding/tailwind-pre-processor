@@ -6,12 +6,13 @@
  */
 
 /**
- * [@params]: Property Presets (key-value pairs)
- * [@params]: Class prefix
- * [@params]: Property Name
+ * [@params]: theme pairs
+ * [@params]: preset pairs
+ * [@params]: variants eg: responsive
+ * [@params]: mode default/variant/both. default is both
  */
 
-.class-generator (@themePairs, @presetPairs, @variantsList) {
+.class-generator (@themePairs, @presetPairs, @variantsList, @mode: 'both') {
   // generate responsive class
   .responsive-generator (@screens, @i: 1) when (@i =< length(@screens)) {
     // extract screen pair
@@ -50,7 +51,11 @@
           ~"@{prefix}-@{modifier}"
         )));
 
-    @variantSelector: if((@variant = none), @selector, ~"@{variant}\:@{selector}");
+    @variantSelector: if((@variant = default),
+      @selector,
+      if((@variant = 'hover') or (@variant = 'focus'),
+        ~"@{variant}\:@{selector}:@{variant}",
+        ~"@{variant}\:@{selector}"));
 
     .@{variantSelector} {
       @{property}: @value;
@@ -63,27 +68,33 @@
   .loop-variants (@list, @j: 1) when (@j =< length(@list)) {
     @variant: extract(@list, @j);
 
-    & when (@variant ='responsive') {
+    & when (@variant = 'responsive') {
       // loop responsive variants
       .responsive-generator(@theme[@screens]);
     }
 
-    & when (@variant ='hover') {
-      .hover\:@{selector}:hover {
-        @{property}: @value;
-      }
+    & when (@variant = 'hover') {
+      .loop-themes(@themePairs, @presetPairs, @variant);
     }
 
-    & when (@variant ='focus') {
-      .focus\:@{selector}:focus {
-        @{property}: @value;
-      }
+    & when (@variant = 'focus') {
+      .loop-themes(@themePairs, @presetPairs, @variant);
     }
 
     .loop-variants(@list, @j + 1);
   }
 
-  .loop-themes(@themePairs, @presetPairs, none);
+  & when (@mode = 'default') {
+    .loop-themes(@themePairs, @presetPairs, default);
+  }
 
-  .loop-variants(@variantsList);
+  & when (@mode = 'variant') {
+    .loop-variants(@variantsList);
+  }
+
+  & when (@mode = 'both') {
+    .loop-themes(@themePairs, @presetPairs, default);
+
+    .loop-variants(@variantsList);
+  }
 }

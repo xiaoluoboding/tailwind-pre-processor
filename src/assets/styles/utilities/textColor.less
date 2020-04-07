@@ -6,7 +6,7 @@
  */
 
 // generate all palette colors
-.color-all(@list, @i: 1) when (@i <= length(@list)) {
+.color-all(@list, @mode, @i: 1) when (@i <= length(@list)) {
   @prefix: extract(extract(@list, @i), 1);
 
   @colorName: e(replace(@prefix, 'text-', ''));
@@ -16,7 +16,8 @@
     .class-generator(
       @theme[@colors][@common],
       extract(@list, @i),
-      @variants[@textColor]
+      @variants[@textColor],
+      @mode
     );
   }
 
@@ -24,11 +25,14 @@
     .class-generator(
       @theme[@colors][@@colorName],
       extract(@list, @i),
-      @variants[@textColor]
+      @variants[@textColor],
+      @mode
     );
   }
 
-  .color-all(@list, @i + 1);
+  .color-all(@list, @mode, @i + 1);
 }
 
-.color-all(@preset[@textColor]);
+.color-all(@preset[@textColor], 'default');
+
+.color-all(@preset[@textColor], 'variant');
