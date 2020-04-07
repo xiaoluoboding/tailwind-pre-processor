@@ -10,7 +10,7 @@
         Tailwind Button
       </button>
     </div>
-    <div class="post-list grid grid-cols-3 gap-4 mb-16">
+    <div class="post-list grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mb-16">
       <div v-for="n in 3" :key="n">
         <PostCard />
       </div>

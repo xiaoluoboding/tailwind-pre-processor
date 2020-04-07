@@ -11,55 +11,70 @@
  * [@params]: Property Name
  */
 
-// loop presets
-.class-generator (@themePairs, @presetPairs, @variantsList, @i: 1) when (@i =< length(@themePairs)) {
-  // extract theme pair
-  @key: extract(extract(@themePairs, @i), 1);
-  // input: '1/2' | output: 1\/2
-  @modifier: if(isnumber(@key), e(@key), e(replace(~"@{key}", '\/', '\/')));
-  @originValue: extract(extract(@themePairs, @i), 2);
-  // @value: if((@originValue = 0) or isem(@originValue), @originValue, e(@originValue));
-  @value: e(@originValue);
+.class-generator (@themePairs, @presetPairs, @variantsList) {
+  // generate responsive class
+  .responsive-generator (@screens, @i: 1) when (@i =< length(@screens)) {
+    // extract screen pair
+    @screenSize: e(extract(extract(@screens, @i), 1));
+    @screenValue: e(extract(extract(@screens, @i), 2));
 
-  // extract perset pair
-  @prefix: e(extract(@presetPairs, 1));
-  @property: e(extract(@presetPairs, 2));
+    @media (min-width: @screenValue) {
+      .loop-themes(@themePairs, @presetPairs, @screenSize);
+    }
 
-  // eg. @prefix = none ? flex : gap-4
-  // eg. @modifier = default ? shadow : shadow-sm
-  // eg. isnumber(@key) and (@key < 0) ? -rotate-180 : rotate-180
-  @selector: if((@prefix = none),
-    @modifier,
-    if((@key = default),
-      @prefix,
-      if(isnumber(@key) and (@key < 0),
-        ~"-@{prefix}@{modifier}",
-        ~"@{prefix}-@{modifier}"
-      )
-    )
-  );
+    .responsive-generator(@screens, @i + 1);
+  }
 
-  .@{selector} {
-    @{property}: @value;
+  // loop theme property
+  .loop-themes (@themePairs, @presetPairs, @variant, @i: 1) when (@i =< length(@themePairs)) {
+    // extract theme pair
+    @key: extract(extract(@themePairs, @i), 1);
+    // input: '1/2' | output: 1\/2
+    @modifier: if(isnumber(@key), e(@key), e(replace(~"@{key}", '\/', '\/')));
+    @originValue: extract(extract(@themePairs, @i), 2);
+    @value: e(@originValue);
+
+    // extract perset pair
+    @prefix: e(extract(@presetPairs, 1));
+    @property: e(extract(@presetPairs, 2));
+
+    // eg. @prefix = none ? flex : gap-4
+    // eg. @modifier = default ? shadow : shadow-sm
+    // eg. isnumber(@key) and (@key < 0) ? -rotate-180 : rotate-180
+    @selector: if((@prefix = none),
+      @modifier,
+      if((@key = default),
+        @prefix,
+        if(isnumber(@key) and (@key < 0),
+          ~"-@{prefix}@{modifier}",
+          ~"@{prefix}-@{modifier}"
+        )));
+
+    @variantSelector: if((@variant = none), @selector, ~"@{variant}\:@{selector}");
+
+    .@{variantSelector} {
+      @{property}: @value;
+    }
+
+    .loop-themes(@themePairs, @presetPairs, @variant, (@i + 1));
   }
 
   // loop variants
   .loop-variants (@list, @j: 1) when (@j =< length(@list)) {
     @variant: extract(@list, @j);
-    
-    & when (@variant = 'responsive') {
-      // loop responsive presets
-      @responsiveParams: @selector @property @value;
-      .responsive-generator(@theme[@screens], @responsiveParams);
+
+    & when (@variant ='responsive') {
+      // loop responsive variants
+      .responsive-generator(@theme[@screens]);
     }
 
-    & when (@variant = 'hover') {
+    & when (@variant ='hover') {
       .hover\:@{selector}:hover {
         @{property}: @value;
       }
     }
 
-    & when (@variant = 'focus') {
+    & when (@variant ='focus') {
       .focus\:@{selector}:focus {
         @{property}: @value;
       }
@@ -68,23 +83,7 @@
     .loop-variants(@list, @j + 1);
   }
 
+  .loop-themes(@themePairs, @presetPairs, none);
+
   .loop-variants(@variantsList);
-
-  .class-generator(@themePairs, @presetPairs, @variantsList, (@i + 1));
-}
-
-.responsive-generator (@screens, @params, @i: 1) when (@i =< length(@screens)) {
-  // extract screen pair
-  @screenSize: e(extract(extract(@screens, @i), 1));
-
-  // extract params
-  @selector: extract(@params, 1);
-  @property: extract(@params, 2);
-  @value: extract(@params, 3);
-
-  .@{screenSize}\:@{selector} {
-    @{property}: @value;
-  }
-
-  .responsive-generator(@screens, @params, @i + 1);
 }

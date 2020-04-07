@@ -1,0 +1,70 @@
+@theme: {
+  @screens:
+    sm '640px',
+    md '768px',
+    lg '1024px',
+    xl '1280px'
+  ;
+  @padding:
+    p 'padding',
+    px 'padding-left''padding-right',
+    py 'padding-top''padding-bottom',
+    pt 'padding-top',
+    pr 'padding-right',
+    pb 'padding-bottom',
+    pl 'padding-left'
+  ;
+}
+
+@preset: {
+  @alignContent: content 'align-content';
+}
+
+@variants: {
+  @alignContent: 'responsive';
+}
+
+@pairs: @theme[@padding];
+
+.loop-pairs(@array, @variant, @i: 1) when (@i =< length(@array)) {
+
+  @prefix: extract(extract(@array, @i), 1);
+
+  @list: extract(@array, @i);
+
+  @selector: if((@variant = null), @prefix, ~"@{variant}\:@{prefix}");
+
+  .@{selector} {
+    .loop-list(@list, @j: 2) when (@j =< length(@list)) {
+      @property: e(extract(@list, @j));
+
+      .prefix () {
+        @{property}: 2rem;
+      }
+
+      .loop-list(@list, @j + 1);
+    }
+
+    .loop-list(@list);
+
+    .prefix()
+  }
+
+  .loop-pairs(@array, @variant, @i + 1);
+}
+
+.loop-pairs(@pairs, null);
+
+.responsive-generator (@screens, @i: 1) when (@i =< length(@screens)) {
+  // extract screen pair
+  @screenSize: e(extract(extract(@screens, @i), 1));
+  @screenValue: e(extract(extract(@screens, @i), 2));
+
+  @media (min-width: @screenValue) {
+    .loop-pairs(@pairs, @screenSize);
+  }
+
+  .responsive-generator(@screens, @i + 1);
+}
+
+.responsive-generator(@theme[@screens]);

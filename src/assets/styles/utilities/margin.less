@@ -13,7 +13,19 @@
   @{props}: @value;
 }
 
-.margin-preset(@modifier, @value, @negative) {
+.margin-responsive(@screens, @i: 1) when (@i =< length(@screens)) {
+  // extract screen pair
+  @screenSize: e(extract(extract(@screens, @i), 1));
+  @screenValue: e(extract(extract(@screens, @i), 2));
+
+  @media (min-width: @screenValue) {
+    .make-margin(@screenSize);
+  }
+
+  .margin-responsive(@screens, @i + 1);
+}
+
+.margin-preset(@modifier, @value, @variant, @negative) {
   .loop-presets(@array, @i: 1) when (@i =< length(@array)) {
 
     @prefix: extract(extract(@array, @i), 1);
@@ -22,36 +34,15 @@
 
     @selector: if((@negative = true), ~"-@{prefix}-@{modifier}", ~"@{prefix}-@{modifier}");
 
-    .@{selector} {
+    @variantSelector: if((@variant = default),
+      @selector,
+      if((@variant = 'responsive'),
+        ~"@{variant}\:@{selector}",
+        ~"@{variant}\:@{selector}:@{variant}"));
+
+    .@{variantSelector} {
       .margin-props(@presetList, @value);
     }
-
-    // loop variants
-    .loop-variants (@list, @j: 1) when (@j =< length(@list)) {
-      @variant: extract(@list, @j);
-
-      & when (@variant = 'responsive') {
-        // loop responsive presets
-        @responsiveParams: @presetList @selector @value;
-        .margin-responsive(@theme[@screens], @responsiveParams);
-      }
-
-      & when (@variant = 'hover') {
-        .hover\:@{selector}:hover {
-          .margin-props(@presetList, @value);
-        }
-      }
-
-      & when (@variant = 'focus') {
-        .focus\:@{selector}:focus {
-          .margin-props(@presetList, @value);
-        }
-      }
-
-      .loop-variants(@list, @j + 1);
-    }
-
-    .loop-variants(@variants[@margin]);
 
     .loop-presets(@array, @i + 1);
   }
@@ -59,43 +50,54 @@
   .loop-presets(@preset[@margin]);
 }
 
-.margin-responsive(@screens, @params, @i: 1) when (@i <= length(@screens)) {
-  // extract screen pair
-  @screenSize: e(extract(extract(@screens, @i), 1));
-
-  // extract params
-  @presetList: extract(@params, 1);
-  @selector: extract(@params, 2);
-  @value: extract(@params, 3);
-
-  .@{screenSize}\:@{selector} {
-    .margin-props(@presetList, @value);
-  }
-
-  .margin-responsive(@screens, @params, @i + 1);
-}
-
-.generate-margin(@array, @negative, @i: 1) when (@i =< length(@array)) {
+.generate-margin(@array, @variant, @negative, @i: 1) when (@i =< length(@array)) {
   @pair: extract(@array, @i);
   @modifier: e(extract(@pair, 1));
   @value: extract(@pair, 2);
 
   & when (@negative = true) {
-    .margin-preset(@modifier, 0 - @value, @negative);
+    .margin-preset(@modifier, 0 - @value, @variant, @negative);
   }
 
   & when (@negative = false) {
-    .margin-preset(@modifier, @value, @negative);
+    .margin-preset(@modifier, @value, @variant, @negative);
   }
 
-  .generate-margin(@array, @negative, (@i + 1));
+  .generate-margin(@array, @variant, @negative, (@i + 1));
 }
 
-// generate default margin class
-.generate-margin(@theme[@margin], false);
+// loop variants
+.margin-variants(@list, @j: 1) when (@j =< length(@list)) {
+  @variant: extract(@list, @j);
 
-// generate positive margin class
-.generate-margin(@theme[@negativeSpacing], false);
+  & when (@variant = 'responsive') {
+    // loop responsive presets
+    .margin-responsive(@theme[@screens]);
+  }
 
-// generate negative margin class
-.generate-margin(@theme[@negativeSpacing], true);
+  & when (@variant = 'hover') {
+    .make-margin(@variant)
+  }
+
+  & when (@variant = 'focus') {
+    .make-margin(@variant)
+  }
+
+  .margin-variants(@list, @j + 1);
+}
+
+// generate default/variant margin
+.make-margin(@variant) {
+  // generate default margin class
+  .generate-margin(@theme[@margin], @variant, false);
+
+  // generate positive margin class
+  .generate-margin(@theme[@negativeSpacing], @variant, false);
+
+  // generate negative margin class
+  .generate-margin(@theme[@negativeSpacing], @variant, true);
+}
+
+.make-margin(default);
+
+.margin-variants(@variants[@padding]);

@@ -13,7 +13,19 @@
   @{props}: @value;
 }
 
-.translate-preset(@modifier, @value, @negative) {
+.translate-responsive(@screens, @i: 1) when (@i =< length(@screens)) {
+  // extract screen pair
+  @screenSize: e(extract(extract(@screens, @i), 1));
+  @screenValue: e(extract(extract(@screens, @i), 2));
+
+  @media (min-width: @screenValue) {
+    .make-translate(@screenSize);
+  }
+
+  .translate-responsive(@screens, @i + 1);
+}
+
+.translate-preset(@modifier, @value, @variant, @negative) {
   .loop-presets(@array, @i: 1) when (@i =< length(@array)) {
 
     @prefix: extract(extract(@array, @i), 1);
@@ -22,36 +34,15 @@
 
     @selector: if((@negative = true), ~"-@{prefix}-@{modifier}", ~"@{prefix}-@{modifier}");
 
-    .@{selector} {
+    @variantSelector: if((@variant = default),
+      @selector,
+      if((@variant = 'responsive'),
+        ~"@{variant}\:@{selector}",
+        ~"@{variant}\:@{selector}:@{variant}"));
+
+    .@{variantSelector} {
       .translate-props(@presetList, @value);
     }
-
-    // loop variants
-    .loop-variants (@list, @j: 1) when (@j =< length(@list)) {
-      @variant: extract(@list, @j);
-
-      & when (@variant = 'responsive') {
-        // loop responsive presets
-        @responsiveParams: @presetList @selector @value;
-        .translate-responsive(@theme[@screens], @responsiveParams);
-      }
-
-      & when (@variant = 'hover') {
-        .hover\:@{selector}:hover {
-          .translate-props(@presetList, @value);
-        }
-      }
-
-      & when (@variant = 'focus') {
-        .focus\:@{selector}:focus {
-          .translate-props(@presetList, @value);
-        }
-      }
-
-      .loop-variants(@list, @j + 1);
-    }
-
-    .loop-variants(@variants[@translate]);
 
     .loop-presets(@array, @i + 1);
   }
@@ -59,23 +50,7 @@
   .loop-presets(@preset[@translate]);
 }
 
-.translate-responsive(@screens, @params, @i: 1) when (@i <= length(@screens)) {
-  // extract screen pair
-  @screenSize: e(extract(extract(@screens, @i), 1));
-
-  // extract params
-  @presetList: extract(@params, 1);
-  @selector: extract(@params, 2);
-  @value: extract(@params, 3);
-
-  .@{screenSize}\:@{selector} {
-    .translate-props(@presetList, @value);
-  }
-
-  .translate-responsive(@screens, @params, @i + 1);
-}
-
-.generate-translate(@array, @negative, @i: 1) when (@i =< length(@array)) {
+.generate-translate(@array, @variant, @negative, @i: 1) when (@i =< length(@array)) {
   @pair: extract(@array, @i);
   @key: extract(@pair, 1);
   @value: extract(@pair, 2);
@@ -83,24 +58,51 @@
   @modifier: e(replace(@key, '\/', '\/'));
 
   & when (@negative = true) {
-    .translate-preset(@modifier, 0 - @value, @negative);
+    .translate-preset(@modifier, 0 - @value, @variant, @negative);
   }
 
   & when (@negative = false) {
-    .translate-preset(@modifier, @value, @negative);
+    .translate-preset(@modifier, @value, @variant, @negative);
   }
 
-  .generate-translate(@array, @negative, (@i + 1));
+  .generate-translate(@array, @variant, @negative, (@i + 1));
 }
 
-// generate default positive translate class
-.generate-translate(@theme[@translate], false);
+// loop variants
+.translate-variants (@list, @j: 1) when (@j =< length(@list)) {
+  @variant: extract(@list, @j);
 
-// generate default negative translate class
-.generate-translate(@theme[@translate], true);
+  & when (@variant ='responsive') {
+    // loop responsive presets
+    .translate-responsive(@theme[@screens]);
+  }
 
-// generate positive translate class
-.generate-translate(@theme[@negativeSpacing], false);
+  & when (@variant = 'hover') {
+    .make-translate(@variant);
+  }
 
-// generate negative translate class
-.generate-translate(@theme[@negativeSpacing], true);
+  & when (@variant ='focus') {
+    .make-translate(@variant);
+  }
+
+  .translate-variants(@list, @j + 1);
+}
+
+// generate default/variant translate
+.make-translate(@variant) {
+  // generate default positive translate class
+  .generate-translate(@theme[@translate], @variant, false);
+
+  // generate default negative translate class
+  .generate-translate(@theme[@translate], @variant, true);
+
+  // generate positive translate class
+  .generate-translate(@theme[@negativeSpacing], @variant, false);
+
+  // generate negative translate class
+  .generate-translate(@theme[@negativeSpacing], @variant, true);
+}
+
+.make-translate(default);
+
+.translate-variants(@variants[@translate]);
