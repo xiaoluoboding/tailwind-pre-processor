@@ -1,14 +1,22 @@
 <template>
   <div class="tailwindless container">
-    <div class="mb-6">
+    <div class="mb-6 flex justify-between">
       <button>默认按钮</button>
-    </div>
-    <div class="mb-6">
-      <!-- Using utilities: -->
-      <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="email" placeholder="jane@example.com">
       <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Tailwind Button
       </button>
+    </div>
+    <div class="mb-6">
+      <!-- Using utilities: -->
+      <form class="flex w-full max-w-sm mx-auto">
+        <input class="
+          flex-1 bg-gray-200 hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:shadow-outline focus:border-gray-300
+          appearance-none border border-transparent rounded w-full py-2 px-4 text-gray-700 leading-tight " type="email" placeholder="Your email">
+        <button class="ml-4 flex-shrink-0 bg-teal-500 hover:bg-teal-600 focus:outline-none focus:shadow-outline
+          text-white font-bold py-2 px-4 rounded" type="button">
+          Sign Up
+        </button>
+      </form>
     </div>
     <div class="post-list grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mb-16">
       <div v-for="n in 3" :key="n">
