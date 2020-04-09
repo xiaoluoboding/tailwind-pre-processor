@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
 import 'normalize.css'
-import '@/assets/styles/tailwindless.css'
+import '@/assets/styles/less/tailwindless.css'
 // import '@/assets/styles/index.less'
 
 import App from './App.vue'

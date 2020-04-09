@@ -73,7 +73,7 @@
       .responsive-generator(@theme[@screens]);
     }
 
-    & when (@variant = 'hover') {
+    & when not (@variant = 'hover') {
       .loop-themes(@themePairs, @presetPairs, @variant);
     }
 

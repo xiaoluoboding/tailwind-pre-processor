@@ -972,6 +972,20 @@
   @zIndex: z 'z-index';
 }
 
+@variantTypes:
+  hover 'hover',
+  focus 'focus',
+  active 'active',
+  disabled 'disabled',
+  visited 'visited',
+  first 'first-child',
+  last 'last-child',
+  odd 'nth-child(odd)',
+  even 'nth-child(even)',
+  'group-hover' '',
+  'focus-within' 'focus-within'
+;
+
 @variants: {
   @accessibility: 'responsive', 'focus';
   @alignContent: 'responsive';
@@ -979,7 +993,7 @@
   @alignSelf: 'responsive';
   @appearance: 'responsive';
   @backgroundAttachment: 'responsive';
-  @backgroundColor: 'responsive', 'hover', 'focus';
+  @backgroundColor: 'responsive', 'hover', 'focus', 'active';
   @backgroundPosition: 'responsive';
   @backgroundRepeat: 'responsive';
   @backgroundSize: 'responsive';
