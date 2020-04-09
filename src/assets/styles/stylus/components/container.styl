@@ -1,0 +1,6 @@
+.container
+  width: 100%;
+  // loop, to style media query container
+  for size, width in theme.screens
+    @media (min-width: width)
+      max-width width
