@@ -23,7 +23,7 @@ class-generator($property, $size = null) {
       $property = unquote($presetPairs[1])
 
       getSelector(prefix, modifier, variant) {
-        $positiveSelector = join('-', prefix, modifier)
+        $positiveSelector = (prefix == none) ? modifier : join('-', prefix, replace("\/", "\/", modifier))
 
         if (variant is not null) {
           {variant + "\:" + $positiveSelector + ":" + variant}
@@ -34,15 +34,7 @@ class-generator($property, $size = null) {
       
       $selector = getSelector($prefix, $modifier, $variant)
 
-      getVariantSelector() {
-        if ($size is not null) {
-          {$size + "\:" + $selector}
-        } else {
-          $selector
-        }
-      }
-
-      $classSelector = getVariantSelector()
+      $classSelector = $size is not null ? join('\:', $size, $selector) : $selector
 
       .{$classSelector} {
         {$property} $value
