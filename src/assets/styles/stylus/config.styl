@@ -4,6 +4,124 @@ $screens = {
   lg: '1024px',
   xl: '1280px'
 }
+$colors = {
+  common: {
+    transparent: 'transparent',
+    current: 'currentColor',
+    black: '#000',
+    white: '#fff'
+  },
+  gray: {
+    '100': '#f7fafc',
+    '200': '#edf2f7',
+    '300': '#e2e8f0',
+    '400': '#cbd5e0',
+    '500': '#a0aec0',
+    '600': '#718096',
+    '700': '#4a5568',
+    '800': '#2d3748',
+    '900': '#1a202c',
+  },
+  red: {
+    '100': '#fff5f5',
+    '200': '#fed7d7',
+    '300': '#feb2b2',
+    '400': '#fc8181',
+    '500': '#f56565',
+    '600': '#e53e3e',
+    '700': '#c53030',
+    '800': '#9b2c2c',
+    '900': '#742a2a',
+  },
+  orange: {
+    '100': '#fffaf0',
+    '200': '#feebc8',
+    '300': '#fbd38d',
+    '400': '#f6ad55',
+    '500': '#ed8936',
+    '600': '#dd6b20',
+    '700': '#c05621',
+    '800': '#9c4221',
+    '900': '#7b341e',
+  },
+  yellow: {
+    '100': '#fffff0',
+    '200': '#fefcbf',
+    '300': '#faf089',
+    '400': '#f6e05e',
+    '500': '#ecc94b',
+    '600': '#d69e2e',
+    '700': '#b7791f',
+    '800': '#975a16',
+    '900': '#744210',
+  },
+  green: {
+    '100': '#f0fff4',
+    '200': '#c6f6d5',
+    '300': '#9ae6b4',
+    '400': '#68d391',
+    '500': '#48bb78',
+    '600': '#38a169',
+    '700': '#2f855a',
+    '800': '#276749',
+    '900': '#22543d',
+  },
+  teal: {
+    '100': '#e6fffa',
+    '200': '#b2f5ea',
+    '300': '#81e6d9',
+    '400': '#4fd1c5',
+    '500': '#38b2ac',
+    '600': '#319795',
+    '700': '#2c7a7b',
+    '800': '#285e61',
+    '900': '#234e52',
+  },
+  blue: {
+    '100': '#ebf8ff',
+    '200': '#bee3f8',
+    '300': '#90cdf4',
+    '400': '#63b3ed',
+    '500': '#4299e1',
+    '600': '#3182ce',
+    '700': '#2b6cb0',
+    '800': '#2c5282',
+    '900': '#2a4365',
+  },
+  indigo: {
+    '100': '#ebf4ff',
+    '200': '#c3dafe',
+    '300': '#a3bffa',
+    '400': '#7f9cf5',
+    '500': '#667eea',
+    '600': '#5a67d8',
+    '700': '#4c51bf',
+    '800': '#434190',
+    '900': '#3c366b',
+  },
+  purple: {
+    '100': '#faf5ff',
+    '200': '#e9d8fd',
+    '300': '#d6bcfa',
+    '400': '#b794f4',
+    '500': '#9f7aea',
+    '600': '#805ad5',
+    '700': '#6b46c1',
+    '800': '#553c9a',
+    '900': '#44337a',
+  },
+  pink: {
+    '100': '#fff5f7',
+    '200': '#fed7e2',
+    '300': '#fbb6ce',
+    '400': '#f687b3',
+    '500': '#ed64a6',
+    '600': '#d53f8c',
+    '700': '#b83280',
+    '800': '#97266d',
+    '900': '#702459',
+  }
+}
 $spacing = {
   px: '1px',
   '0': '0',
@@ -25,151 +143,10 @@ $spacing = {
   '56': '14rem',
   '64': '16rem'
 }
+
+$negativeSpacing = negativeMap($spacing)
+
 $theme = {
-  screens: {
-    sm: '640px',
-    md: '768px',
-    lg: '1024px',
-    xl: '1280px'
-  },
-  colors: {
-    transparent: 'transparent',
-    current: 'currentColor',
-    black: '#000',
-    white: '#fff',
-    gray: {
-      '100': '#f7fafc',
-      '200': '#edf2f7',
-      '300': '#e2e8f0',
-      '400': '#cbd5e0',
-      '500': '#a0aec0',
-      '600': '#718096',
-      '700': '#4a5568',
-      '800': '#2d3748',
-      '900': '#1a202c',
-    },
-    red: {
-      '100': '#fff5f5',
-      '200': '#fed7d7',
-      '300': '#feb2b2',
-      '400': '#fc8181',
-      '500': '#f56565',
-      '600': '#e53e3e',
-      '700': '#c53030',
-      '800': '#9b2c2c',
-      '900': '#742a2a',
-    },
-    orange: {
-      '100': '#fffaf0',
-      '200': '#feebc8',
-      '300': '#fbd38d',
-      '400': '#f6ad55',
-      '500': '#ed8936',
-      '600': '#dd6b20',
-      '700': '#c05621',
-      '800': '#9c4221',
-      '900': '#7b341e',
-    },
-    yellow: {
-      '100': '#fffff0',
-      '200': '#fefcbf',
-      '300': '#faf089',
-      '400': '#f6e05e',
-      '500': '#ecc94b',
-      '600': '#d69e2e',
-      '700': '#b7791f',
-      '800': '#975a16',
-      '900': '#744210',
-    },
-    green: {
-      '100': '#f0fff4',
-      '200': '#c6f6d5',
-      '300': '#9ae6b4',
-      '400': '#68d391',
-      '500': '#48bb78',
-      '600': '#38a169',
-      '700': '#2f855a',
-      '800': '#276749',
-      '900': '#22543d',
-    },
-    teal: {
-      '100': '#e6fffa',
-      '200': '#b2f5ea',
-      '300': '#81e6d9',
-      '400': '#4fd1c5',
-      '500': '#38b2ac',
-      '600': '#319795',
-      '700': '#2c7a7b',
-      '800': '#285e61',
-      '900': '#234e52',
-    },
-    blue: {
-      '100': '#ebf8ff',
-      '200': '#bee3f8',
-      '300': '#90cdf4',
-      '400': '#63b3ed',
-      '500': '#4299e1',
-      '600': '#3182ce',
-      '700': '#2b6cb0',
-      '800': '#2c5282',
-      '900': '#2a4365',
-    },
-    indigo: {
-      '100': '#ebf4ff',
-      '200': '#c3dafe',
-      '300': '#a3bffa',
-      '400': '#7f9cf5',
-      '500': '#667eea',
-      '600': '#5a67d8',
-      '700': '#4c51bf',
-      '800': '#434190',
-      '900': '#3c366b',
-    },
-    purple: {
-      '100': '#faf5ff',
-      '200': '#e9d8fd',
-      '300': '#d6bcfa',
-      '400': '#b794f4',
-      '500': '#9f7aea',
-      '600': '#805ad5',
-      '700': '#6b46c1',
-      '800': '#553c9a',
-      '900': '#44337a',
-    },
-    pink: {
-      '100': '#fff5f7',
-      '200': '#fed7e2',
-      '300': '#fbb6ce',
-      '400': '#f687b3',
-      '500': '#ed64a6',
-      '600': '#d53f8c',
-      '700': '#b83280',
-      '800': '#97266d',
-      '900': '#702459',
-    },
-  },
-  spacing: {
-    px: '1px',
-    '0': '0',
-    '1': '0.25rem',
-    '2': '0.5rem',
-    '3': '0.75rem',
-    '4': '1rem',
-    '5': '1.25rem',
-    '6': '1.5rem',
-    '8': '2rem',
-    '10': '2.5rem',
-    '12': '3rem',
-    '16': '4rem',
-    '20': '5rem',
-    '24': '6rem',
-    '32': '8rem',
-    '40': '10rem',
-    '48': '12rem',
-    '56': '14rem',
-    '64': '16rem'
-  },
-  // backgroundColor: theme => theme('colors'),
   alignContent: {
     center: 'center',
     start: 'flex-start',
@@ -200,6 +177,7 @@ $theme = {
     local: 'local',
     scroll: 'scroll'
   },
+  backgroundColor: extend({}, $colors),
   backgroundPosition: {
     bottom: 'bottom',
     center: 'center',
@@ -228,10 +206,7 @@ $theme = {
     collapse: 'collapse',
     separate: 'separate'
   },
-  // borderColor: theme => ({
-  //   ...theme('colors'),
-  //   default: theme('colors.gray.300', 'currentColor'),
-  // }),
+  borderColor: extend({}, $colors),
   borderRadius: {
     none: '0',
     sm: '0.125rem',
@@ -384,6 +359,113 @@ $theme = {
     extrabold: '800',
     black: '900',
   },
+  gap: extend({}, $spacing),
+  gridAutoFlow: {
+    row: 'row',
+    col: 'col',
+    'row-dense': 'row dense',
+    'col-dense': 'column dense'
+  },
+  gridColumn: {
+    auto: 'auto',
+    'span-1': 'span 1 / span 1',
+    'span-2': 'span 2 / span 2',
+    'span-3': 'span 3 / span 3',
+    'span-4': 'span 4 / span 4',
+    'span-5': 'span 5 / span 5',
+    'span-6': 'span 6 / span 6',
+    'span-7': 'span 7 / span 7',
+    'span-8': 'span 8 / span 8',
+    'span-9': 'span 9 / span 9',
+    'span-10': 'span 10 / span 10',
+    'span-11': 'span 11 / span 11',
+    'span-12': 'span 12 / span 12',
+  },
+  gridColumnStart: {
+    auto: 'auto',
+    '1': '1',
+    '2': '2',
+    '3': '3',
+    '4': '4',
+    '5': '5',
+    '6': '6',
+    '7': '7',
+    '8': '8',
+    '9': '9',
+    '10': '10',
+    '11': '11',
+    '12': '12',
+    '13': '13',
+  },
+  gridColumnEnd: {
+    auto: 'auto',
+    '1': '1',
+    '2': '2',
+    '3': '3',
+    '4': '4',
+    '5': '5',
+    '6': '6',
+    '7': '7',
+    '8': '8',
+    '9': '9',
+    '10': '10',
+    '11': '11',
+    '12': '12',
+    '13': '13',
+  },
+  gridRow: {
+    auto: 'auto',
+    'span-1': 'span 1 / span 1',
+    'span-2': 'span 2 / span 2',
+    'span-3': 'span 3 / span 3',
+    'span-4': 'span 4 / span 4',
+    'span-5': 'span 5 / span 5',
+    'span-6': 'span 6 / span 6',
+  },
+  gridRowStart: {
+    auto: 'auto',
+    '1': '1',
+    '2': '2',
+    '3': '3',
+    '4': '4',
+    '5': '5',
+    '6': '6',
+    '7': '7',
+  },
+  gridRowEnd: {
+    auto: 'auto',
+    '1': '1',
+    '2': '2',
+    '3': '3',
+    '4': '4',
+    '5': '5',
+    '6': '6',
+    '7': '7',
+  },
+  gridTemplateColumns: {
+    none: 'none',
+    '1': 'repeat(1, minmax(0, 1fr))',
+    '2': 'repeat(2, minmax(0, 1fr))',
+    '3': 'repeat(3, minmax(0, 1fr))',
+    '4': 'repeat(4, minmax(0, 1fr))',
+    '5': 'repeat(5, minmax(0, 1fr))',
+    '6': 'repeat(6, minmax(0, 1fr))',
+    '7': 'repeat(7, minmax(0, 1fr))',
+    '8': 'repeat(8, minmax(0, 1fr))',
+    '9': 'repeat(9, minmax(0, 1fr))',
+    '10': 'repeat(10, minmax(0, 1fr))',
+    '11': 'repeat(11, minmax(0, 1fr))',
+    '12': 'repeat(12, minmax(0, 1fr))',
+  },
+  gridTemplateRows: {
+    none: 'none',
+    '1': 'repeat(1, minmax(0, 1fr))',
+    '2': 'repeat(2, minmax(0, 1fr))',
+    '3': 'repeat(3, minmax(0, 1fr))',
+    '4': 'repeat(4, minmax(0, 1fr))',
+    '5': 'repeat(5, minmax(0, 1fr))',
+    '6': 'repeat(6, minmax(0, 1fr))',
+  },
   height: extend({
     auto: 'auto',
     full: '100%',
@@ -440,7 +522,7 @@ $theme = {
     full: '100%',
     screen: '100vh',
   },
-  maxWidth: {
+  maxWidth: extend({
     none: 'none',
     xs: '20rem',
     sm: '24rem',
@@ -453,7 +535,7 @@ $theme = {
     '5xl': '64rem',
     '6xl': '72rem',
     full: '100%'
-  },
+  }, $screens),
   minHeight: {
     '0': '0',
     full: '100%',
@@ -462,6 +544,13 @@ $theme = {
   minWidth: {
     '0': '0',
     full: '100%',
+  },
+  objectFit: {
+    contain: 'contain',
+    cover: 'cover',
+    fill: 'fill',
+    none: 'none',
+    'scale-down': 'scale-down'
   },
   objectPosition: {
     bottom: 'bottom',
@@ -498,8 +587,35 @@ $theme = {
     '11': '11',
     '12': '12',
   },
-  // padding: theme => theme('spacing'),
+  outline: {
+    none: '0',
+    auto: 'auto'
+  },
+  overflow: {
+    auto: 'auto',
+    hidden: 'hidden',
+    visible: 'visible',
+    scroll: 'scroll'
+  },
+  padding: extend($spacing),
   // placeholderColor: theme => theme('colors'),
+  pointerEvents: {
+    none: 'none',
+    auto: 'auto'
+  },
+  position: {
+    static: 'static',
+    fixed: 'fixed',
+    absolute: 'absolute',
+    relative: 'relative',
+    sticky: 'sticky'
+  },
+  resize: {
+    none: 'none',
+    default: 'both',
+    y: 'vertical',
+    x: 'horizontal'
+  },
   stroke: {
     current: 'currentColor',
   },
@@ -508,7 +624,80 @@ $theme = {
     '1': '1',
     '2': '2',
   },
-  // textColor: theme => theme('colors'),
+  textAlign: {
+    left: 'left',
+    center: 'center',
+    right: 'right',
+    justify: 'justify'
+  },
+  textColor: extend({}, $colors),
+  textDecoration: {
+    underline: 'underline',
+    'line-through': 'line-through',
+    'no-underline': 'none'
+  },
+  textTransform: {
+    uppercase: 'uppercase',
+    lowercase: 'lowercase',
+    capitalize: 'capitalize',
+    'normal-case': 'none'
+  },
+  transformOrigin: {
+    center: 'center',
+    top: 'top',
+    'top-right': 'top right',
+    right: 'right',
+    'bottom-right': 'bottom right',
+    bottom: 'bottom',
+    'bottom-left': 'bottom left',
+    left: 'left',
+    'top-left': 'top left',
+  },
+  transitionDuration: {
+    '75': '75ms',
+    '100': '100ms',
+    '150': '150ms',
+    '200': '200ms',
+    '300': '300ms',
+    '500': '500ms',
+    '700': '700ms',
+    '1000': '1000ms',
+  },
+  transitionDelay: {
+    '75': '75ms',
+    '100': '100ms',
+    '150': '150ms',
+    '200': '200ms',
+    '300': '300ms',
+    '500': '500ms',
+    '700': '700ms',
+    '1000': '1000ms',
+  }
+  userSelect: {
+    none: 'none',
+    text: 'text',
+    all: 'all',
+    auto: 'auto'
+  },
+  verticalAlign: {
+    baseline: 'baseline',
+    top: 'top',
+    middle: 'middle',
+    bottom: 'bottom',
+    'text-top': 'text-top',
+    'text-bottom': 'text-bottom'
+  },
+  visibility: {
+    visible: 'visible',
+    invisible: 'none'
+  },
+  whitespace: {
+    normal: 'normal',
+    'no-wrap': 'nowrap',
+    pre: 'pre',
+    'pre-line': 'pre-line',
+    'pre-wrap': 'pre-wrap'
+  },
   width: extend({
     auto: 'auto',
     '1/2': '50%',
@@ -540,127 +729,6 @@ $theme = {
     full: '100%',
     screen: '100vw',
   }, $spacing),
-  zIndex: {
-    auto: 'auto',
-    '0': '0',
-    '10': '10',
-    '20': '20',
-    '30': '30',
-    '40': '40',
-    '50': '50',
-  },
-  // gap: extend({}, $spacing),
-  gridTemplateColumns: {
-    none: 'none',
-    '1': 'repeat(1, minmax(0, 1fr))',
-    '2': 'repeat(2, minmax(0, 1fr))',
-    '3': 'repeat(3, minmax(0, 1fr))',
-    '4': 'repeat(4, minmax(0, 1fr))',
-    '5': 'repeat(5, minmax(0, 1fr))',
-    '6': 'repeat(6, minmax(0, 1fr))',
-    '7': 'repeat(7, minmax(0, 1fr))',
-    '8': 'repeat(8, minmax(0, 1fr))',
-    '9': 'repeat(9, minmax(0, 1fr))',
-    '10': 'repeat(10, minmax(0, 1fr))',
-    '11': 'repeat(11, minmax(0, 1fr))',
-    '12': 'repeat(12, minmax(0, 1fr))',
-  },
-  gridColumn: {
-    auto: 'auto',
-    'span-1': 'span 1 / span 1',
-    'span-2': 'span 2 / span 2',
-    'span-3': 'span 3 / span 3',
-    'span-4': 'span 4 / span 4',
-    'span-5': 'span 5 / span 5',
-    'span-6': 'span 6 / span 6',
-    'span-7': 'span 7 / span 7',
-    'span-8': 'span 8 / span 8',
-    'span-9': 'span 9 / span 9',
-    'span-10': 'span 10 / span 10',
-    'span-11': 'span 11 / span 11',
-    'span-12': 'span 12 / span 12',
-  },
-  gridColumnStart: {
-    auto: 'auto',
-    '1': '1',
-    '2': '2',
-    '3': '3',
-    '4': '4',
-    '5': '5',
-    '6': '6',
-    '7': '7',
-    '8': '8',
-    '9': '9',
-    '10': '10',
-    '11': '11',
-    '12': '12',
-    '13': '13',
-  },
-  gridColumnEnd: {
-    auto: 'auto',
-    '1': '1',
-    '2': '2',
-    '3': '3',
-    '4': '4',
-    '5': '5',
-    '6': '6',
-    '7': '7',
-    '8': '8',
-    '9': '9',
-    '10': '10',
-    '11': '11',
-    '12': '12',
-    '13': '13',
-  },
-  gridTemplateRows: {
-    none: 'none',
-    '1': 'repeat(1, minmax(0, 1fr))',
-    '2': 'repeat(2, minmax(0, 1fr))',
-    '3': 'repeat(3, minmax(0, 1fr))',
-    '4': 'repeat(4, minmax(0, 1fr))',
-    '5': 'repeat(5, minmax(0, 1fr))',
-    '6': 'repeat(6, minmax(0, 1fr))',
-  },
-  gridRow: {
-    auto: 'auto',
-    'span-1': 'span 1 / span 1',
-    'span-2': 'span 2 / span 2',
-    'span-3': 'span 3 / span 3',
-    'span-4': 'span 4 / span 4',
-    'span-5': 'span 5 / span 5',
-    'span-6': 'span 6 / span 6',
-  },
-  gridRowStart: {
-    auto: 'auto',
-    '1': '1',
-    '2': '2',
-    '3': '3',
-    '4': '4',
-    '5': '5',
-    '6': '6',
-    '7': '7',
-  },
-  gridRowEnd: {
-    auto: 'auto',
-    '1': '1',
-    '2': '2',
-    '3': '3',
-    '4': '4',
-    '5': '5',
-    '6': '6',
-    '7': '7',
-  },
-  transformOrigin: {
-    center: 'center',
-    top: 'top',
-    'top-right': 'top right',
-    right: 'right',
-    'bottom-right': 'bottom right',
-    bottom: 'bottom',
-    'bottom-left': 'bottom left',
-    left: 'left',
-    'top-left': 'top left',
-  },
   scale: {
     '0': '0',
     '50': '.5',
@@ -682,12 +750,12 @@ $theme = {
     '90': '90deg',
     '180': '180deg',
   },
-  translate: {
+  translate: extend({
     '-full': '-100%',
     '-1/2': '-50%',
     '1/2': '50%',
-    full: '100%',
-  },
+    full: '100%'
+  }, $spacing, $negativeSpacing),
   skew: {
     '-12': '-12deg',
     '-6': '-6deg',
@@ -704,33 +772,22 @@ $theme = {
     colors: 'background-color, border-color, color, fill, stroke',
     opacity: 'opacity',
     shadow: 'box-shadow',
-    transform: 'transform',
+    transform: 'transform'
   },
-  // transitionTimingFunction: {
-  //   linear: 'linear',
-  //   in: 'cubic-bezier(0.4, 0, 1, 1)',
-  //   out: 'cubic-bezier(0, 0, 0.2, 1)',
-  //   'in-out': 'cubic-bezier(0.4, 0, 0.2, 1)',
-  // },
-  transitionDuration: {
-    '75': '75ms',
-    '100': '100ms',
-    '150': '150ms',
-    '200': '200ms',
-    '300': '300ms',
-    '500': '500ms',
-    '700': '700ms',
-    '1000': '1000ms',
+  transitionTimingFunction: {
+    linear: 'linear',
+    'in': 'cubic-bezier(0.4, 0, 1, 1)',
+    out: 'cubic-bezier(0, 0, 0.2, 1)',
+    'in-out': 'cubic-bezier(0.4, 0, 0.2, 1)'
   },
-  transitionDelay: {
-    '75': '75ms',
-    '100': '100ms',
-    '150': '150ms',
-    '200': '200ms',
-    '300': '300ms',
-    '500': '500ms',
-    '700': '700ms',
-    '1000': '1000ms',
+  zIndex: {
+    auto: 'auto',
+    '0': '0',
+    '10': '10',
+    '20': '20',
+    '30': '30',
+    '40': '40',
+    '50': '50'
   }
 }
 
@@ -741,46 +798,46 @@ $preset = {
   alignContent: content 'align-content',
   alignItems: items 'align-items',
   alignSelf: self 'align-self',
-  appearance: appearance 'appearance',
+  // appearance: appearance 'appearance',
   backgroundAttachment: bg 'background-attachment',
-  // backgroundColor: {
-  //   bg: 'background-color',
-  //   'bg-gray': 'background-color',
-  //   'bg-red': 'background-color',
-  //   'bg-orange': 'background-color',
-  //   'bg-yellow': 'background-color',
-  //   'bg-green': 'background-color',
-  //   'bg-teal': 'background-color',
-  //   'bg-blue': 'background-color',
-  //   'bg-indigo': 'background-color',
-  //   'bg-purple': 'background-color',
-  //   'bg-pink': 'background-color'
-  // },
+  backgroundColor: {
+    bg: 'background-color',
+    'bg-gray': 'background-color',
+    'bg-red': 'background-color',
+    'bg-orange': 'background-color',
+    'bg-yellow': 'background-color',
+    'bg-green': 'background-color',
+    'bg-teal': 'background-color',
+    'bg-blue': 'background-color',
+    'bg-indigo': 'background-color',
+    'bg-purple': 'background-color',
+    'bg-pink': 'background-color'
+  },
   backgroundPosition: bg 'background-position',
   backgroundRepeat: bg 'background-repeat',
   backgroundSize: bg 'background-size',
   borderCollapse: border 'border-collapse',
-  // borderColor:
-  //   border 'border-color',
-  //   'border-gray' 'border-color',
-  //   'border-red' 'border-color',
-  //   'border-orange' 'border-color',
-  //   'border-yellow' 'border-color',
-  //   'border-green' 'border-color',
-  //   'border-teal' 'border-color',
-  //   'border-blue' 'border-color',
-  //   'border-indigo' 'border-color',
-  //   'border-purple' 'border-color',
-  //   'border-pink' 'border-color'
-  // ,
+  borderColor: {
+    border: 'border-color',
+    'border-gray': 'border-color',
+    'border-red': 'border-color',
+    'border-orange': 'border-color',
+    'border-yellow': 'border-color',
+    'border-green': 'border-color',
+    'border-teal': 'border-color',
+    'border-blue': 'border-color',
+    'border-indigo': 'border-color',
+    'border-purple': 'border-color',
+    'border-pink': 'border-color'
+  },
   borderStyle: border 'border-style',
-  // borderWidth:
-  //   border 'border-width',
-  //   'border-t' 'border-top-width',
-  //   'border-r' 'border-right-width',
-  //   'border-b' 'border-bottom-width',
-  //   'border-l' 'border-left-width'
-  // ,
+  borderWidth: {
+    border: 'border-width',
+    'border-t': 'border-top-width',
+    'border-r': 'border-right-width',
+    'border-b': 'border-bottom-width',
+    'border-l': 'border-left-width'
+  },
   boxShadow: shadow 'box-shadow',
   boxSizing: box 'box-sizing',
   clear: clear 'clear',
@@ -794,15 +851,15 @@ $preset = {
   flexShrink: 'flex-shrink' 'flex-shrink',
   flexWrap: flex 'flex-wrap',
   float: float 'float',
-  fontFamily: font 'font-family',
+  // fontFamily: font 'font-family',
   fontSize: text 'font-size',
   fontStyle: none 'font-style',
   fontWeight: font 'font-weight',
-  // gap:
-  //   gap gap,
-  //   'row-gap' 'row-gap',
-  //   'column-gap' 'column-gap'
-  // ,
+  gap: {
+    gap: 'gap',
+    'row-gap': 'row-gap',
+    'column-gap': 'column-gap'
+  },
   gridAutoFlow: 'grid-flow' 'grid-auto-flow',
   gridColumn: col 'grid-column',
   gridColumnEnd: 'col-end' 'grid-column-end',
@@ -835,7 +892,7 @@ $preset = {
   // ,
   maxHeight: 'max-h' 'max-height',
   maxWidth: 'max-w' 'max-width',
-  maxWidthScreen: 'max-w-screen''max-width',
+  // maxWidthScreen: 'max-w-screen' 'max-width',
   minHeight: 'min-h' 'min-height',
   minWidth: 'min-w' 'min-width',
   objectFit: object 'object-fit',
@@ -843,49 +900,52 @@ $preset = {
   opacity: opacity 'opacity',
   order: order 'order',
   outline: outline 'outline',
-  // overflow:
-  //   overflow 'overflow',
-  //   'overflow-x' 'overflow-x',
-  //   'overflow-y' 'overflow-y'
-  // ,
-  // padding:
-  //   p 'padding',
-  //   px 'padding-left' 'padding-right',
-  //   py 'padding-top' 'padding-bottom',
-  //   pt 'padding-top',
-  //   pr 'padding-right',
-  //   pb 'padding-bottom',
-  //   pl 'padding-left'
-  // ,
+  overflow: {
+    overflow: 'overflow',
+    'overflow-x': 'overflow-x',
+    'overflow-y': 'overflow-y'
+  },
+  padding: {
+    p: 'padding',
+    // px: {
+    //   'padding-left': 'padding-left',
+    //   'padding-right': 'padding-right'
+    // },
+    // py: 'padding-top' 'padding-bottom',
+    pt: 'padding-top',
+    pr: 'padding-right',
+    pb: 'padding-bottom',
+    pl: 'padding-left'
+  },
   pointerEvents: 'pointer-events' 'pointer-events',
   position: none 'position',
   resize: resize 'resize',
   rotate: rotate '--transform-rotate',
-  // scale:
+  // scale: {
   //   scale '--transform-scale-x' '--transform-scale-y',
   //   'scale-x' '--transform-scale-x',
   //   'scale-y' '--transform-scale-y'
-  // ,
-  // skew:
-  //   'skew-x' '--transform-skew-x',
-  //   'skew-y' '--transform-skew-y'
-  // ,
+  // },
+  skew: {
+    'skew-x': '--transform-skew-x',
+    'skew-y': '--transform-skew-y'
+  },
   stroke: stroke 'stroke',
   strokeWidth: stroke 'stroke-width',
   textAlign: text 'text-align',
-  // textColor:
-  //   text 'color',
-  //   'text-gray' 'color',
-  //   'text-red' 'color',
-  //   'text-orange' 'color',
-  //   'text-yellow' 'color',
-  //   'text-green' 'color',
-  //   'text-teal' 'color',
-  //   'text-blue' 'color',
-  //   'text-indigo' 'color',
-  //   'text-purple' 'color',
-  //   'text-pink' 'color'
-  // ,
+  textColor: {
+    text: 'color',
+    'text-gray': 'color',
+    'text-red': 'color',
+    'text-orange': 'color',
+    'text-yellow': 'color',
+    'text-green': 'color',
+    'text-teal': 'color',
+    'text-blue': 'color',
+    'text-indigo': 'color',
+    'text-purple': 'color',
+    'text-pink': 'color'
+  },
   textDecoration: none 'text-decoration',
   textTransform: none 'text-transform',
   transformOrigin: origin 'transform-origin',
@@ -893,16 +953,16 @@ $preset = {
   transitionDuration: duration 'transition-duration',
   transitionProperty: transition 'transition-property',
   transitionTimingFunction: ease 'transition-timing-function',
-  // translate:
-  //   'translate-x' '--transform-translate-x',
-  //   'translate-y' '--transform-translate-x'
-  // ,
+  translate: {
+    'translate-x': '--transform-translate-x',
+    'translate-y': '--transform-translate-x'
+  },
   userSelect: select 'user-select',
   verticalAlign: align 'vertical-align',
   visibility: visible 'visibility',
   whitespace: whitespace 'white-space',
   width: w 'width',
-  zIndex: z 'z-index',
+  zIndex: z 'z-index'
 }
 
 $variants = {
@@ -996,15 +1056,3 @@ $variants = {
   transitionDuration: 'responsive',
   transitionDelay: 'responsive'
 }
-
-stringish(val)
-  if val is a 'string' or val is a 'ident'
-    true
-  else
-    false
-
-conventValue(val)
-  if stringish(val)
-    unquote(val)
-  else
-    val

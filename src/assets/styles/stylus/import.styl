@@ -1,0 +1,81 @@
+stringish(val)
+  if val is a 'string' or val is a 'ident'
+    true
+  else
+    false
+
+conventValue(val)
+  if stringish(val)
+    unquote(val)
+  else
+    val
+
+isList(expr)
+  if length(expr) > 1
+    true
+  else
+    false
+
+/**
+ * convent opsitive map into negative map
+ * input: {
+     '1': '0.25rem',
+     '2': '0.5rem'
+   }
+ * output: {
+     '-1': '-0.25rem'
+     '-2': '-0.5rem'
+   }
+ */
+negativeMap(map) {
+  hash = {}
+  for key, val in map {
+    $key = '-' + key
+    $val = 0 - val
+    hash[$key] = $val
+  }
+  return hash
+}
+
+// batch import function
+$import($size = null) {
+  for $propAlias, $rules in $preset {
+    if $rules is a 'object' {
+      for key, value in $rules {
+        $themePairs = $theme[$propAlias]
+
+        if ('bg-gray' in $rules) {
+          $color = replace('bg-', '', key)
+          $themePairs = $color is not bg ? $colors[$color] : $colors.common
+        }
+        if ('border-gray' in $rules) {
+          $color = replace('border-', '', key)
+          $themePairs = $color is not border ? $colors[$color] : $colors.common
+        }
+        if ('text-gray' in $rules) {
+          $color = replace('text-', '', key)
+          $themePairs = $color is not text ? $colors[$color] : $colors.common
+        }
+
+        $prefix = unquote(key)
+        $property = unquote(value)
+
+        if ($size is not null) {
+          class-generator($themePairs, $variants[$propAlias], unquote($size), $prefix, $property)
+        } else {
+          // p($property)
+          class-generator($themePairs, $variants[$propAlias], null, $prefix, $property)
+        }
+      }
+    } else {
+      $prefix = unquote($preset[$propAlias][0])
+      $property = unquote($preset[$propAlias][1])
+      if ($size is not null) {
+        class-generator($theme[$propAlias], $variants[$propAlias], unquote($size), $prefix, $property)
+      } else {
+        // p($property)
+        class-generator($theme[$propAlias], $variants[$propAlias], null, $prefix, $property)
+      }
+    }
+  }
+}

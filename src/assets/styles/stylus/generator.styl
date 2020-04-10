@@ -4,26 +4,26 @@
  * Author: xiaoluoboding
  * Code for fun!
  */
-class-generator($property, $size = null) {
-  // find the right property configuration
-  $themePairs = $theme[$property]
-  $presetPairs = $preset[$property]
-  $variantList = $variants[$property]
-
+class-generator($themePairs, $variantList, $size = null, $prefix, $property) {
   // loop theme pairs
   loop-themes($variant = null) {
     // p($variant)
     for key, value in $themePairs {
       // unquote theme pairs
-      $modifier = key
+      $modifier = replace('\/', '\/', key)
       $value = conventValue(value)
 
-      // unquote perset pairs
-      $prefix = unquote($presetPairs[0])
-      $property = unquote($presetPairs[1])
-
       getSelector(prefix, modifier, variant) {
-        $positiveSelector = (prefix == none) ? modifier : join('-', prefix, replace("\/", "\/", modifier))
+        positive-negative(prefix, modifier) {
+          if (match('^-', modifier)) {
+            // negative selector
+            '-' + prefix + modifier
+          } else {
+            // positive selector
+            join('-', prefix, modifier)
+          }
+        }
+        $positiveSelector = (prefix == none) ? modifier : (modifier == default) ? prefix : positive-negative(prefix, modifier)
 
         if (variant is not null) {
           {variant + "\:" + $positiveSelector + ":" + variant}
@@ -45,9 +45,9 @@ class-generator($property, $size = null) {
   loop-themes()
 
   loop-variants() {
-    for variant in $variantList {
-      if (variant is not 'responsive') {
-        loop-themes(variant)
+    for $variant in $variantList {
+      if ($variant is not 'responsive') {
+        loop-themes($variant)
       }
     }
   }
