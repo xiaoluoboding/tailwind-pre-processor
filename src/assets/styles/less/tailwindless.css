@@ -1,5 +1,23 @@
 /**
  * [Utility First Class (Less Version)]
+ * Utils: class-generator
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+/**
+ * [@params]: theme pairs
+ * [@params]: preset pairs
+ * [@params]: variants eg: responsive
+ * [@params]: mode default/variant/both. default is both
+ */
+/**
+ * Utility First Class (Less Version)]
+ * Theme: tailwindless
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+/**
+ * [Utility First Class (Less Version)]
  * Variable: Tailwindcss Color Palette
  * Author: xiaoluoboding
  * Code for fun!
@@ -522,29 +540,39 @@ video {
   max-width: 100%;
   height: auto;
 }
-/*# sourceMappingURL=base.css.map */
+/**
+ * [Utility First Class (Less Version)]
+ * Component: container
+ * Author: xiaoluoboding
+ * Code for fun!
+ */
+.container {
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
 /**
  * [Utility First Class (Less Version)]
  * Author: xiaoluoboding
  * Code for fun!
- */
-/**
- * Utility First Class (Less Version)]
- * Theme: tailwindless
- * Author: xiaoluoboding
- * Code for fun!
- */
-/**
- * [Utility First Class (Less Version)]
- * Utils: class-generator
- * Author: xiaoluoboding
- * Code for fun!
- */
-/**
- * [@params]: theme pairs
- * [@params]: preset pairs
- * [@params]: variants eg: responsive
- * [@params]: mode default/variant/both. default is both
  */
 /**
  * [Utility First Class (Less Version)]
@@ -7201,35 +7229,6 @@ video {
 }
 /**
  * [Utility First Class (Less Version)]
- * Component: container
- * Author: xiaoluoboding
- * Code for fun!
- */
-.container {
-  width: 100%;
-}
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
-}
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
-}
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
-}
-/**
- * [Utility First Class (Less Version)]
  * Property: cursor
  * Author: xiaoluoboding
  * Code for fun!
@@ -10995,6 +10994,44 @@ video {
   }
   .xl\:bottom-auto {
     bottom: auto;
+  }
+}
+.left-0 {
+  left: 0;
+}
+.left-auto {
+  left: auto;
+}
+@media (min-width: 640px) {
+  .sm\:left-0 {
+    left: 0;
+  }
+  .sm\:left-auto {
+    left: auto;
+  }
+}
+@media (min-width: 768px) {
+  .md\:left-0 {
+    left: 0;
+  }
+  .md\:left-auto {
+    left: auto;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\:left-0 {
+    left: 0;
+  }
+  .lg\:left-auto {
+    left: auto;
+  }
+}
+@media (min-width: 1280px) {
+  .xl\:left-0 {
+    left: 0;
+  }
+  .xl\:left-auto {
+    left: auto;
   }
 }
 /**
