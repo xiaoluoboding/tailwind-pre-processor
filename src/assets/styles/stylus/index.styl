@@ -1,20 +1,12 @@
-@import import;
+// tailwindstylus utils
+@import utils;
 
+// Reference tailwindcss defaultConfig.stub.js
 @import config;
 
-@import generator;
+// Reference tailwindcss core concepts
+@import base;
 
-// @import components; // pass
+@import components;
 
-// @import utilities;
-
-// generate basic class
-$import()
-p(length($preset))
-
-// loop the responsive variant
-for $size, $width in $screens {
-  @media (min-width: $width) {
-    $import($size)
-  }
-}
+@import utilities;

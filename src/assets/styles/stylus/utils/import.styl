@@ -1,0 +1,51 @@
+/**
+ * batch import function
+ */
+$import(size = null) {
+  $size = size == null ? size : unquote(size)
+  for $propAlias, $rules in $preset {
+    if $rules is a 'object' {
+      /**
+       * eg. overflow: {
+               overflow: 'overflow',
+               'overflow-x': 'overflow-x',
+               'overflow-y': 'overflow-y'
+             }
+       * $prefixes = overflow 'overflow-x' 'overflow-y'
+       * $properites = overflow 'overflow-x' 'overflow-y'
+       */
+      for key, value in $rules {
+        $colorPrefixes = 'bg' 'border' 'text' 'placeholder'
+
+        $themePairs = $theme[$propAlias]
+
+        // get the right color themePairs
+        for prefix in $colorPrefixes {
+          if ((prefix + '-gray') in $rules) {
+            $color = replace((prefix + '-'), '', key)
+            $themePairs = $color is not prefix ? $colors[$color] : $colors.common
+          }
+        }
+
+        $prefix = unquote(key)
+        $property = value
+
+        if (match('^placeholder', $prefix)) {
+          placeholder-generator($themePairs, $variants[$propAlias], $size, $prefix, $property)
+        } else {
+          class-generator($themePairs, $variants[$propAlias], $size, $prefix, $property)
+        }
+      }
+    } else {
+      /**
+       * eg. textAlign: text 'text-align'
+       * $prefix = text
+       * $property = text-align
+       */
+      $prefix = unquote($rules[0])
+      $property = unquote($rules[1])
+
+      class-generator($theme[$propAlias], $variants[$propAlias], $size, $prefix, $property)
+    }
+  }
+}

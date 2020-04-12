@@ -1,0 +1,122 @@
+/**
+ * [Utility First Class (Stylus Version)]
+ * Function: Utility class generator like tailwindcss but in pure stylus.
+ * Author: xiaoluoboding
+ * Params: [$themePairs]
+ *     eg: textAlign: {
+             left: 'left',
+             center: 'center',
+             right: 'right',
+             justify: 'justify'
+           }
+ * Params: [[$variantList]]
+ *     eg: textAlign: 'responsive'
+ * Params: [$size]
+ *     eg: sm, md, lg, xl
+ * Params: [$prefix]
+ *     eg: text
+ * Params: [$property]
+ *     eg: text-align
+ * Code for fun!
+ */
+class-generator($themePairs, $variantList, $size = null, $prefix, $property) {
+  // loop theme pairs
+  loop-themes($variant = null) {
+    // p($variant)
+    for key, value in $themePairs {
+      // unquote theme pairs
+      $modifier = replace('\/', '\/', key)
+      $value = conventString(value)
+
+      getSelector(prefix, modifier, variant) {
+        positive-negative(prefix, modifier) {
+          if (match('^-', modifier)) {
+            // negative selector
+            '-' + prefix + modifier
+          } else {
+            // positive selector
+            join('-', prefix, modifier)
+          }
+        }
+        $positiveSelector = (prefix == none) ? modifier : (modifier == default) ? prefix : positive-negative(prefix, modifier)
+
+        if (variant is not null) {
+          {variant + "\:" + $positiveSelector + ":" + variant}
+        } else {
+          $positiveSelector
+        }
+      }
+      
+      $selector = getSelector($prefix, $modifier, $variant)
+
+      $classSelector = $size is not null ? join('\:', $size, $selector) : $selector
+
+      .{$classSelector} {
+        if (typeof($property) is 'object') {
+          // generate multiple line properties class
+          for $prop in keys($property) {
+            {$prop} $value
+          }
+        } else {
+          // generate only one line property class
+          {$property} $value
+        } 
+      }
+    }
+  }
+
+  loop-themes()
+
+  loop-variants() {
+    for $variant in $variantList {
+      if ($variant is not 'responsive') {
+        loop-themes($variant)
+      }
+    }
+  }
+
+  loop-variants()
+}
+
+placeholder-generator($themePairs, $variantList, $size = null, $prefix, $property) {
+  // .placeholder-gray-color:-ms-input-placeholder
+  // .placeholder-gray-color::-ms-input-placeholder
+  // .placeholder-gray-color::placeholder
+  loop-themes($variant = null) {
+    $pseudoList = ':-ms-input-placeholder' '::-ms-input-placeholder' '::placeholder'
+    for key, value in $themePairs {
+      // unquote theme pairs
+      $modifier = replace('\/', '\/', key)
+      $value = conventString(value)
+
+      // seems like "placeholder-gray-color"
+      $basicSelector = join('-', $prefix, $modifier)
+      // seems like "sm\:placeholder-gray-color"
+      $responsiveSelector = join('\:', $size, $basicSelector)
+
+      $selector = ($size == null) ? $basicSelector : $responsiveSelector
+
+      // seems like "focus\:placeholder-gray-color:focus"
+      $class = $variant == null ? $selector : ($variant + "\:" + $selector + ":" + $variant)
+      
+      for $pseudo in $pseudoList {
+        // seems like .placeholder-gray-color::placeholder
+        .{$class}{$pseudo} {
+          {$property} $value
+        }
+      }
+    }
+  }
+
+  loop-themes()
+
+  loop-variants() {
+    for $variant in $variantList {
+      if ($variant is not 'responsive') {
+        loop-themes($variant)
+      }
+    }
+  }
+
+  loop-variants()
+}

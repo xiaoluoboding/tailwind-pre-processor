@@ -1,0 +1,20 @@
+/**
+ * convent opsitive map pairs into negative map pairs
+ * input: {
+     '1': '0.25rem',
+     '2': '0.5rem'
+   }
+ * output: {
+     '-1': '-0.25rem'
+     '-2': '-0.5rem'
+   }
+ */
+negativeMap(map) {
+  hash = {}
+  for key, val in map {
+    $key = '-' + key
+    $val = 0 - val
+    hash[$key] = $val
+  }
+  return hash
+}

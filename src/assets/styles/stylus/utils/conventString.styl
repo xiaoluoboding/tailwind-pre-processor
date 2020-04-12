@@ -1,0 +1,11 @@
+stringish(val)
+  if val is a 'string' or val is a 'ident'
+    true
+  else
+    false
+
+conventString(val)
+  if stringish(val)
+    unquote(val)
+  else
+    val

@@ -4,16 +4,21 @@
  * Code for fun!
  */
 
-// @import './alignContent.styl';
+// generate basic class
+p('------ Generator Begin Work ------')
 
-// @import './alignItems.styl';
+$import()
+$cardinality = toFixed(100 / (length($screens) + 1))
+p('------ Progress ' + $cardinality + '% ------')
 
-// @import './alignSelf.styl';
+// loop the responsive variant
+for $size, $width in $screens {
+  $sizes = keys($screens)
+  $index = index($sizes, $size)
+  @media (min-width: unquote($width)) {
+    $import($size)
+  }
+  p('------ Progress ' + $cardinality * ($index + 2) + '% ------')
+}
 
-// @import './appearance.styl';
-
-// @import './backgroundAttachment.styl';
-
-// @import './backgroundPosition.styl';
-
-// @import './backgroundSize.styl';
+p('------ Generate ' + length($preset) + ' Properties Done! ------')

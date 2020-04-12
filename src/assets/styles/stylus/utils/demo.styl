@@ -1,0 +1,18 @@
+// loop map
+fontFamily = {
+  sans: unquote(join(', ', ('system-ui' '-apple-system' 'BlinkMacSystemFont' '"Segoe UI"' 'Roboto' '"Helvetica Neue"' 'Arial' '"Noto Sans"' 'sans-serif' '"Apple Color Emoji"' '"Segoe UI Emoji"' '"Segoe UI Symbol"' '"Noto Color Emoji"'))),
+  seif: unquote(join(', ', ('Georgia' 'Cambria' '"Times New Roman"' 'Times' 'serif'))),
+  mono: unquote(join(', ', ('Menlo' 'Monaco' 'Consolas' '"Liberation Mono"' '"Courier New"' 'monospace'))),
+}
+
+for key, val in fontFamily
+ .font-{key}
+   font-family val
+
+
+// loop list
+$pseudoList = ':-ms-input-placeholder' '::-ms-input-placeholder' '::placeholder'
+
+for pseudo in $pseudoList
+  .placeholder{pseudo}
+    color transparent
