@@ -1,0 +1,42 @@
+/**
+ * loop theme pairs
+ */
+@mixin loop-themes($themePairs, $size, $prefix, $property, $variant) {
+
+  @each $key, $value in $themePairs {
+    $baseClass: str-join('-', $prefix, $key);
+
+    $selector: if(
+      $size == null,
+      $baseClass,
+      str-join('\\:', $size, $baseClass)
+    );
+  
+    .#{$selector} {
+      #{$property}: #{$value}
+    }
+  }
+
+}
+
+/**
+ * loop variants
+ */
+@mixin loop-variants($themePairs, $variantList, $size, $prefix, $property) {
+
+  @each $variant in $variantList {
+    @if ($variant != 'responsive') {
+      @include loop-themes($themePairs, $size, $prefix, $property, $variant);
+    }
+  }
+
+}
+
+
+@mixin class-generator($themePairs, $variantList, $size, $prefix, $property) {
+
+  @include loop-themes($themePairs, $size, $prefix, $property, null);
+
+  @include loop-variants($themePairs, $variantList, $size, $prefix, $property);
+
+}

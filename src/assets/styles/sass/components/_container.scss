@@ -1,0 +1,9 @@
+.container {
+  width: 100%;
+
+  @each $size, $width in $screens {
+    @media (min-width: $width) {
+      max-width: $width;
+    }
+  }
+}

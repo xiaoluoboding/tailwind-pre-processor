@@ -1,0 +1,421 @@
+/**
+ * extend string function [str-join]
+ */
+/**
+ * loop theme pairs
+ */
+/**
+ * loop variants
+ */
+/**
+ * Declare [prefix properties] Pairs
+ */
+/**
+ * batch import utilities function
+ */
+.content-center {
+  align-content: center;
+}
+
+.content-start {
+  align-content: flex-start;
+}
+
+.content-end {
+  align-content: flex-end;
+}
+
+.content-between {
+  align-content: space-between;
+}
+
+.content-around {
+  align-content: space-around;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-baseline {
+  align-items: baseline;
+}
+
+.items-stretch {
+  align-items: stretch;
+}
+
+.self-auto {
+  align-self: auto;
+}
+
+.self-start {
+  align-self: flex-start;
+}
+
+.self-end {
+  align-self: flex-end;
+}
+
+.self-center {
+  align-self: center;
+}
+
+.self-stretch {
+  align-self: stretch;
+}
+
+.appearance-none {
+  appearance: none;
+}
+
+.appearance-unset {
+  appearance: unset;
+}
+
+.bg-fixed {
+  background-attachment: fixed;
+}
+
+.bg-local {
+  background-attachment: local;
+}
+
+.bg-scroll {
+  background-attachment: scroll;
+}
+
+@media (min-width: 640px) {
+  .sm\:content-center {
+    align-content: center;
+  }
+
+  .sm\:content-start {
+    align-content: flex-start;
+  }
+
+  .sm\:content-end {
+    align-content: flex-end;
+  }
+
+  .sm\:content-between {
+    align-content: space-between;
+  }
+
+  .sm\:content-around {
+    align-content: space-around;
+  }
+
+  .sm\:items-start {
+    align-items: flex-start;
+  }
+
+  .sm\:items-end {
+    align-items: flex-end;
+  }
+
+  .sm\:items-center {
+    align-items: center;
+  }
+
+  .sm\:items-baseline {
+    align-items: baseline;
+  }
+
+  .sm\:items-stretch {
+    align-items: stretch;
+  }
+
+  .sm\:self-auto {
+    align-self: auto;
+  }
+
+  .sm\:self-start {
+    align-self: flex-start;
+  }
+
+  .sm\:self-end {
+    align-self: flex-end;
+  }
+
+  .sm\:self-center {
+    align-self: center;
+  }
+
+  .sm\:self-stretch {
+    align-self: stretch;
+  }
+
+  .sm\:appearance-none {
+    appearance: none;
+  }
+
+  .sm\:appearance-unset {
+    appearance: unset;
+  }
+
+  .sm\:bg-fixed {
+    background-attachment: fixed;
+  }
+
+  .sm\:bg-local {
+    background-attachment: local;
+  }
+
+  .sm\:bg-scroll {
+    background-attachment: scroll;
+  }
+}
+@media (min-width: 768px) {
+  .md\:content-center {
+    align-content: center;
+  }
+
+  .md\:content-start {
+    align-content: flex-start;
+  }
+
+  .md\:content-end {
+    align-content: flex-end;
+  }
+
+  .md\:content-between {
+    align-content: space-between;
+  }
+
+  .md\:content-around {
+    align-content: space-around;
+  }
+
+  .md\:items-start {
+    align-items: flex-start;
+  }
+
+  .md\:items-end {
+    align-items: flex-end;
+  }
+
+  .md\:items-center {
+    align-items: center;
+  }
+
+  .md\:items-baseline {
+    align-items: baseline;
+  }
+
+  .md\:items-stretch {
+    align-items: stretch;
+  }
+
+  .md\:self-auto {
+    align-self: auto;
+  }
+
+  .md\:self-start {
+    align-self: flex-start;
+  }
+
+  .md\:self-end {
+    align-self: flex-end;
+  }
+
+  .md\:self-center {
+    align-self: center;
+  }
+
+  .md\:self-stretch {
+    align-self: stretch;
+  }
+
+  .md\:appearance-none {
+    appearance: none;
+  }
+
+  .md\:appearance-unset {
+    appearance: unset;
+  }
+
+  .md\:bg-fixed {
+    background-attachment: fixed;
+  }
+
+  .md\:bg-local {
+    background-attachment: local;
+  }
+
+  .md\:bg-scroll {
+    background-attachment: scroll;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\:content-center {
+    align-content: center;
+  }
+
+  .lg\:content-start {
+    align-content: flex-start;
+  }
+
+  .lg\:content-end {
+    align-content: flex-end;
+  }
+
+  .lg\:content-between {
+    align-content: space-between;
+  }
+
+  .lg\:content-around {
+    align-content: space-around;
+  }
+
+  .lg\:items-start {
+    align-items: flex-start;
+  }
+
+  .lg\:items-end {
+    align-items: flex-end;
+  }
+
+  .lg\:items-center {
+    align-items: center;
+  }
+
+  .lg\:items-baseline {
+    align-items: baseline;
+  }
+
+  .lg\:items-stretch {
+    align-items: stretch;
+  }
+
+  .lg\:self-auto {
+    align-self: auto;
+  }
+
+  .lg\:self-start {
+    align-self: flex-start;
+  }
+
+  .lg\:self-end {
+    align-self: flex-end;
+  }
+
+  .lg\:self-center {
+    align-self: center;
+  }
+
+  .lg\:self-stretch {
+    align-self: stretch;
+  }
+
+  .lg\:appearance-none {
+    appearance: none;
+  }
+
+  .lg\:appearance-unset {
+    appearance: unset;
+  }
+
+  .lg\:bg-fixed {
+    background-attachment: fixed;
+  }
+
+  .lg\:bg-local {
+    background-attachment: local;
+  }
+
+  .lg\:bg-scroll {
+    background-attachment: scroll;
+  }
+}
+@media (min-width: 1280px) {
+  .xl\:content-center {
+    align-content: center;
+  }
+
+  .xl\:content-start {
+    align-content: flex-start;
+  }
+
+  .xl\:content-end {
+    align-content: flex-end;
+  }
+
+  .xl\:content-between {
+    align-content: space-between;
+  }
+
+  .xl\:content-around {
+    align-content: space-around;
+  }
+
+  .xl\:items-start {
+    align-items: flex-start;
+  }
+
+  .xl\:items-end {
+    align-items: flex-end;
+  }
+
+  .xl\:items-center {
+    align-items: center;
+  }
+
+  .xl\:items-baseline {
+    align-items: baseline;
+  }
+
+  .xl\:items-stretch {
+    align-items: stretch;
+  }
+
+  .xl\:self-auto {
+    align-self: auto;
+  }
+
+  .xl\:self-start {
+    align-self: flex-start;
+  }
+
+  .xl\:self-end {
+    align-self: flex-end;
+  }
+
+  .xl\:self-center {
+    align-self: center;
+  }
+
+  .xl\:self-stretch {
+    align-self: stretch;
+  }
+
+  .xl\:appearance-none {
+    appearance: none;
+  }
+
+  .xl\:appearance-unset {
+    appearance: unset;
+  }
+
+  .xl\:bg-fixed {
+    background-attachment: fixed;
+  }
+
+  .xl\:bg-local {
+    background-attachment: local;
+  }
+
+  .xl\:bg-scroll {
+    background-attachment: scroll;
+  }
+}
+
+/*# sourceMappingURL=tailwindsass.css.map */

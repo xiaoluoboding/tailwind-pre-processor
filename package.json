@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "lessc": "lessc src/assets/styles/less/index.less > src/assets/styles/less/tailwindless.css",
-    "stylc": "stylus src/assets/styles/stylus/index.styl -m -o src/assets/styles/stylus/tailwindstylus.css"
+    "stylc": "stylus src/assets/styles/stylus/index.styl -m -o src/assets/styles/stylus/tailwindstylus.css",
+    "sassc": "sass src/assets/styles/sass/index.scss src/assets/styles/sass/tailwindsass.css"
   },
   "dependencies": {
     "core-js": "^3.6.4",

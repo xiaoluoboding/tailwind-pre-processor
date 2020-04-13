@@ -1,0 +1,24 @@
+/**
+ * batch import utilities function
+ */
+@mixin importUtilities($size) {
+
+  @each $propAlias, $rules in $preset {
+    $themePairs: map-get($theme, $propAlias);
+    $variantList: map-get($variants, $propAlias);
+    $prefix: nth($rules, 1);
+    $property: nth($rules, 2);
+
+    @include class-generator($themePairs, $variantList, $size, $prefix, $property);
+  }
+
+}
+
+@include importUtilities(null);
+
+// generate responsive utilities
+@each $size, $width in $screens {
+  @media (min-width: $width) {
+    @include importUtilities($size);
+  }
+}
