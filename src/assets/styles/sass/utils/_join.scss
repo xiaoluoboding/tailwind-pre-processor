@@ -1,6 +1,0 @@
-/**
- * extend string function [str-join]
- */
-@function str-join($joiner, $prev, $next) {
-  @return $prev + $joiner + $next;
-}

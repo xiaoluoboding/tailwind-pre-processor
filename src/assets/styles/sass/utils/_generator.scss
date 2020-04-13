@@ -1,16 +1,50 @@
+@function get-selector($prefix, $modifier, $variant, $size) {
+  // replace modifier, turn 1/2 into 1\/2
+  $replacedModifier: str-replace($modifier, '\/', '\\\/');
+  // get positive or negative class
+  $baseClass: if(
+    str-begin-with($replacedModifier, '-'),
+    str-join($prefix, '-', $replacedModifier),
+    str-join('-', $prefix, $replacedModifier)
+  );
+
+  $rightModifier: if(
+    $modifier == 'default',
+    $prefix,
+    $baseClass
+  );
+
+  $rightPrefix: if(
+    $prefix == 'none',
+    $modifier,
+    $rightModifier
+  );
+
+  $rightVariant: if(
+    $variant == null,
+    $rightPrefix,
+    $variant+'\\:'+$rightPrefix+':'+$variant
+  );
+
+  $selector: if(
+    $size == null,
+    $rightVariant,
+    str-join('\\:', $size, $rightVariant)
+  );
+
+  @return $selector;
+}
+
 /**
  * loop theme pairs
  */
 @mixin loop-themes($themePairs, $size, $prefix, $property, $variant) {
 
-  @each $key, $value in $themePairs {
-    $baseClass: str-join('-', $prefix, $key);
+  @each $modifier, $value in $themePairs {
+    // get the right selector
+    $selector: get-selector($prefix, $modifier, $variant, $size);
 
-    $selector: if(
-      $size == null,
-      $baseClass,
-      str-join('\\:', $size, $baseClass)
-    );
+    @debug $property;
   
     .#{$selector} {
       #{$property}: #{$value}

@@ -1,15 +1,31 @@
 /**
  * batch import utilities function
  */
-@mixin importUtilities($size) {
+@mixin importUtilities($size: null) {
 
   @each $propAlias, $rules in $preset {
     $themePairs: map-get($theme, $propAlias);
     $variantList: map-get($variants, $propAlias);
-    $prefix: nth($rules, 1);
-    $property: nth($rules, 2);
 
-    @include class-generator($themePairs, $variantList, $size, $prefix, $property);
+    /**
+     * eg. overflow: {
+             overflow: 'overflow',
+             'overflow-x': 'overflow-x',
+             'overflow-y': 'overflow-y'
+           }
+     * $prefixes = overflow 'overflow-x' 'overflow-y'
+     * $properites = overflow 'overflow-x' 'overflow-y'
+     */
+    @if (type-of($rules) == 'map') {
+      @each $prefix, $property in $rules {
+        @include class-generator($themePairs, $variantList, $size, $prefix, $property);
+      }
+    } @else {
+      $prefix: nth($rules, 1);
+      $property: nth($rules, 2);
+
+      @include class-generator($themePairs, $variantList, $size, $prefix, $property);
+    }
   }
 
 }

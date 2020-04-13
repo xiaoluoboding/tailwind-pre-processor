@@ -1,0 +1,10 @@
+/// extend string function [str-join]
+/// @author {xiaoluoboding}
+/// @param {string} $joiner
+/// @param {string} $before
+/// @param {string} $after
+/// @return {string} - Updated string
+
+@function str-join($joiner, $before, $after) {
+  @return $before+$joiner+$after;
+}

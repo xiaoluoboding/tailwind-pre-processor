@@ -1,0 +1,10 @@
+/// extend string function [str-begin-with]
+/// @author {xiaoluoboding}
+/// @param {string} $joiner
+/// @param {string} $before
+/// @param {string} $after
+/// @return {Boolean} - true or false
+
+@function str-begin-with($str, $substr) {
+  @return str-index($str, $substr)==1;
+}
