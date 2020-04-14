@@ -35,27 +35,34 @@
   @return $selector;
 }
 
-/**
- * loop theme pairs
- */
+/// 
+/// loop theme pairs
+/// 
 @mixin loop-themes($themePairs, $size, $prefix, $property, $variant) {
 
   @each $modifier, $value in $themePairs {
     // get the right selector
     $selector: get-selector($prefix, $modifier, $variant, $size);
 
-    @debug $property;
+    @debug $selector;
   
     .#{$selector} {
-      #{$property}: #{$value}
+      @if (type-of($property) == 'map') {
+        // generate multiple line properties class
+        @each $prop in map-keys($property) {
+          #{$prop}: #{$value}
+        }
+      } @else {
+        #{$property}: #{$value}
+      }
     }
   }
 
 }
 
-/**
- * loop variants
- */
+/// 
+/// loop variants
+/// 
 @mixin loop-variants($themePairs, $variantList, $size, $prefix, $property) {
 
   @each $variant in $variantList {

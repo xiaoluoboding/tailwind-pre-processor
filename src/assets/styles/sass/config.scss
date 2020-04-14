@@ -5,13 +5,13 @@ $screens: (
   'xl': 1280px
 );
 $colors: (
-  common: (
-    transparent: 'transparent',
-    current: 'currentColor',
-    black: '#000',
-    white: '#fff'
+  'common': (
+    'transparent': 'transparent',
+    'current': 'currentColor',
+    'black': '#000',
+    'white': '#fff'
   ),
-  gray: (
+  'gray': (
     '100': '#f7fafc',
     '200': '#edf2f7',
     '300': '#e2e8f0',
@@ -20,9 +20,9 @@ $colors: (
     '600': '#718096',
     '700': '#4a5568',
     '800': '#2d3748',
-    '900': '#1a202c',
+    '900': '#1a202c'
   ),
-  red: (
+  'red': (
     '100': '#fff5f5',
     '200': '#fed7d7',
     '300': '#feb2b2',
@@ -31,9 +31,9 @@ $colors: (
     '600': '#e53e3e',
     '700': '#c53030',
     '800': '#9b2c2c',
-    '900': '#742a2a',
+    '900': '#742a2a'
   ),
-  orange: (
+  'orange': (
     '100': '#fffaf0',
     '200': '#feebc8',
     '300': '#fbd38d',
@@ -42,9 +42,9 @@ $colors: (
     '600': '#dd6b20',
     '700': '#c05621',
     '800': '#9c4221',
-    '900': '#7b341e',
+    '900': '#7b341e'
   ),
-  yellow: (
+  'yellow': (
     '100': '#fffff0',
     '200': '#fefcbf',
     '300': '#faf089',
@@ -53,9 +53,9 @@ $colors: (
     '600': '#d69e2e',
     '700': '#b7791f',
     '800': '#975a16',
-    '900': '#744210',
+    '900': '#744210'
   ),
-  green: (
+  'green': (
     '100': '#f0fff4',
     '200': '#c6f6d5',
     '300': '#9ae6b4',
@@ -64,9 +64,9 @@ $colors: (
     '600': '#38a169',
     '700': '#2f855a',
     '800': '#276749',
-    '900': '#22543d',
+    '900': '#22543d'
   ),
-  teal: (
+  'teal': (
     '100': '#e6fffa',
     '200': '#b2f5ea',
     '300': '#81e6d9',
@@ -75,9 +75,9 @@ $colors: (
     '600': '#319795',
     '700': '#2c7a7b',
     '800': '#285e61',
-    '900': '#234e52',
+    '900': '#234e52'
   ),
-  blue: (
+  'blue': (
     '100': '#ebf8ff',
     '200': '#bee3f8',
     '300': '#90cdf4',
@@ -86,9 +86,9 @@ $colors: (
     '600': '#3182ce',
     '700': '#2b6cb0',
     '800': '#2c5282',
-    '900': '#2a4365',
+    '900': '#2a4365'
   ),
-  indigo: (
+  'indigo': (
     '100': '#ebf4ff',
     '200': '#c3dafe',
     '300': '#a3bffa',
@@ -99,7 +99,7 @@ $colors: (
     '800': '#434190',
     '900': '#3c366b',
   ),
-  purple: (
+  'purple': (
     '100': '#faf5ff',
     '200': '#e9d8fd',
     '300': '#d6bcfa',
@@ -108,9 +108,9 @@ $colors: (
     '600': '#805ad5',
     '700': '#6b46c1',
     '800': '#553c9a',
-    '900': '#44337a',
+    '900': '#44337a'
   ),
-  pink: (
+  'pink': (
     '100': '#fff5f7',
     '200': '#fed7e2',
     '300': '#fbb6ce',
@@ -119,7 +119,7 @@ $colors: (
     '600': '#d53f8c',
     '700': '#b83280',
     '800': '#97266d',
-    '900': '#702459',
+    '900': '#702459'
   )
 );
 $spacing: (
@@ -785,59 +785,59 @@ $preset: (
   alignSelf: ('self', 'align-self'),
   appearance: ('appearance', 'appearance'),
   backgroundAttachment: ('bg', 'background-attachment'),
-  // backgroundColor: (
-  //   bg: 'background-color',
-  //   'bg-gray': 'background-color',
-  //   'bg-red': 'background-color',
-  //   'bg-orange': 'background-color',
-  //   'bg-yellow': 'background-color',
-  //   'bg-green': 'background-color',
-  //   'bg-teal': 'background-color',
-  //   'bg-blue': 'background-color',
-  //   'bg-indigo': 'background-color',
-  //   'bg-purple': 'background-color',
-  //   'bg-pink': 'background-color'
-  // ),
+  backgroundColor: (
+    'bg': 'background-color',
+    'bg-gray': 'background-color',
+    'bg-red': 'background-color',
+    'bg-orange': 'background-color',
+    'bg-yellow': 'background-color',
+    'bg-green': 'background-color',
+    'bg-teal': 'background-color',
+    'bg-blue': 'background-color',
+    'bg-indigo': 'background-color',
+    'bg-purple': 'background-color',
+    'bg-pink': 'background-color'
+  ),
   backgroundPosition: bg 'background-position',
   backgroundRepeat: bg 'background-repeat',
   backgroundSize: bg 'background-size',
   borderCollapse: border 'border-collapse',
-  // borderColor: (
-  //   border: 'border-color',
-  //   'border-gray': 'border-color',
-  //   'border-red': 'border-color',
-  //   'border-orange': 'border-color',
-  //   'border-yellow': 'border-color',
-  //   'border-green': 'border-color',
-  //   'border-teal': 'border-color',
-  //   'border-blue': 'border-color',
-  //   'border-indigo': 'border-color',
-  //   'border-purple': 'border-color',
-  //   'border-pink': 'border-color'
-  // ),
-  // borderRadius: (
-  //   rounded: 'border-radius',
-  //   'rounded-t': (
-  //     'border-top-left-radius': 'border-top-left-radius',
-  //     'border-top-right-radius': 'border-top-right-radius'
-  //   ),
-  //   'rounded-r': (
-  //     'border-top-right-radius': 'border-top-right-radius',
-  //     'border-bottom-right-radius': 'border-bottom-right-radius'
-  //   ),
-  //   'rounded-b': (
-  //     'border-bottom-right-radius': 'border-bottom-right-radius',
-  //     'border-bottom-left-radius': 'border-bottom-left-radius'
-  //   ),
-  //   'rounded-l': (
-  //     'border-top-left-radius': 'border-top-left-radius',
-  //     'border-bottom-left-radius': 'border-bottom-left-radius'
-  //   ),
-  //   'rounded-tl': 'border-top-left-radius',
-  //   'rounded-tr': 'border-top-right-radius',
-  //   'rounded-br': 'border-bottom-right-radius',
-  //   'rounded-bl': 'border-bottom-left-radius'
-  // ),
+  borderColor: (
+    border: 'border-color',
+    'border-gray': 'border-color',
+    'border-red': 'border-color',
+    'border-orange': 'border-color',
+    'border-yellow': 'border-color',
+    'border-green': 'border-color',
+    'border-teal': 'border-color',
+    'border-blue': 'border-color',
+    'border-indigo': 'border-color',
+    'border-purple': 'border-color',
+    'border-pink': 'border-color'
+  ),
+  borderRadius: (
+    rounded: 'border-radius',
+    'rounded-t': (
+      'border-top-left-radius': 'border-top-left-radius',
+      'border-top-right-radius': 'border-top-right-radius'
+    ),
+    'rounded-r': (
+      'border-top-right-radius': 'border-top-right-radius',
+      'border-bottom-right-radius': 'border-bottom-right-radius'
+    ),
+    'rounded-b': (
+      'border-bottom-right-radius': 'border-bottom-right-radius',
+      'border-bottom-left-radius': 'border-bottom-left-radius'
+    ),
+    'rounded-l': (
+      'border-top-left-radius': 'border-top-left-radius',
+      'border-bottom-left-radius': 'border-bottom-left-radius'
+    ),
+    'rounded-tl': 'border-top-left-radius',
+    'rounded-tr': 'border-top-right-radius',
+    'rounded-br': 'border-bottom-right-radius',
+    'rounded-bl': 'border-bottom-left-radius'
+  ),
   borderStyle: border 'border-style',
   borderWidth: (
     border: 'border-width',
@@ -878,26 +878,26 @@ $preset: (
   gridTemplateColumns: 'grid-cols' 'grid-template-columns',
   gridTemplateRows: 'grid-rows' 'grid-template-rows',
   height: h 'height',
-  // inset: (
-  //   inset: (
-  //     top: 'top',
-  //     right: 'right',
-  //     bottom: 'bottom',
-  //     left: 'left'
-  //   ),
-  //   'inset-y': (
-  //     top: 'top',
-  //     bottom: 'bottom'
-  //   ),
-  //   'inset-x': (
-  //     right: 'right',
-  //     left: 'left'
-  //   ),
-  //   top: 'top',
-  //   right: 'right',
-  //   bottom: 'bottom',
-  //   left: 'left'
-  // ),
+  inset: (
+    inset: (
+      top: 'top',
+      right: 'right',
+      bottom: 'bottom',
+      left: 'left'
+    ),
+    'inset-y': (
+      top: 'top',
+      bottom: 'bottom'
+    ),
+    'inset-x': (
+      right: 'right',
+      left: 'left'
+    ),
+    top: 'top',
+    right: 'right',
+    bottom: 'bottom',
+    left: 'left'
+  ),
   justifyContent: justify 'justify-content',
   letterSpacing: tracking 'letter-spacing',
   lineHeight: leading 'line-height',
@@ -933,21 +933,21 @@ $preset: (
     'overflow-x': 'overflow-x',
     'overflow-y': 'overflow-y'
   ),
-  // padding: (
-  //   p: 'padding',
-  //   px: (
-  //     'padding-left': 'padding-left',
-  //     'padding-right': 'padding-right'
-  //   ),
-  //   py: (
-  //     'padding-top': 'padding-top',
-  //     'padding-bottom': 'padding-bottom'
-  //   ),
-  //   pt: 'padding-top',
-  //   pr: 'padding-right',
-  //   pb: 'padding-bottom',
-  //   pl: 'padding-left'
-  // ),
+  padding: (
+    p: 'padding',
+    px: (
+      'padding-left': 'padding-left',
+      'padding-right': 'padding-right'
+    ),
+    py: (
+      'padding-top': 'padding-top',
+      'padding-bottom': 'padding-bottom'
+    ),
+    pt: 'padding-top',
+    pr: 'padding-right',
+    pb: 'padding-bottom',
+    pl: 'padding-left'
+  ),
   // placeholderColor: (
   //   placeholder: 'color',
   //   'placeholder-gray': 'color',
@@ -980,19 +980,19 @@ $preset: (
   stroke: stroke 'stroke',
   strokeWidth: stroke 'stroke-width',
   textAlign: text 'text-align',
-  // textColor: (
-  //   text: 'color',
-  //   'text-gray': 'color',
-  //   'text-red': 'color',
-  //   'text-orange': 'color',
-  //   'text-yellow': 'color',
-  //   'text-green': 'color',
-  //   'text-teal': 'color',
-  //   'text-blue': 'color',
-  //   'text-indigo': 'color',
-  //   'text-purple': 'color',
-  //   'text-pink': 'color'
-  // ),
+  textColor: (
+    text: 'color',
+    'text-gray': 'color',
+    'text-red': 'color',
+    'text-orange': 'color',
+    'text-yellow': 'color',
+    'text-green': 'color',
+    'text-teal': 'color',
+    'text-blue': 'color',
+    'text-indigo': 'color',
+    'text-purple': 'color',
+    'text-pink': 'color'
+  ),
   textDecoration: none 'text-decoration',
   textTransform: none 'text-transform',
   transformOrigin: origin 'transform-origin',

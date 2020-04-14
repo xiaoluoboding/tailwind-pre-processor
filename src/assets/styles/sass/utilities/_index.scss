@@ -1,24 +1,53 @@
-/**
- * batch import utilities function
- */
+@function getThemeColor($rules, $colorPrefixes, $classPrefix) {
+  $colorPrefixes: ('bg', 'border', 'text', 'placeholder');
+  $themePairs: ();
+  // get the right color themePairs
+  @each $prefix in $colorPrefixes {
+    $key: $prefix + '-gray';
+    @if (map-has-key($rules, $key)) {
+      $color: str-replace($classPrefix, ($prefix + '-'), '');
+     
+      $themePairs: if(
+        $color == $prefix,
+        map-get($colors, 'common'),
+        map-get($colors, $color)
+      );
+    }
+  }
+  @debug $themePairs;
+  @return $themePairs;
+}
+
+/// 
+/// batch import utilities function
+/// 
 @mixin importUtilities($size: null) {
 
   @each $propAlias, $rules in $preset {
     $themePairs: map-get($theme, $propAlias);
     $variantList: map-get($variants, $propAlias);
 
-    /**
-     * eg. overflow: {
-             overflow: 'overflow',
-             'overflow-x': 'overflow-x',
-             'overflow-y': 'overflow-y'
-           }
-     * $prefixes = overflow 'overflow-x' 'overflow-y'
-     * $properites = overflow 'overflow-x' 'overflow-y'
-     */
+    ///
+    /// eg. overflow: {
+    ///       overflow: 'overflow',
+    ///       'overflow-x': 'overflow-x',
+    ///       'overflow-y': 'overflow-y'
+    ///     }
+    /// $prefixes = overflow 'overflow-x' 'overflow-y'
+    /// $properites = overflow 'overflow-x' 'overflow-y'
+    /// 
     @if (type-of($rules) == 'map') {
       @each $prefix, $property in $rules {
-        @include class-generator($themePairs, $variantList, $size, $prefix, $property);
+        $colorPrefixes: ('backgroundColor', 'borderColor', 'textColor', 'placeholderColor');
+        @debug index($colorPrefixes, $propAlias) == null;
+
+        $rightPairs: if(
+          index($colorPrefixes, $propAlias) == null,
+          $themePairs,
+          getThemeColor($rules, $colorPrefixes, $prefix)
+        );
+        @debug $rightPairs;
+        @include class-generator($rightPairs, $variantList, $size, $prefix, $property);
       }
     } @else {
       $prefix: nth($rules, 1);
