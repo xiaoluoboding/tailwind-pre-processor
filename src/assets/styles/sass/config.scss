@@ -332,11 +332,11 @@ $theme: (
     left: 'left',
     none: 'none'
   ),
-  // fontFamily: (
-  //   sans: unquote(join(', ''system-ui' '-apple-system' 'BlinkMacSystemFont' '"Segoe UI"' 'Roboto' '"Helvetica Neue"' 'Arial' '"Noto Sans"' 'sans-serif' '"Apple Color Emoji"' '"Segoe UI Emoji"' '"Segoe UI Symbol"' '"Noto Color Emoji"'))),
-  //   serif: unquote(join(', ''Georgia' 'Cambria' '"Times New Roman"' 'Times' 'serif'))),
-  //   mono: unquote(join(', ''Menlo' 'Monaco' 'Consolas' '"Liberation Mono"' '"Courier New"' 'monospace'))),
-  // ),
+  fontFamily: (
+    sans: inspect((system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji")),
+    serif: inspect((Georgia Cambria "Times New Roman" Times serif)),
+    mono: inspect((Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace))
+  ),
   fontSize: (
     xs: '0.75rem',
     sm: '0.875rem',
@@ -879,7 +879,7 @@ $preset: (
   flexShrink: 'flex-shrink' 'flex-shrink',
   flexWrap: flex 'flex-wrap',
   float: float 'float',
-  // fontFamily: font 'font-family',
+  fontFamily: font 'font-family',
   fontSize: text 'font-size',
   fontStyle: none 'font-style',
   fontWeight: font 'font-weight',
@@ -968,19 +968,19 @@ $preset: (
     pb: 'padding-bottom',
     pl: 'padding-left'
   ),
-  // placeholderColor: (
-  //   placeholder: 'color',
-  //   'placeholder-gray': 'color',
-  //   'placeholder-red': 'color',
-  //   'placeholder-orange': 'color',
-  //   'placeholder-yellow': 'color',
-  //   'placeholder-green': 'color',
-  //   'placeholder-teal': 'color',
-  //   'placeholder-blue': 'color',
-  //   'placeholder-indigo': 'color',
-  //   'placeholder-purple': 'color',
-  //   'placeholder-pink': 'color'
-  // ),
+  placeholderColor: (
+    'placeholder': 'color',
+    'placeholder-gray': 'color',
+    'placeholder-red': 'color',
+    'placeholder-orange': 'color',
+    'placeholder-yellow': 'color',
+    'placeholder-green': 'color',
+    'placeholder-teal': 'color',
+    'placeholder-blue': 'color',
+    'placeholder-indigo': 'color',
+    'placeholder-purple': 'color',
+    'placeholder-pink': 'color'
+  ),
   pointerEvents: 'pointer-events' 'pointer-events',
   position: none 'position',
   resize: resize 'resize',

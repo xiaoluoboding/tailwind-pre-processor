@@ -14,7 +14,6 @@
       );
     }
   }
-  @debug $themePairs;
   @return $themePairs;
 }
 
@@ -39,17 +38,21 @@
     @if (type-of($rules) == 'map') {
       @each $prefix, $property in $rules {
         $colorPrefixes: ('backgroundColor', 'borderColor', 'textColor', 'placeholderColor');
-        @debug index($colorPrefixes, $propAlias) == null;
 
         $rightPairs: if(
           index($colorPrefixes, $propAlias) == null,
           $themePairs,
           getThemeColor($rules, $colorPrefixes, $prefix)
         );
-        @debug $rightPairs;
+
         @include class-generator($rightPairs, $variantList, $size, $prefix, $property);
       }
     } @else {
+      /// 
+      /// eg. textAlign: text 'text-align'
+      /// $prefix = text
+      /// $property = text-align
+      /// 
       $prefix: nth($rules, 1);
       $property: nth($rules, 2);
 

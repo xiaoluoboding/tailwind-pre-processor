@@ -1,3 +1,12 @@
+///
+/// get the right selector
+/// @author {xiaoluoboding}
+/// @param {string} $prefix
+/// @param {string} $modifier
+/// @param {string} $variant
+/// @param {string} $size
+/// @return {string}  - right selector
+///
 @function get-selector($prefix, $modifier, $variant, $size) {
   // replace modifier, turn 1/2 into 1\/2
   $replacedModifier: str-replace($modifier, '\/', '\\\/');
@@ -59,6 +68,42 @@
   }
 
 }
+/// 
+/// loop placeholder
+/// 
+@mixin loop-placeholder($themePairs, $size, $prefix, $property, $variant) {
+  $pseudoList: (':-ms-input-placeholder', '::-ms-input-placeholder', '::placeholder');
+
+  @each $modifier, $value in $themePairs {
+    // seems like "placeholder-gray-color"
+    $basicSelector: str-join('-', $prefix, $modifier);
+    // seems like "sm\:placeholder-gray-color"
+    $responsiveSelector: str-join('\:', $size, $basicSelector);
+
+    $selector: if(
+      $size == null,
+      $basicSelector,
+      $responsiveSelector
+    );
+
+    // seems like "focus\:placeholder-gray-color:focus"
+    $class: if(
+      $variant == null,
+      $selector,
+      ($variant + "\:" + $selector + ":" + $variant)
+    );
+
+    @debug $class;
+  
+    // generate multiple line properties class
+    @each $pseudo in $pseudoList {
+      .#{$class}#{$pseudo} {
+        #{$property}: #{$value}
+      }
+    }
+  }
+
+}
 
 /// 
 /// loop variants
@@ -67,7 +112,11 @@
 
   @each $variant in $variantList {
     @if ($variant != 'responsive') {
-      @include loop-themes($themePairs, $size, $prefix, $property, $variant);
+      @if (str-index($prefix, 'placeholder') == null) {
+        @include loop-themes($themePairs, $size, $prefix, $property, $variant);
+      } @else {
+        @include loop-placeholder($themePairs, $size, $prefix, $property, $variant);
+      }
     }
   }
 
@@ -76,7 +125,11 @@
 
 @mixin class-generator($themePairs, $variantList, $size, $prefix, $property) {
 
-  @include loop-themes($themePairs, $size, $prefix, $property, null);
+  @if (str-index($prefix, 'placeholder') == null) {
+    @include loop-themes($themePairs, $size, $prefix, $property, null);
+  } @else {
+    @include loop-placeholder($themePairs, $size, $prefix, $property, null);
+  }
 
   @include loop-variants($themePairs, $variantList, $size, $prefix, $property);
 
