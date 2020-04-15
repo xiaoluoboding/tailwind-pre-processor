@@ -289,6 +289,19 @@ video {
     max-width: 1280px;
   }
 }
+.transform {
+  --transform-translate-x: 0;
+  --transform-translate-y: 0;
+  --transform-rotate: 0;
+  --transform-skew-x: 0;
+  --transform-skew-y: 0;
+  --transform-scale-x: 1;
+  --transform-scale-y: 1;
+  transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+}
+.transform-none {
+  transform: none;
+}
 .content-center {
   align-content: center;
 }
@@ -3311,10 +3324,18 @@ video {
   left: auto;
 }
 .inset-y-0 {
+  top: 0;
+  bottom: 0;
+}
+.inset-y-auto {
+  top: auto;
+  bottom: auto;
+}
+.inset-x-0 {
   right: 0;
   left: 0;
 }
-.inset-y-auto {
+.inset-x-auto {
   right: auto;
   left: auto;
 }
@@ -12241,10 +12262,18 @@ video {
     left: auto;
   }
   .sm\:inset-y-0 {
+    top: 0;
+    bottom: 0;
+  }
+  .sm\:inset-y-auto {
+    top: auto;
+    bottom: auto;
+  }
+  .sm\:inset-x-0 {
     right: 0;
     left: 0;
   }
-  .sm\:inset-y-auto {
+  .sm\:inset-x-auto {
     right: auto;
     left: auto;
   }
@@ -21172,10 +21201,18 @@ video {
     left: auto;
   }
   .md\:inset-y-0 {
+    top: 0;
+    bottom: 0;
+  }
+  .md\:inset-y-auto {
+    top: auto;
+    bottom: auto;
+  }
+  .md\:inset-x-0 {
     right: 0;
     left: 0;
   }
-  .md\:inset-y-auto {
+  .md\:inset-x-auto {
     right: auto;
     left: auto;
   }
@@ -30103,10 +30140,18 @@ video {
     left: auto;
   }
   .lg\:inset-y-0 {
+    top: 0;
+    bottom: 0;
+  }
+  .lg\:inset-y-auto {
+    top: auto;
+    bottom: auto;
+  }
+  .lg\:inset-x-0 {
     right: 0;
     left: 0;
   }
-  .lg\:inset-y-auto {
+  .lg\:inset-x-auto {
     right: auto;
     left: auto;
   }
@@ -39034,10 +39079,18 @@ video {
     left: auto;
   }
   .xl\:inset-y-0 {
+    top: 0;
+    bottom: 0;
+  }
+  .xl\:inset-y-auto {
+    top: auto;
+    bottom: auto;
+  }
+  .xl\:inset-x-0 {
     right: 0;
     left: 0;
   }
-  .xl\:inset-y-auto {
+  .xl\:inset-x-auto {
     right: auto;
     left: auto;
   }
