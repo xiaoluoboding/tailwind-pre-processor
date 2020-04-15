@@ -26,7 +26,7 @@ class-generator($themePairs, $variantList, $size = null, $prefix, $property) {
     for key, value in $themePairs {
       // unquote theme pairs
       $modifier = replace('\/', '\/', key)
-      $value = conventString(value)
+      $value = convent-string(value)
 
       getSelector(prefix, modifier, variant) {
         positive-negative(prefix, modifier) {
@@ -87,7 +87,7 @@ placeholder-generator($themePairs, $variantList, $size = null, $prefix, $propert
     for key, value in $themePairs {
       // unquote theme pairs
       $modifier = replace('\/', '\/', key)
-      $value = conventString(value)
+      $value = convent-string(value)
 
       // seems like "placeholder-gray-color"
       $basicSelector = join('-', $prefix, $modifier)

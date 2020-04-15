@@ -1,0 +1,24 @@
+/**
+ * judge whether given value is typeof string or not
+ * @author {xiaoluoboding}
+ * @param {string} value
+ * @return {Boolean} - true / false
+ */
+
+stringish($val)
+  if $val is a 'string' or $val is a 'ident'
+    true
+  else
+    false
+/**
+ * convent given value into string
+ * @author {xiaoluoboding}
+ * @param {string} value
+ * @return {string} - Updated string
+ */
+
+convent-string($val)
+  if stringish($val)
+    unquote($val)
+  else
+    $val

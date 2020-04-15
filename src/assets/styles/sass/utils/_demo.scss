@@ -1,9 +1,21 @@
+// loop map
 $fontFamily: (
   sans: inspect((system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji")),
   serif: inspect((Georgia Cambria "Times New Roman" Times serif)),
   mono: inspect((Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace))
 );
 
-.font-mono {
-  --font-family-monospace: #{inspect(map-get($fontFamily, 'mono'))};
+@each $key, $val in $fontFamily {
+ .font-#{$key} {
+   font-family: $val;
+ }
+}
+
+// loop list
+$pseudoList: (':-ms-input-placeholder', '::-ms-input-placeholder', '::placeholder');
+
+@each $pseudo in $pseudoList {
+  .placeholder#{$pseudo} {
+    color: transparent;
+  }
 }

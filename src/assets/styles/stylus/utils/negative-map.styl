@@ -9,12 +9,12 @@
      '-2': '-0.5rem'
    }
  */
-negativeMap(map) {
-  hash = {}
-  for key, val in map {
-    $key = '-' + key
-    $val = 0 - val
-    hash[$key] = $val
+negative-map($map) {
+  $hash = {}
+  for $key, $val in $map {
+    $negative-key = '-' + $key
+    $negative-val = 0 - $val
+    $hash[$negative-key] = $negative-val
   }
-  return hash
+  return $hash
 }
