@@ -1,33 +1,17 @@
 /**
  * [Utility First Class (Less Version)]
  * Utils: class-generator
- * Author: xiaoluoboding
- * Code for fun!
+ * [Author]: xiaoluoboding
+ * [@param]: theme pairs
+ * [@param]: preset pairs
+ * [@param]: variants eg: responsive
+ * [@param]: mode default/variant/both. default is both
+ * Code for fun !
  */
-
-/**
- * [@params]: theme pairs
- * [@params]: preset pairs
- * [@params]: variants eg: responsive
- * [@params]: mode default/variant/both. default is both
- */
-
-.class-generator (@themePairs, @presetPairs, @variantsList, @mode: 'both') {
-  // generate responsive class
-  .responsive-generator (@screens, @i: 1) when (@i =< length(@screens)) {
-    // extract screen pair
-    @screenSize: e(extract(extract(@screens, @i), 1));
-    @screenValue: e(extract(extract(@screens, @i), 2));
-
-    @media (min-width: @screenValue) {
-      .loop-themes(@themePairs, @presetPairs, @screenSize);
-    }
-
-    .responsive-generator(@screens, @i + 1);
-  }
-
+ 
+.class-generator (@themePairs, @prefix, @property, @variantsList, @mode: 'both', @size: null) {
   // loop theme property
-  .loop-themes (@themePairs, @presetPairs, @variant, @i: 1) when (@i =< length(@themePairs)) {
+  .loop-themes (@themePairs, @prefix, @property, @variant, @i: 1) when (@i =< length(@themePairs)) {
     // extract theme pair
     @key: extract(extract(@themePairs, @i), 1);
     // input: '1/2' | output: 1\/2
@@ -36,56 +20,71 @@
     @value: e(@originValue);
 
     // extract perset pair
-    @prefix: e(extract(@presetPairs, 1));
-    @property: e(extract(@presetPairs, 2));
+    // @prefix: e(extract(@prefix, @property, 1));
+    // @property: e(extract(@prefix, @property, 2));
 
+    // eg. isnumber(@key) and (@key < 0) ? -rotate-180 : rotate-180
     // eg. @prefix = none ? flex : gap-4
     // eg. @modifier = default ? shadow : shadow-sm
-    // eg. isnumber(@key) and (@key < 0) ? -rotate-180 : rotate-180
-    @selector: if((@prefix = none),
+    @baseClass: if(
+      isnumber(@key) and (@key < 0),
+      ~"-@{prefix}@{modifier}",
+      ~"@{prefix}-@{modifier}"
+    );
+
+    @rightPrefix: if(
+      (@prefix = none),
       @modifier,
-      if((@key = default),
-        @prefix,
-        if(isnumber(@key) and (@key < 0),
-          ~"-@{prefix}@{modifier}",
-          ~"@{prefix}-@{modifier}"
-        )));
+      @baseClass
+    );
 
-    @variantSelector: if((@variant = default),
-      @selector,
-      if((@variant = 'hover') or (@variant = 'focus'),
-        ~"@{variant}\:@{selector}:@{variant}",
-        ~"@{variant}\:@{selector}"));
+    @rightModifier: if(
+      (@key = default),
+      @prefix,
+      @rightPrefix
+    );
 
-    .@{variantSelector} {
-      @{property}: @value;
+    @rightVariant: if( 
+      (@variant = default),
+      @rightModifier,
+      ~"@{variant}\:@{rightModifier}:@{variant}"
+    );
+
+    @selector: if(
+      (@size = null),
+      @rightVariant,
+      ~"@{size}\:@{rightVariant}"
+    );
+
+    .@{selector} {
+      & when not (isstring(@property)) {
+        each(@property, .(@val, @idx) {
+          @properties: e(@val);
+          @{properties}: @value;
+        })
+      }
+
+      & when (isstring(@property)) {
+        @{property}: @value;
+      }
     }
 
-    .loop-themes(@themePairs, @presetPairs, @variant, (@i + 1));
+    .loop-themes(@themePairs, @prefix, @property, @variant, (@i + 1));
   }
 
   // loop variants
   .loop-variants (@list, @j: 1) when (@j =< length(@list)) {
     @variant: extract(@list, @j);
 
-    & when (@variant = 'responsive') {
-      // loop responsive variants
-      .responsive-generator(@theme[@screens]);
-    }
-
-    & when (@variant = 'hover') {
-      .loop-themes(@themePairs, @presetPairs, @variant);
-    }
-
-    & when (@variant = 'focus') {
-      .loop-themes(@themePairs, @presetPairs, @variant);
+    & when not (@variant = 'responsive') {
+      .loop-themes(@themePairs, @prefix, @property, @variant);
     }
 
     .loop-variants(@list, @j + 1);
   }
 
   & when (@mode = 'default') {
-    .loop-themes(@themePairs, @presetPairs, default);
+    .loop-themes(@themePairs, @prefix, @property, default);
   }
 
   & when (@mode = 'variant') {
@@ -93,7 +92,7 @@
   }
 
   & when (@mode = 'both') {
-    .loop-themes(@themePairs, @presetPairs, default);
+    .loop-themes(@themePairs, @prefix, @property, default);
 
     .loop-variants(@variantsList);
   }

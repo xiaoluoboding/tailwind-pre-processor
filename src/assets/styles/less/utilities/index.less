@@ -4,175 +4,71 @@
  * Code for fun!
  */
 
-// All Properties
-@import './alignContent.less';
-
-@import './alignItems.less';
-
-@import './alignSelf.less';
-
-@import './appearance.less';
-
-@import './backgroundAttachment.less';
-
-@import './backgroundColor.less';
-
-@import './backgroundPosition.less';
-
-@import './backgroundRepeat.less';
-
-@import './backgroundSize.less';
-
-@import './borderCollapse.less';
-
-@import './borderColor.less';
-
-@import './borderRadius.less';
-
-@import './borderStyle.less';
-
-@import './borderWidth.less';
-
-@import './boxShadow.less';
-
-@import './boxSizing.less';
-
-@import './clear.less';
-
-@import './cursor.less';
-
-@import './display.less';
-
-@import './fill.less';
-
-@import './flex.less';
-
-@import './flexDirection.less';
-
-@import './flexGrow.less';
-
-@import './flexShrink.less';
-
-@import './flexWrap.less';
-
-@import './float.less';
-
-@import './fontFamily.less';
-
-@import './fontSize.less';
-
-@import './fontSmoothing.less';
-
-@import './fontStyle.less';
-
-@import './fontWeight.less';
-
-@import './gap.less';
-
-@import './gridAutoFlow.less';
-
-@import './gridColumn.less';
-
-@import './gridColumnStart.less';
-
-@import './gridColumnEnd.less';
-
-@import './gridRow.less';
-
-@import './gridRowStart.less';
-
-@import './gridRowEnd.less';
-
-@import './gridTemplateColumns.less';
-
-@import './gridTemplateRows.less';
-
-@import './inset.less';
-
-@import './height.less';
-
-@import './justifyContent.less';
-
-@import './letterSpacing.less';
-
-@import './lineHeight.less';
-
-@import './listStylePosition.less';
-
-@import './listStyleType.less';
-
-@import './margin.less';
-
-@import './maxHeight.less';
-
-@import './maxWidth.less';
-
-@import './minHeight.less';
-
-@import './minWidth.less';
-
-@import './objectFit.less';
-
-@import './objectPosition.less';
-
-@import './opacity.less';
-
-@import './order.less';
-
-@import './outline.less';
-
-@import './overflow.less';
-
-@import './padding.less';
-
-@import './pointerEvents.less';
-
-@import './position.less';
-
-@import './resize.less';
-
-@import './rotate.less';
-
-@import './scale.less';
-
-@import './skew.less';
-
-@import './stroke.less';
-
-@import './strokeWidth.less';
-
-@import './textAlign.less';
-
-@import './textColor.less';
-
-@import './textDecoration.less';
-
-@import './textTransform.less';
-
-@import './transform.less';
-
-@import './transformOrigin.less';
-
-@import './transitionDelay.less';
-
-@import './transitionDuration.less';
-
-@import './transitionProperty.less';
-
-@import './transitionTimingFunction.less';
-
-@import './translate.less';
-
-@import './userSelect.less';
-
-@import './verticalAlign.less';
-
-@import './visibility.less';
-
-@import './whitespace.less';
-
-@import './width.less';
-
-@import './wordBreak.less';
-
-@import './zIndex.less';
+// loop all properties
+.loop-preset(@set, @size) {
+  // eg. @variableProp: @fontSize
+  // eg. @presetPairs: text 'font-size'
+  each(@set, .(@presetPairs, @variableProp) {
+    // eg. fontSize
+    @propAlias: e(replace(@variableProp, '@', ''));
+
+    @themePairs: @theme[@@propAlias];
+    @variantList: @variants[@@propAlias];
+
+    // when preset value is a map
+    & when (length(@presetPairs) = 1) {
+      // the @themePairs can be on of them: @spacing @negativeSpacing @colors
+      each(@presetPairs, .(@property, @prefix) {
+        & when (isstring(@property)) {
+          .class-generator(
+            @themePairs,
+            @prefix,
+            e(@property),
+            @variantList,
+            'both',
+            @size
+          );
+        }
+
+        // when property is a map
+        & when not (isstring(@property)) {
+          each(@property, .(@val, @key) {
+            .class-generator(
+              @themePairs,
+              @prefix,
+              @property,
+              @variantList,
+              'both',
+              @size
+            );
+          })
+        }
+      })
+    }
+    
+    // when preset value is a list
+    & when not (length(@presetPairs) = 1) {
+      @prefix: e(extract(@presetPairs, 1));
+      @property: e(extract(@presetPairs, 2));
+
+      .class-generator(
+        @themePairs,
+        @prefix,
+        @property,
+        @variantList,
+        'both',
+        @size
+      );
+    }
+  })
+}
+
+.loop-preset(@preset, null);
+
+// loop responsive variant
+each(@screens, .(@value, @size, @index) {
+  @width: e(@value);
+  @media (min-width: @width) {
+    .loop-preset(@preset, @size);
+  }
+});
