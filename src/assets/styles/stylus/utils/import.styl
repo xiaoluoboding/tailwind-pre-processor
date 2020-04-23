@@ -30,11 +30,7 @@ $import(size = null) {
         $prefix = unquote(key)
         $property = value
 
-        if (match('^placeholder', $prefix)) {
-          placeholder-generator($themePairs, $variants[$propAlias], $size, $prefix, $property)
-        } else {
-          class-generator($themePairs, $variants[$propAlias], $size, $prefix, $property)
-        }
+        class-generator($themePairs, $variants[$propAlias], $size, $prefix, $property)
       }
     } else {
       /**
