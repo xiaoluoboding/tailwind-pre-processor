@@ -521,7 +521,7 @@ $theme: (
     decimal: 'decimal',
   ),
   margin: map-merge(map-merge((
-    auto: 'auto'), $spacing),$negative-spacing),
+    auto: 'auto'), $spacing), $negative-spacing),
   maxHeight: (
     full: '100%',
     screen: '100vh',
@@ -603,6 +603,9 @@ $theme: (
     scroll: 'scroll'
   ),
   padding: map-merge((), $spacing),
+  spaceBetween: map-merge(map-merge((
+    'reverse': 'reverse'
+  ), $spacing), $negative-spacing),
   placeholderColor: map-merge((), $colors),
   pointerEvents: (
     none: 'none',
@@ -997,6 +1000,18 @@ $preset: (
     'skew-x': '--transform-skew-x',
     'skew-y': '--transform-skew-y'
   ),
+  spaceBetween: (
+    'space-x': (
+      '--space-x-reverse': '0',
+      'margin-right': 'var(--space-x-reverse)',
+      'margin-left': 'calc(1 - var(--space-x-reverse))'
+    ),
+    'space-y': (
+      '--space-y-reverse': '0',
+      'margin-top': 'calc(1 - var(--space-x-reverse))',
+      'margin-bottom': 'var(--space-x-reverse)'
+    )
+  ),
   stroke: stroke 'stroke',
   strokeWidth: stroke 'stroke-width',
   textAlign: text 'text-align',
@@ -1122,5 +1137,6 @@ $variants: (
   transitionProperty: 'responsive',
   transitionTimingFunction: 'responsive',
   transitionDuration: 'responsive',
-  transitionDelay: 'responsive'
+  transitionDelay: 'responsive',
+  spaceBetween: 'responsive'
 );
