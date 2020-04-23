@@ -44,13 +44,16 @@
   @return $selector;
 }
 
-@function space-between-value($size, $value) {
+///
+/// calc space / divide width
+/// @author {xiaoluoboding}
+/// @param {string} $size
+/// @param {string} $value
+/// @return {string}  - result
+///
+@function calc-width-value($size, $value) {
   $size-value: calc(#{$size} * #{$value});
-  $result: if(
-    $value == '0',
-    $value,
-    $size-value
-  );
+  $result: if($value == '0', $value, $size-value);
   @return $result;
 }
 
@@ -85,29 +88,14 @@
   $pseudoList: (':-ms-input-placeholder', '::-ms-input-placeholder', '::placeholder');
 
   @each $modifier, $value in $themePairs {
-    // seems like "placeholder-gray-color"
-    $basicSelector: str-join('-', $prefix, $modifier);
-    // seems like "sm\:placeholder-gray-color"
-    $responsiveSelector: str-join('\:', $size, $basicSelector);
+    // get the right selector
+    $selector: get-selector($prefix, $modifier, $variant, $size);
 
-    $selector: if(
-      $size == null,
-      $basicSelector,
-      $responsiveSelector
-    );
-
-    // seems like "focus\:placeholder-gray-color:focus"
-    $class: if(
-      $variant == null,
-      $selector,
-      ($variant + "\:" + $selector + ":" + $variant)
-    );
-
-    @debug $class;
+    @debug $selector;
   
     // generate multiple line properties class
     @each $pseudo in $pseudoList {
-      .#{$class}#{$pseudo} {
+      .#{$selector}#{$pseudo} {
         #{$property}: #{$value};
       }
     }
@@ -119,32 +107,13 @@
 @mixin loop-space-between($themePairs, $size, $prefix, $property, $variant) {
 
   @each $modifier, $value in $themePairs {
-    // seems like "placeholder-gray-color"
-    $basicSelector: if(
-      str-begin-with($modifier, '-'),
-      str-join($prefix, '-', $modifier),
-      str-join('-', $prefix, $modifier)
-    );
-    // seems like "sm\:placeholder-gray-color"
-    $responsiveSelector: str-join('\:', $size, $basicSelector);
+    // get the right selector
+    $selector: get-selector($prefix, $modifier, $variant, $size);
 
-    $selector: if(
-      $size == null,
-      $basicSelector,
-      $responsiveSelector
-    );
-
-    // seems like "focus\:placeholder-gray-color:focus"
-    $class: if(
-      $variant == null,
-      $selector,
-      ($variant + "\:" + $selector + ":" + $variant)
-    );
-
-    @debug $class;
+    @debug $selector;
   
     // generate multiple line properties class
-    .#{$class} > :not(template) ~ :not(template) {
+    .#{$selector} > :not(template) ~ :not(template) {
       @if (type-of($property) == 'map') {
         // generate multiple line properties class
         @if ($modifier == 'reverse') {
@@ -152,7 +121,36 @@
           #{$prop}: 1;
         } @else {
           @each $prop, $propValue in $property {
-            $selectorValue: space-between-value($value, $propValue);
+            $selectorValue: calc-width-value($value, $propValue);
+            #{$prop}: #{$selectorValue};
+          }
+        }
+      }
+    }
+  }
+
+}
+/// 
+/// loop divide-width
+/// 
+@mixin loop-divide-width($themePairs, $size, $prefix, $property, $variant) {
+
+  @each $modifier, $value in $themePairs {
+    // get the right selector
+    $selector: get-selector($prefix, $modifier, $variant, $size);
+
+    @debug $selector;
+  
+    // generate multiple line properties class
+    .#{$selector} > :not(template) ~ :not(template) {
+      @if (type-of($property) == 'map') {
+        // generate multiple line properties class
+        @if ($modifier == 'reverse') {
+          $prop: --#{$prefix}-#{$modifier};
+          #{$prop}: 1;
+        } @else {
+          @each $prop, $propValue in $property {
+            $selectorValue: calc-width-value($value, $propValue);
             #{$prop}: #{$selectorValue};
           }
         }
@@ -173,6 +171,8 @@
         @include loop-placeholder($themePairs, $size, $prefix, $property, $variant);
       } @else if (str-index($prefix, 'space-') != null) {
         @include loop-space-between($themePairs, $size, $prefix, $property, $variant);
+      } @else if (str-index($prefix, 'divide-') != null) {
+        @include loop-divide-width($themePairs, $size, $prefix, $property, $variant);
       } @else {
         @include loop-themes($themePairs, $size, $prefix, $property, $variant);
       }
@@ -188,6 +188,8 @@
     @include loop-placeholder($themePairs, $size, $prefix, $property, null);
   } @else if (str-index($prefix, 'space-') != null) {
     @include loop-space-between($themePairs, $size, $prefix, $property, null);
+  } @else if (str-index($prefix, 'divide-') != null) {
+    @include loop-divide-width($themePairs, $size, $prefix, $property, null);
   } @else {
     @include loop-themes($themePairs, $size, $prefix, $property, null);
   }

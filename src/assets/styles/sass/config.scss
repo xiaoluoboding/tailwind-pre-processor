@@ -246,7 +246,7 @@ $theme: (
     '0': '0',
     '2': '2px',
     '4': '4px',
-    '8': '8px',
+    '8': '8px'
   ),
   boxShadow: (
     xs: '0 0 0 1px rgba(0, 0, 0, 0.05)',
@@ -258,7 +258,7 @@ $theme: (
     '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
     inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
     outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
-    none: 'none',
+    none: 'none'
   ),
   boxSizing: (
     border: 'border-box',
@@ -277,7 +277,7 @@ $theme: (
     wait: 'wait',
     text: 'text',
     move: 'move',
-    'not-allowed': 'not-allowed',
+    'not-allowed': 'not-allowed'
   ),
   display: (
     block: 'block',
@@ -298,6 +298,14 @@ $theme: (
     'table-row-group': 'table-row-group',
     'table-row': 'table-row',
     hidden: 'none'
+  ),
+  divideWidth: (
+    default: '1px',
+    '0': '0px',
+    '2': '2px',
+    '4': '4px',
+    '8': '8px',
+    'reverse': 'reverse'
   ),
   fill: (
     current: 'currentColor',
@@ -875,6 +883,18 @@ $preset: (
   cursor: cursor 'cursor',
   // use property value as prefix
   display: none 'display',
+  divideWidth: (
+    'divide-x': (
+      '--divide-x-reverse': '0',
+      'border-right-width': 'var(--divide-x-reverse)',
+      'border-left-width': 'calc(1 - var(--divide-x-reverse))'
+    ),
+    'divide-y': (
+      '--divide-y-reverse': '0',
+      'border-top-width': 'calc(1 - var(--divide-y-reverse))',
+      'border-bottom-width': 'var(--divide-y-reverse)'
+    )
+  ),
   fill: fill 'fill',
   flex: flex 'flex',
   flexDirection: flex 'flex-direction',
@@ -1008,8 +1028,8 @@ $preset: (
     ),
     'space-y': (
       '--space-y-reverse': '0',
-      'margin-top': 'calc(1 - var(--space-x-reverse))',
-      'margin-bottom': 'var(--space-x-reverse)'
+      'margin-top': 'calc(1 - var(--space-y-reverse))',
+      'margin-bottom': 'var(--space-y-reverse)'
     )
   ),
   stroke: stroke 'stroke',
@@ -1138,5 +1158,6 @@ $variants: (
   transitionTimingFunction: 'responsive',
   transitionDuration: 'responsive',
   transitionDelay: 'responsive',
-  spaceBetween: 'responsive'
+  spaceBetween: 'responsive',
+  divideWidth: 'responsive'
 );
