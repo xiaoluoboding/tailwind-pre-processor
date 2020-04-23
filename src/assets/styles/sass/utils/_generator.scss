@@ -159,6 +159,24 @@
   }
 
 }
+/// 
+/// loop placeholder
+/// 
+@mixin loop-divide-color($themePairs, $size, $prefix, $property, $variant) {
+
+  @each $modifier, $value in $themePairs {
+    // get the right selector
+    $selector: get-selector($prefix, $modifier, $variant, $size);
+
+    @debug $selector;
+  
+    // generate multiple line properties class
+    .#{$selector} > :not(template) ~ :not(template) {
+      #{$property}: #{$value};
+    }
+  }
+
+}
 
 /// 
 /// loop variants
@@ -171,9 +189,11 @@
         @include loop-placeholder($themePairs, $size, $prefix, $property, $variant);
       } @else if (str-index($prefix, 'space-') != null) {
         @include loop-space-between($themePairs, $size, $prefix, $property, $variant);
-      } @else if (str-index($prefix, 'divide-') != null) {
+      } @else if (str-index($prefix, 'divide-x') != null or str-index($prefix, 'divide-y') != null) {
         @include loop-divide-width($themePairs, $size, $prefix, $property, $variant);
-      } @else {
+      } @else if (str-index($prefix, 'divide') != null and $property == 'border-color') {
+        @include loop-divide-color($themePairs, $size, $prefix, $property, $variant);
+      }  @else {
         @include loop-themes($themePairs, $size, $prefix, $property, $variant);
       }
     }
@@ -188,9 +208,11 @@
     @include loop-placeholder($themePairs, $size, $prefix, $property, null);
   } @else if (str-index($prefix, 'space-') != null) {
     @include loop-space-between($themePairs, $size, $prefix, $property, null);
-  } @else if (str-index($prefix, 'divide-') != null) {
+  } @else if (str-index($prefix, 'divide-x') != null or str-index($prefix, 'divide-y') != null) {
     @include loop-divide-width($themePairs, $size, $prefix, $property, null);
-  } @else {
+  } @else if (str-index($prefix, 'divide') != null and $property == 'border-color') {
+    @include loop-divide-color($themePairs, $size, $prefix, $property, null);
+  }   @else {
     @include loop-themes($themePairs, $size, $prefix, $property, null);
   }
 

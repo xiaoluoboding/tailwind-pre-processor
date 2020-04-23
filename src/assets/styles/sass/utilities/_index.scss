@@ -1,5 +1,5 @@
 @function getThemeColor($rules, $colorPrefixes, $classPrefix) {
-  $colorPrefixes: ('bg', 'border', 'text', 'placeholder');
+  $colorPrefixes: ('bg', 'border', 'text', 'placeholder', 'divide');
   $themePairs: ();
   // get the right color themePairs
   @each $prefix in $colorPrefixes {
@@ -37,7 +37,7 @@
     /// 
     @if (type-of($rules) == 'map') {
       @each $prefix, $property in $rules {
-        $colorPrefixes: ('backgroundColor', 'borderColor', 'textColor', 'placeholderColor');
+        $colorPrefixes: ('backgroundColor', 'borderColor', 'textColor', 'placeholderColor', 'divideColor');
 
         $rightPairs: if(
           index($colorPrefixes, $propAlias) == null,

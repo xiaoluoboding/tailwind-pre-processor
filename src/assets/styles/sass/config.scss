@@ -299,6 +299,7 @@ $theme: (
     'table-row': 'table-row',
     hidden: 'none'
   ),
+  divideColor: map-merge((), $colors),
   divideWidth: (
     default: '1px',
     '0': '0px',
@@ -883,6 +884,19 @@ $preset: (
   cursor: cursor 'cursor',
   // use property value as prefix
   display: none 'display',
+  divideColor: (
+    divide: 'border-color',
+    'divide-gray': 'border-color',
+    'divide-red': 'border-color',
+    'divide-orange': 'border-color',
+    'divide-yellow': 'border-color',
+    'divide-green': 'border-color',
+    'divide-teal': 'border-color',
+    'divide-blue': 'border-color',
+    'divide-indigo': 'border-color',
+    'divide-purple': 'border-color',
+    'divide-pink': 'border-color'
+  ),
   divideWidth: (
     'divide-x': (
       '--divide-x-reverse': '0',
@@ -1159,5 +1173,6 @@ $variants: (
   transitionDuration: 'responsive',
   transitionDelay: 'responsive',
   spaceBetween: 'responsive',
+  divideColor: 'responsive',
   divideWidth: 'responsive'
 );

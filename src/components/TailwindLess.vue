@@ -6,6 +6,11 @@
         <div class="px-4 py-2 bg-green-200">2</div>
         <div class="px-4 py-2 bg-blue-200">3</div>
       </div>
+      <div class="grid grid-cols-3 divide-x divide-gray-400">
+        <div class="px-4 py-2 text-center">1</div>
+        <div class="px-4 py-2 text-center">2</div>
+        <div class="px-4 py-2 text-center">3</div>
+      </div>
     </div>
     <div class="mb-6">
       <!-- Using utilities: -->
