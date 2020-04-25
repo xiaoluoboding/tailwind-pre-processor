@@ -283,6 +283,15 @@ $theme = {
     'table-row': 'table-row',
     hidden: 'none'
   },
+  divideColor: extend($colors),
+  divideWidth: {
+    default: '1px',
+    '0': '0px',
+    '2': '2px',
+    '4': '4px',
+    '8': '8px',
+    'reverse': 'reverse'
+  },
   fill: {
     current: 'currentColor',
   },
@@ -606,6 +615,9 @@ $theme = {
     y: 'vertical',
     x: 'horizontal'
   },
+  spaceBetween: extend({
+    'reverse': 'reverse'
+  }, $spacing, $negativeSpacing)
   stroke: {
     current: 'currentColor',
   },
@@ -857,6 +869,31 @@ $preset = {
   cursor: cursor 'cursor',
   // use property value as prefix
   display: none 'display',
+  divideColor: {
+    divide: 'border-color',
+    'divide-gray': 'border-color',
+    'divide-red': 'border-color',
+    'divide-orange': 'border-color',
+    'divide-yellow': 'border-color',
+    'divide-green': 'border-color',
+    'divide-teal': 'border-color',
+    'divide-blue': 'border-color',
+    'divide-indigo': 'border-color',
+    'divide-purple': 'border-color',
+    'divide-pink': 'border-color'
+  },
+  divideWidth: {
+    'divide-x': {
+      '--divide-x-reverse': '0',
+      'border-right-width': 'var(--divide-x-reverse)',
+      'border-left-width': 'calc(1 - var(--divide-x-reverse))'
+    },
+    'divide-y': {
+      '--divide-y-reverse': '0',
+      'border-top-width': 'calc(1 - var(--divide-y-reverse))',
+      'border-bottom-width': 'var(--divide-y-reverse)'
+    }
+  },
   fill: fill 'fill',
   flex: flex 'flex',
   flexDirection: flex 'flex-direction',
@@ -981,6 +1018,18 @@ $preset = {
   skew: {
     'skew-x': '--transform-skew-x',
     'skew-y': '--transform-skew-y'
+  },
+  spaceBetween: {
+    'space-x': {
+      '--space-x-reverse': '0',
+      'margin-right': 'var(--space-x-reverse)',
+      'margin-left': 'calc(1 - var(--space-x-reverse))'
+    },
+    'space-y': {
+      '--space-y-reverse': '0',
+      'margin-top': 'calc(1 - var(--space-y-reverse))',
+      'margin-bottom': 'var(--space-y-reverse)'
+    }
   },
   stroke: stroke 'stroke',
   strokeWidth: stroke 'stroke-width',
@@ -1124,5 +1173,8 @@ $variants = {
   transitionProperty: 'responsive',
   transitionTimingFunction: 'responsive',
   transitionDuration: 'responsive',
-  transitionDelay: 'responsive'
+  transitionDelay: 'responsive',
+  spaceBetween: 'responsive',
+  divideColor: 'responsive' 'hover' 'focus',
+  divideWidth: 'responsive'
 }

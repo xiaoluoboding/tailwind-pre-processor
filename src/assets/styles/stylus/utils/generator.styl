@@ -1,46 +1,62 @@
 /**
  * [Utility First Class (Stylus Version)]
  * Function: generate the right selector.
- * Author: xiaoluoboding
+ * @author: xiaoluoboding
  * @param: {string} size - eg. sm / md / lg / xl
  * @param: {string} prefix - eg. text
  * @param: {string} modifier - eg. left / center / right / justifiy
  * @param: {string} variant - eg. hover / active
- * @return: utility selector
+ * @return: {string} utility selector
  */
-getSelector(size, prefix, modifier, variant) {
+get-selector($size, $prefix, $modifier, $variant, $property) {
+  $spaceBetweenModifier = '> :not(template) ~ :not(template)'
 
-  $baseSelector = match('^-', modifier) ? ('-' + prefix + modifier) : join('-', prefix, modifier)
+  $baseSelector = match('^-', $modifier) ? ('-' + $prefix + $modifier) : join('-', $prefix, $modifier)
 
-  $rightModifier = (modifier == default) ? prefix : $baseSelector
+  $rightModifier = ($modifier == default) ? $prefix : $baseSelector
 
-  $rightPrefix = (prefix == none) ? modifier : $rightModifier
+  $rightPrefix = ($prefix == none) ? $modifier : $rightModifier
 
-  $rightVariant = (variant is not null) ? (variant + "\:" + $rightPrefix + ":" + variant) : $rightPrefix
+  $rightVariant = ($variant is not null) ? ($variant + "\:" + $rightPrefix + ":" + $variant) : $rightPrefix
 
-  $result = (size is not null) ? join('\:', size, $rightVariant) : $rightVariant
+  $rightSize = ($size is not null) ? join('\:', $size, $rightVariant) : $rightVariant
 
+  $result = (match('^divide', $prefix) and ($property is 'border-color')) ? ($rightSize + ' ' + $spaceBetweenModifier) : $rightSize
+
+  return $result
+}
+
+///
+/// calc space / divide width
+/// @author xiaoluoboding
+/// @param {string} $size
+/// @param {string} $value
+/// @return {string}  - result
+///
+calc-width-value($size, $value) {
+  $size-value = 'calc(%s * %s)' % ($size $value)
+  $result = $value is '0' ? 0 : $size-value
   return $result
 }
 
 /**
  * [Utility First Class (Stylus Version)]
  * Function: Utility class generator like tailwindcss but in pure stylus.
- * Author: xiaoluoboding
- * @Param: [$themePairs]
+ * @author: xiaoluoboding
+ * @param: [$themePairs]
  *     eg: textAlign: {
              left: 'left',
              center: 'center',
              right: 'right',
              justify: 'justify'
            }
- * @Param: [[$variantList]]
+ * @param: [[$variantList]]
  *     eg: textAlign: 'responsive'
- * @Param: [$size]
+ * @param: [$size]
  *     eg: sm, md, lg, xl
- * @Param: [$prefix]
+ * @param: [$prefix]
  *     eg: text
- * @Param: [$property]
+ * @param: [$property]
  *     eg: text-align
  * Code for fun!
  */
@@ -53,7 +69,7 @@ class-generator($themePairs, $variantList, $size = null, $prefix, $property) {
       $modifier = replace('\/', '\/', key)
       $value = convent-string(value)
       
-      $selector = getSelector($size, $prefix, $modifier, $variant)
+      $selector = get-selector($size, $prefix, $modifier, $variant, $property)
 
       .{$selector} {
         if (typeof($property) is 'object') {
@@ -96,8 +112,38 @@ class-generator($themePairs, $variantList, $size = null, $prefix, $property) {
     }
   }
 
+  // loop space-between & divide-width
+  loop-space-between($variant = null) {
+    for key, value in $themePairs {
+      // unquote theme pairs
+      $modifier = replace('\/', '\/', key)
+      $value = convent-string(value)
+
+      // get the right selector
+      $selector = get-selector($size, $prefix, $modifier, $variant, $property)
+
+      .{$selector} > :not(template) ~ :not(template) {
+        if (typeof($property) is 'object') {
+          // generate multiple line properties class
+          if ($modifier is 'reverse') {
+            $prop = '--' + $prefix + '-' + $modifier
+            {$prop} 1
+          } else {
+            for $prop, $propValue in $property {
+              $selectorValue = calc-width-value($value, convent-string($propValue))
+              {$prop} $selectorValue
+            }
+          }
+        }
+      }
+
+    }
+  }
+
   if (match('^placeholder', $prefix)) {
     loop-placeholder()
+  } else if (match('^(space-|divide-x|divide-y)', $prefix)) {
+    loop-space-between()
   } else {
     loop-themes()
   }
@@ -107,6 +153,8 @@ class-generator($themePairs, $variantList, $size = null, $prefix, $property) {
       if ($variant is not 'responsive') {
         if (match('^placeholder', $prefix)) {
           loop-placeholder($variant)
+        } else if (match('^(space-|divide-x|divide-y)', $prefix)) {
+          loop-space-between($variant)
         } else {
           loop-themes($variant)
         }
