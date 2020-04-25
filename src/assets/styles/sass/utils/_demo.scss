@@ -19,3 +19,10 @@ $pseudoList: (':-ms-input-placeholder', '::-ms-input-placeholder', '::placeholde
     color: transparent;
   }
 }
+
+// variables in 'calc'
+@function calc-width-value($size, $value) {
+  $size-value: calc(#{$size} * #{$value});
+  $result: if($value=='0', $value, $size-value);
+  @return $result;
+}

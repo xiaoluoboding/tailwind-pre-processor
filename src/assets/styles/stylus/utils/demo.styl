@@ -16,3 +16,10 @@ $pseudoList = ':-ms-input-placeholder' '::-ms-input-placeholder' '::placeholder'
 for $pseudo in $pseudoList
   .placeholder{$pseudo}
     color transparent
+
+// variables in 'calc'
+calc-width-value($size, $value) {
+  $size-value = 'calc(%s * %s)' % ($size $value)
+  $result = $value is '0' ? 0 : $size-value
+  return $result
+}
