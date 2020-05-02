@@ -39,15 +39,20 @@
       @each $prefix, $property in $rules {
         $colorPrefixes: ('backgroundColor', 'borderColor', 'textColor', 'placeholderColor', 'divideColor');
 
-        $rightPairs: if(
-          index($colorPrefixes, $propAlias) == null,
-          $themePairs,
-          getThemeColor($rules, $colorPrefixes, $prefix)
-        );
+        @if (index($colorPrefixes, $propAlias) != null) {
+          // @debug $prefix;
+          $colorPairs: getThemeColor($rules, $colorPrefixes, $prefix);
+          @include color-generator($colorPairs, $variantList, $size, $prefix, $property, $propAlias);
+        }
 
-        @include class-generator($rightPairs, $variantList, $size, $prefix, $property);
+        @else {
+          @include class-generator($themePairs, $variantList, $size, $prefix, $property, $propAlias);
+        }
+
       }
-    } @else {
+    }
+    
+    @else {
       /// 
       /// eg. textAlign: text 'text-align'
       /// $prefix = text
@@ -56,7 +61,7 @@
       $prefix: nth($rules, 1);
       $property: nth($rules, 2);
 
-      @include class-generator($themePairs, $variantList, $size, $prefix, $property);
+      @include class-generator($themePairs, $variantList, $size, $prefix, $property, $propAlias);
     }
   }
 

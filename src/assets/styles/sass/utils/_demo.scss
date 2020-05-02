@@ -26,3 +26,9 @@ $pseudoList: (':-ms-input-placeholder', '::-ms-input-placeholder', '::placeholde
   $result: if($value=='0', $value, $size-value);
   @return $result;
 }
+
+@function rgba-color($color, $alpha) {
+  @return "rgba("+red($color)+", "+green($color)+", "+blue($color)+", "+$alpha+")";
+}
+
+@debug rgba-color(#3182ce, 0.75);

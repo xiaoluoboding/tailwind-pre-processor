@@ -8,119 +8,126 @@ $colors: (
   'common': (
     'transparent': 'transparent',
     'current': 'currentColor',
-    'black': '#000',
-    'white': '#fff'
+    'black': #000,
+    'white': #fff
   ),
   'gray': (
-    '100': '#f7fafc',
-    '200': '#edf2f7',
-    '300': '#e2e8f0',
-    '400': '#cbd5e0',
-    '500': '#a0aec0',
-    '600': '#718096',
-    '700': '#4a5568',
-    '800': '#2d3748',
-    '900': '#1a202c'
+    '100': #f7fafc,
+    '200': #edf2f7,
+    '300': #e2e8f0,
+    '400': #cbd5e0,
+    '500': #a0aec0,
+    '600': #718096,
+    '700': #4a5568,
+    '800': #2d3748,
+    '900': #1a202c
   ),
   'red': (
-    '100': '#fff5f5',
-    '200': '#fed7d7',
-    '300': '#feb2b2',
-    '400': '#fc8181',
-    '500': '#f56565',
-    '600': '#e53e3e',
-    '700': '#c53030',
-    '800': '#9b2c2c',
-    '900': '#742a2a'
+    '100': #fff5f5,
+    '200': #fed7d7,
+    '300': #feb2b2,
+    '400': #fc8181,
+    '500': #f56565,
+    '600': #e53e3e,
+    '700': #c53030,
+    '800': #9b2c2c,
+    '900': #742a2a
   ),
   'orange': (
-    '100': '#fffaf0',
-    '200': '#feebc8',
-    '300': '#fbd38d',
-    '400': '#f6ad55',
-    '500': '#ed8936',
-    '600': '#dd6b20',
-    '700': '#c05621',
-    '800': '#9c4221',
-    '900': '#7b341e'
+    '100': #fffaf0,
+    '200': #feebc8,
+    '300': #fbd38d,
+    '400': #f6ad55,
+    '500': #ed8936,
+    '600': #dd6b20,
+    '700': #c05621,
+    '800': #9c4221,
+    '900': #7b341e
   ),
   'yellow': (
-    '100': '#fffff0',
-    '200': '#fefcbf',
-    '300': '#faf089',
-    '400': '#f6e05e',
-    '500': '#ecc94b',
-    '600': '#d69e2e',
-    '700': '#b7791f',
-    '800': '#975a16',
-    '900': '#744210'
+    '100': #fffff0,
+    '200': #fefcbf,
+    '300': #faf089,
+    '400': #f6e05e,
+    '500': #ecc94b,
+    '600': #d69e2e,
+    '700': #b7791f,
+    '800': #975a16,
+    '900': #744210
   ),
   'green': (
-    '100': '#f0fff4',
-    '200': '#c6f6d5',
-    '300': '#9ae6b4',
-    '400': '#68d391',
-    '500': '#48bb78',
-    '600': '#38a169',
-    '700': '#2f855a',
-    '800': '#276749',
-    '900': '#22543d'
+    '100': #f0fff4,
+    '200': #c6f6d5,
+    '300': #9ae6b4,
+    '400': #68d391,
+    '500': #48bb78,
+    '600': #38a169,
+    '700': #2f855a,
+    '800': #276749,
+    '900': #22543d
   ),
   'teal': (
-    '100': '#e6fffa',
-    '200': '#b2f5ea',
-    '300': '#81e6d9',
-    '400': '#4fd1c5',
-    '500': '#38b2ac',
-    '600': '#319795',
-    '700': '#2c7a7b',
-    '800': '#285e61',
-    '900': '#234e52'
+    '100': #e6fffa,
+    '200': #b2f5ea,
+    '300': #81e6d9,
+    '400': #4fd1c5,
+    '500': #38b2ac,
+    '600': #319795,
+    '700': #2c7a7b,
+    '800': #285e61,
+    '900': #234e52
   ),
   'blue': (
-    '100': '#ebf8ff',
-    '200': '#bee3f8',
-    '300': '#90cdf4',
-    '400': '#63b3ed',
-    '500': '#4299e1',
-    '600': '#3182ce',
-    '700': '#2b6cb0',
-    '800': '#2c5282',
-    '900': '#2a4365'
+    '100': #ebf8ff,
+    '200': #bee3f8,
+    '300': #90cdf4,
+    '400': #63b3ed,
+    '500': #4299e1,
+    '600': #3182ce,
+    '700': #2b6cb0,
+    '800': #2c5282,
+    '900': #2a4365
   ),
   'indigo': (
-    '100': '#ebf4ff',
-    '200': '#c3dafe',
-    '300': '#a3bffa',
-    '400': '#7f9cf5',
-    '500': '#667eea',
-    '600': '#5a67d8',
-    '700': '#4c51bf',
-    '800': '#434190',
-    '900': '#3c366b',
+    '100': #ebf4ff,
+    '200': #c3dafe,
+    '300': #a3bffa,
+    '400': #7f9cf5,
+    '500': #667eea,
+    '600': #5a67d8,
+    '700': #4c51bf,
+    '800': #434190,
+    '900': #3c366b,
   ),
   'purple': (
-    '100': '#faf5ff',
-    '200': '#e9d8fd',
-    '300': '#d6bcfa',
-    '400': '#b794f4',
-    '500': '#9f7aea',
-    '600': '#805ad5',
-    '700': '#6b46c1',
-    '800': '#553c9a',
-    '900': '#44337a'
+    '100': #faf5ff,
+    '200': #e9d8fd,
+    '300': #d6bcfa,
+    '400': #b794f4,
+    '500': #9f7aea,
+    '600': #805ad5,
+    '700': #6b46c1,
+    '800': #553c9a,
+    '900': #44337a
   ),
   'pink': (
-    '100': '#fff5f7',
-    '200': '#fed7e2',
-    '300': '#fbb6ce',
-    '400': '#f687b3',
-    '500': '#ed64a6',
-    '600': '#d53f8c',
-    '700': '#b83280',
-    '800': '#97266d',
-    '900': '#702459'
+    '100': #fff5f7,
+    '200': #fed7e2,
+    '300': #fbb6ce,
+    '400': #f687b3,
+    '500': #ed64a6,
+    '600': #d53f8c,
+    '700': #b83280,
+    '800': #97266d,
+    '900': #702459
   )
+);
+$opacity: (
+  '0': '0',
+  '25': '0.25',
+  '50': '0.5',
+  '75': '0.75',
+  '100': '1'
 );
 $spacing: (
   px: '1px',
@@ -197,6 +204,7 @@ $theme: (
     scroll: 'scroll'
   ),
   backgroundColor: map-merge((), $colors),
+  backgroundOpacity: map-merge((), $opacity),
   backgroundPosition: (
     bottom: 'bottom',
     center: 'center',
@@ -226,6 +234,7 @@ $theme: (
     separate: 'separate'
   ),
   borderColor: map-merge((), $colors),
+  borderOpacity: map-merge((), $opacity),
   borderRadius: (
     none: '0',
     sm: '0.125rem',
@@ -300,6 +309,7 @@ $theme: (
     hidden: 'none'
   ),
   divideColor: map-merge((), $colors),
+  divideOpacity: map-merge((), $opacity),
   divideWidth: (
     default: '1px',
     '0': '0px',
@@ -577,13 +587,7 @@ $theme: (
     'right-top': 'right top',
     top: 'top',
   ),
-  opacity: (
-    '0': '0',
-    '25': '0.25',
-    '50': '0.5',
-    '75': '0.75',
-    '100': '1',
-  ),
+  opacity: map-merge((), $opacity),
   order: (
     first: '-9999',
     last: '9999',
@@ -616,6 +620,7 @@ $theme: (
     'reverse': 'reverse'
   ), $spacing), $negative-spacing),
   placeholderColor: map-merge((), $colors),
+  placeholderOpacity: map-merge((), $opacity),
   pointerEvents: (
     none: 'none',
     auto: 'auto'
@@ -648,6 +653,7 @@ $theme: (
     justify: 'justify'
   ),
   textColor: map-merge((), $colors),
+  textOpacity: map-merge((), $opacity),
   textDecoration: (
     underline: 'underline',
     'line-through': 'line-through',
@@ -830,6 +836,7 @@ $preset: (
     'bg-purple': 'background-color',
     'bg-pink': 'background-color'
   ),
+  backgroundOpacity: 'bg-opacity' '--bg-opacity',
   backgroundPosition: bg 'background-position',
   backgroundRepeat: bg 'background-repeat',
   backgroundSize: bg 'background-size',
@@ -847,6 +854,7 @@ $preset: (
     'border-purple': 'border-color',
     'border-pink': 'border-color'
   ),
+  borderOpacity: 'border-opacity' '--border-opacity',
   borderRadius: (
     rounded: 'border-radius',
     'rounded-t': (
@@ -897,6 +905,7 @@ $preset: (
     'divide-purple': 'border-color',
     'divide-pink': 'border-color'
   ),
+  divideOpacity: 'divide-opacity' '--divide-opacity',
   divideWidth: (
     'divide-x': (
       '--divide-x-reverse': '0',
@@ -1018,6 +1027,7 @@ $preset: (
     'placeholder-purple': 'color',
     'placeholder-pink': 'color'
   ),
+  placeholderOpacity: 'placeholder-opacity' '--placeholder-opacity',
   pointerEvents: 'pointer-events' 'pointer-events',
   position: none 'position',
   resize: resize 'resize',
@@ -1062,6 +1072,7 @@ $preset: (
     'text-purple': 'color',
     'text-pink': 'color'
   ),
+  textOpacity: 'text-opacity' '--text-opacity',
   textDecoration: none 'text-decoration',
   textTransform: none 'text-transform',
   transformOrigin: origin 'transform-origin',
@@ -1089,11 +1100,13 @@ $variants: (
   appearance: 'responsive',
   backgroundAttachment: 'responsive',
   backgroundColor: ('responsive', 'hover', 'focus'),
+  backgroundOpacity: ('responsive', 'hover', 'focus'),
   backgroundPosition: ('responsive', 'hover', 'focus'),
   backgroundRepeat: 'responsive',
   backgroundSize: 'responsive',
   borderCollapse: 'responsive',
   borderColor: ('responsive', 'hover', 'focus'),
+  borderOpacity: ('responsive', 'hover', 'focus'),
   borderRadius: 'responsive',
   borderStyle: 'responsive',
   borderWidth: 'responsive',
@@ -1135,6 +1148,7 @@ $variants: (
   overflow: 'responsive',
   padding: 'responsive',
   placeholderColor: ('responsive', 'focus'),
+  placeholderOpacity: ('responsive', 'focus'),
   pointerEvents: 'responsive',
   position: 'responsive',
   resize: 'responsive',
@@ -1143,6 +1157,7 @@ $variants: (
   tableLayout: 'responsive',
   textAlign: 'responsive',
   textColor: ('responsive', 'hover', 'focus'),
+  textOpacity: ('responsive', 'hover', 'focus'),
   textDecoration: ('responsive', 'hover', 'focus'),
   textTransform: 'responsive',
   userSelect: 'responsive',
@@ -1174,5 +1189,6 @@ $variants: (
   transitionDelay: 'responsive',
   spaceBetween: 'responsive',
   divideColor: 'responsive',
+  divideOpacity: 'responsive',
   divideWidth: 'responsive'
 );

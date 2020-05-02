@@ -66,6 +66,17 @@
   @return $result;
 }
 
+///
+/// get the rgba color
+/// @author {xiaoluoboding}
+/// @param {hex color} $color
+/// @param {string} $variable
+/// @return {string}  - result eg: rgba(0, 0, 0, var(--bg-opacity));
+///
+@function rgba-color($color, $variable) {
+  @return 'rgba('+red($color)+', '+green($color)+', '+blue($color)+', '+var($variable)+')';
+}
+
 /// 
 /// loop theme pairs
 /// 
@@ -75,7 +86,7 @@
     // get the right selector
     $selector: get-selector($prefix, $modifier, $variant, $size, $property);
 
-    @debug $selector;
+    // @debug $selector;
   
     .#{$selector} {
       @if (type-of($property) == 'map') {
@@ -94,19 +105,42 @@
 /// 
 /// loop placeholder
 /// 
-@mixin loop-placeholder($themePairs, $size, $prefix, $property, $variant) {
+@mixin loop-placeholder($themePairs, $size, $prefix, $property, $variant, $propAlias) {
   $pseudoList: (':-ms-input-placeholder', '::-ms-input-placeholder', '::placeholder');
 
   @each $modifier, $value in $themePairs {
     // get the right selector
     $selector: get-selector($prefix, $modifier, $variant, $size, $property);
 
-    @debug $selector;
-  
-    // generate multiple line properties class
-    @each $pseudo in $pseudoList {
-      .#{$selector}#{$pseudo} {
-        #{$property}: #{$value};
+    @if (str-index($propAlias, 'Color')) {
+      $propOpacity: str-replace($propAlias, 'Color', 'Opacity');
+
+      $opacity-variable: #{nth(map-get($preset, $propOpacity), 2)};
+
+      // @debug $selector;
+
+      // generate multiple line properties class
+      @each $pseudo in $pseudoList {
+        .#{$selector}#{$pseudo} {
+          @if ($modifier == 'transparent') or ($modifier == 'current') {
+            #{$property}: #{$value};
+          }
+
+          @else {
+            #{$opacity-variable}: 1;
+            #{$property}: #{$value};
+            #{$property}: #{rgba-color($value, $opacity-variable)}
+          }
+        }
+      }
+    }
+
+    @else {
+      // generate multiple line properties class
+      @each $pseudo in $pseudoList {
+        .#{$selector}#{$pseudo} {
+          #{$property}: #{$value};
+        }
       }
     }
   }
@@ -115,25 +149,31 @@
 /// 
 /// loop space between
 /// 
-@mixin loop-space-between($themePairs, $size, $prefix, $property, $variant) {
+@mixin loop-space-between($themePairs, $size, $prefix, $property, $variant, $propAlias) {
 
   @each $modifier, $value in $themePairs {
     // get the right selector
     $selector: get-selector($prefix, $modifier, $variant, $size, $property);
 
-    @debug $selector;
+    // @debug $selector;
   
     // generate multiple line properties class
     .#{$selector} > :not(template) ~ :not(template) {
-      @if (type-of($property) == 'map') {
-        // generate multiple line properties class
-        @if ($modifier == 'reverse') {
-          $prop: --#{$prefix}-#{$modifier};
-          #{$prop}: 1;
-        } @else {
-          @each $prop, $propValue in $property {
-            $selectorValue: calc-width-value($value, $propValue);
-            #{$prop}: #{$selectorValue};
+      @if (str-index($propAlias, 'Opacity')) {
+        #{$property}: #{$value};
+      }
+
+      @else {
+        @if (type-of($property) == 'map') {
+          // generate multiple line properties class
+          @if ($modifier == 'reverse') {
+            $prop: --#{$prefix}-#{$modifier};
+            #{$prop}: 1;
+          } @else {
+            @each $prop, $propValue in $property {
+              $selectorValue: calc-width-value($value, $propValue);
+              #{$prop}: #{$selectorValue};
+            }
           }
         }
       }
@@ -145,20 +185,21 @@
 /// 
 /// loop variants
 /// 
-@mixin loop-variants($themePairs, $variantList, $size, $prefix, $property) {
+@mixin loop-variants($themePairs, $variantList, $size, $prefix, $property, $propAlias) {
 
   @each $variant in $variantList {
     @if ($variant != 'responsive') {
-      @if (str-index($prefix, 'placeholder') != null) {
-        @include loop-placeholder($themePairs, $size, $prefix, $property, $variant);
+      @if (str-index($prefix, 'placeholder-opacity') !=null) {
+        @include loop-placeholder($themePairs, $size, $prefix, $property, $variant, placeholderOpacity);
       }
       
       @else if (
         str-index($prefix, 'space-') !=null or
         str-index($prefix, 'divide-x') !=null or
-        str-index($prefix, 'divide-y') !=null
+        str-index($prefix, 'divide-y') !=null or
+        str-index($prefix, 'divide-opacity') !=null
       ) {
-        @include loop-space-between($themePairs, $size, $prefix, $property, $variant);
+        @include loop-space-between($themePairs, $size, $prefix, $property, $variant, $propAlias);
       }
       
       @else {
@@ -169,25 +210,73 @@
 
 }
 
+@mixin class-generator($themePairs, $variantList, $size, $prefix, $property, $propAlias) {
 
-@mixin class-generator($themePairs, $variantList, $size, $prefix, $property) {
-
-  @if (str-index($prefix, 'placeholder') != null) {
-    @include loop-placeholder($themePairs, $size, $prefix, $property, null);
+  @if (str-index($prefix, 'placeholder-opacity') != null) {
+    @include loop-placeholder($themePairs, $size, $prefix, $property, null, $propAlias);
   }
 
   @else if (
     str-index($prefix, 'space-') !=null or
     str-index($prefix, 'divide-x') !=null or
-    str-index($prefix, 'divide-y') !=null
+    str-index($prefix, 'divide-y') !=null or
+    str-index($prefix, 'divide-opacity') !=null
   ) {
-    @include loop-space-between($themePairs, $size, $prefix, $property, null);
+    @include loop-space-between($themePairs, $size, $prefix, $property, null, $propAlias);
   }
   
   @else {
     @include loop-themes($themePairs, $size, $prefix, $property, null);
   }
 
-  @include loop-variants($themePairs, $variantList, $size, $prefix, $property);
+  @include loop-variants($themePairs, $variantList, $size, $prefix, $property, $propAlias);
 
+}
+
+@mixin loop-color-theme($themePairs, $size, $prefix, $property, $variant, $propAlias) {
+  @each $modifier, $value in $themePairs {
+    // get the right selector
+    $selector: get-selector($prefix, $modifier, $variant, $size, $property);
+
+    $propOpacity: str-replace($propAlias, 'Color', 'Opacity');
+    
+    $opacity-variable: #{nth(map-get($preset, $propOpacity), 2)};
+
+    // @debug $selector;
+  
+    .#{$selector} {
+      @if ($modifier=='transparent') or ($modifier=='current') {
+        #{$property}: #{$value};
+      }
+      
+      @else {
+        #{$opacity-variable}: 1;
+        #{$property}: #{$value};
+        #{$property}: #{rgba-color($value, $opacity-variable)}
+      }
+    }
+  }
+}
+
+@mixin color-generator($themePairs, $variantList, $size, $prefix, $property, $propAlias) {
+
+  @if (str-index($prefix, 'placeholder') !=null) {
+    @include loop-placeholder($themePairs, $size, $prefix, $property, null, $propAlias);
+  }
+
+  @else {
+    @include loop-color-theme($themePairs, $size, $prefix, $property, null, $propAlias);
+  }
+
+  @each $variant in $variantList {
+    @if ($variant != 'responsive') {
+      @if (str-index($prefix, 'placeholder') !=null) {
+        @include loop-placeholder($themePairs, $size, $prefix, $property, $variant, $propAlias);
+      }
+
+      @else {
+        @include loop-color-theme($themePairs, $size, $prefix, $property, $variant, $propAlias);
+      }
+    }
+  }
 }
