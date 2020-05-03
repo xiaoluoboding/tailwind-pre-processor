@@ -1,4 +1,4 @@
-@function getThemeColor($rules, $colorPrefixes, $classPrefix) {
+@function getThemeColor($rules, $classPrefix) {
   $colorPrefixes: ('bg', 'border', 'text', 'placeholder', 'divide');
   $themePairs: ();
   // get the right color themePairs
@@ -41,7 +41,7 @@
 
         @if (index($colorPrefixes, $propAlias) != null) {
           // @debug $prefix;
-          $colorPairs: getThemeColor($rules, $colorPrefixes, $prefix);
+          $colorPairs: getThemeColor($rules, $prefix);
           @include color-generator($colorPairs, $variantList, $size, $prefix, $property, $propAlias);
         }
 
