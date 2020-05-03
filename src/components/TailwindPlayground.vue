@@ -2,7 +2,7 @@
   <div class="tailwindless container">
     <div class="mb-6 flex justify-between w-4/5 mx-auto">
       <div class="flex space-x-4 bg-gray-300">
-        <div class="px-4 py-2 bg-red-200">1</div>
+        <div class="px-4 py-2 bg-red-200 bg-opacity-75">1</div>
         <div class="px-4 py-2 bg-green-200">2</div>
         <div class="px-4 py-2 bg-blue-200">3</div>
       </div>

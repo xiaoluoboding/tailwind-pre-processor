@@ -1,17 +1,17 @@
 <template>
   <div class="home flex justify-center items-center">
-    <TailwindLess />
+    <TailwindPlayground />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import TailwindLess from '@/components/TailwindLess.vue'
+import TailwindPlayground from '@/components/TailwindPlayground.vue'
 
 export default {
   name: 'Home',
   components: {
-    TailwindLess
+    TailwindPlayground
   }
 }
 </script>
