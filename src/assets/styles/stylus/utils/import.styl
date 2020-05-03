@@ -4,33 +4,34 @@
 $import(size = null) {
   $size = size == null ? size : unquote(size)
   for $propAlias, $rules in $preset {
-    if $rules is a 'object' {
-      /**
-       * eg. overflow: {
-               overflow: 'overflow',
-               'overflow-x': 'overflow-x',
-               'overflow-y': 'overflow-y'
-             }
-       * $prefixes = overflow 'overflow-x' 'overflow-y'
-       * $properites = overflow 'overflow-x' 'overflow-y'
-       */
-      for key, value in $rules {
-        $colorPrefixes = 'bg' 'border' 'text' 'placeholder' 'divide'
+    /**
+      * eg. overflow: {
+              overflow: 'overflow',
+              'overflow-x': 'overflow-x',
+              'overflow-y': 'overflow-y'
+            }
+      * $prefixes = overflow 'overflow-x' 'overflow-y'
+      * $properites = overflow 'overflow-x' 'overflow-y'
+      */
 
-        $themePairs = $theme[$propAlias]
+    $themePairs = $theme[$propAlias]
+    $variantList = $variants[$propAlias]
+
+    if $rules is a 'object' {
+      for $key, $property in $rules {
+        $prefix = unquote($key)
+
+        $colorPrefixes = 'bg' 'border' 'text' 'placeholder' 'divide'
 
         // get the right color themePairs
         for prefix in $colorPrefixes {
           if ((prefix + '-gray') in $rules) {
-            $color = replace((prefix + '-'), '', key)
+            $color = replace((prefix + '-'), '', $key)
             $themePairs = $color is not prefix ? $colors[$color] : $colors.common
           }
         }
 
-        $prefix = unquote(key)
-        $property = value
-
-        class-generator($themePairs, $variants[$propAlias], $size, $prefix, $property)
+        class-generator($themePairs, $variantList, $size, $prefix, $property, $propAlias)
       }
     } else {
       /**
@@ -41,7 +42,7 @@ $import(size = null) {
       $prefix = unquote($rules[0])
       $property = unquote($rules[1])
 
-      class-generator($theme[$propAlias], $variants[$propAlias], $size, $prefix, $property)
+      class-generator($theme[$propAlias], $variantList, $size, $prefix, $property, $propAlias)
     }
   }
 }

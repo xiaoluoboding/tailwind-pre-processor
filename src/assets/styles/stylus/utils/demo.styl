@@ -23,3 +23,9 @@ calc-width-value($size, $value) {
   $result = $value is '0' ? 0 : $size-value
   return $result
 }
+
+rgba-color($color, $alpha) {
+  return 'rgba(' + red($color) + ', ' + green($color) + ', ' + blue($color) + ', ' + $alpha + ')'
+}
+
+p(rgba-color(#ff44aa, 1))
