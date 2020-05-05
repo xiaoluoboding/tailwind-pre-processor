@@ -2,7 +2,7 @@
   <div class="container mx-auto">
     <div class="alert-component mb-8 grid grid-cols-1 gap-4 w-4/5 mx-auto">
       <!-- Traditional -->
-      <figure>
+      <figure class="p-8">
         <figcaption class="text-gray-700 text-lg mb-2 font-semibold">
           Traditional
         </figcaption>
@@ -15,7 +15,7 @@
         </div>
       </figure>
       <!-- Modern with Badge -->
-      <figure>
+      <figure class="p-8">
         <figcaption class="text-gray-700 text-lg mb-2 font-semibold">
           Modern with Badge
         </figcaption>
@@ -28,7 +28,7 @@
         </div>
       </figure>
       <!-- Left Accent Border -->
-      <figure>
+      <figure class="p-8">
         <figcaption class="text-gray-700 text-lg mb-2 font-semibold">
           Left Accent Border
         </figcaption>
@@ -38,7 +38,7 @@
         </div>
       </figure>
       <!-- Titied -->
-      <figure>
+      <figure class="p-8">
         <figcaption class="text-gray-700 text-lg mb-2 font-semibold">
           Titied
         </figcaption>
@@ -52,7 +52,7 @@
         </div>
       </figure>
       <!-- Solid -->
-      <figure>
+      <figure class="p-8">
         <figcaption class="text-gray-700 text-lg mb-2 font-semibold">
           Solid
         </figcaption>
@@ -62,7 +62,7 @@
         </div>
       </figure>
       <!-- Top Accent Border -->
-      <figure>
+      <figure class="p-8">
         <figcaption class="text-gray-700 text-lg mb-2 font-semibold">
           Top Accent Border
         </figcaption>
@@ -77,7 +77,7 @@
         </div>
       </figure>
       <!-- Banner -->
-      <figure>
+      <figure class="p-8">
         <figcaption class="text-gray-700 text-lg mb-2 font-semibold">
           Banner
         </figcaption>
@@ -90,11 +90,6 @@
   </div>
 </template>
 
-<style lang="less" scoped>
-figure {
-  @apply p-8;
-  figcaption {
-    @apply text-gray-700 text-lg mb-2 font-semibold;
-  }
-}
+<style scoped>
+
 </style>

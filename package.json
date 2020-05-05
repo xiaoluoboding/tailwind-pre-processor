@@ -1,37 +1,22 @@
 {
-  "name": "tailwindless",
-  "version": "0.1.0",
-  "private": true,
+  "name": "tailwind-pre-processor",
+  "version": "0.0.1",
+  "author": "xiaoluoboding <xiaoluoboding@gmail.com>",
+  "description": "Manage your GitHub stars with the best one desktop app.",
+  "license": "MIT",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
+    "dev": "vite",
+    "build": "vite build",
     "lessc": "lessc src/assets/styles/less/index.less > src/assets/styles/less/tailwindless.css",
     "stylc": "stylus src/assets/styles/stylus/index.styl -m -o src/assets/styles/stylus/tailwindstylus.css",
     "sassc": "sass src/assets/styles/sass/index.scss src/assets/styles/sass/tailwindsass.css"
   },
   "dependencies": {
-    "core-js": "^3.6.4",
-    "normalize.css": "^8.0.1",
-    "tailwindcss": "^1.4.4",
-    "vue": "^2.6.11",
-    "vue-router": "^3.1.5"
+    "vue": "^3.0.0-beta.4",
+    "vue-router": "4.0.0-alpha.9"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.2.0",
-    "@vue/cli-plugin-eslint": "~4.2.0",
-    "@vue/cli-plugin-router": "~4.2.0",
-    "@vue/cli-service": "~4.2.0",
-    "@vue/eslint-config-standard": "^5.1.0",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.7.2",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^6.1.2",
-    "less": "^3.0.4",
-    "less-loader": "^5.0.0",
-    "vue-template-compiler": "^2.6.11"
+    "@vue/compiler-sfc": "^3.0.0-beta.4",
+    "vite": "^0.9.1"
   }
 }

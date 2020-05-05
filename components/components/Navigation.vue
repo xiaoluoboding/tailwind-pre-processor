@@ -1,8 +1,8 @@
 <template>
   <div class="container mx-auto">
     <div class="navigation-component mb-8 w-4/5 mx-auto">
-      <figure>
-        <figcaption>Simple</figcaption>
+      <figure class="p-8">
+        <figcaption class="text-gray-700 text-lg mb-4 py-2 font-semibold border-b border-gray-300">Simple</figcaption>
         <ul class="flex">
           <li class="mr-6">
             <a class="text-blue-500 hover:text-blue-800" href="#">Active</a>
@@ -18,8 +18,8 @@
           </li>
         </ul>
       </figure>
-      <figure>
-        <figcaption>Responsive Header</figcaption>
+      <figure class="p-8">
+        <figcaption class="text-gray-700 text-lg mb-4 py-2 font-semibold border-b border-gray-300">Responsive Header</figcaption>
         <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
           <div class="flex items-center flex-shrink-0 text-white mr-6">
             <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
@@ -48,8 +48,8 @@
           </div>
         </nav>
       </figure>
-      <figure>
-        <figcaption>Tabs</figcaption>
+      <figure class="p-8">
+        <figcaption class="text-gray-700 text-lg mb-4 py-2 font-semibold border-b border-gray-300">Tabs</figcaption>
         <ul class="flex border-b">
           <li class="-mb-px mr-1">
             <a class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold" href="#">Active</a>
@@ -65,8 +65,8 @@
           </li>
         </ul>
       </figure>
-      <figure>
-        <figcaption>Pills</figcaption>
+      <figure class="p-8">
+        <figcaption class="text-gray-700 text-lg mb-4 py-2 font-semibold border-b border-gray-300">Pills</figcaption>
         <ul class="flex">
           <li class="mr-3">
             <a class="inline-block border border-blue-500 rounded py-1 px-3 bg-blue-500 text-white" href="#">Active Pill</a>
@@ -79,8 +79,8 @@
           </li>
         </ul>
       </figure>
-      <figure>
-        <figcaption>Stretched</figcaption>
+      <figure class="p-8">
+        <figcaption class="text-gray-700 text-lg mb-4 py-2 font-semibold border-b border-gray-300">Stretched</figcaption>
         <ul class="flex">
           <li class="flex-1 mr-2">
             <a class="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="#">Active Item</a>
@@ -93,8 +93,8 @@
           </li>
         </ul>
       </figure>
-      <figure>
-        <figcaption>Justified</figcaption>
+      <figure class="p-8">
+        <figcaption class="text-gray-700 text-lg mb-4 py-2 font-semibold border-b border-gray-300">Justified</figcaption>
         <ul class="flex justify-between">
           <li class="mr-3">
             <a class="inline-block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="#">Active Pill</a>
@@ -111,12 +111,6 @@
   </div>
 </template>
 
-<style lang="less">
-figure {
-  @apply p-8;
-  figcaption {
-    @apply text-gray-700 text-lg mb-4 py-2 font-semibold;
-    @apply border-b border-gray-300;
-  }
-}
+<style scoped>
+
 </style>
