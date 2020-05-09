@@ -2502,10 +2502,10 @@ vendors@^1.0.0:
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.4.tgz#e2b800a53e7a29b93506c3cf41100d16c4c4ad8e"
   integrity sha512-/juG65kTL4Cy2su4P8HjtkTxk6VmJDiOPBufWniqQ6wknac6jNiXS9vU+hO3wgusiyqWlzTbVHi0dyJqRONg3w==
 
-vite@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-0.12.0.tgz#0ef3c598116c64cac0bba39814747697e39f6e1b"
-  integrity sha512-kh98dmkKzuEMGytAhQnAQ9zDOLlzU9pGxNmteZMR6GrXQ/1RUv02qTOYwsOPO8GV7zV4a2C8xeWl1Gdi7Sq2Sw==
+vite@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-0.13.0.tgz#dc36bf450e03599fe16390dfdb6207a50407c477"
+  integrity sha512-6oSWpVcWICYE9+Rn9W0y/8dxx5EnndrjXyEwWnYVruE4J863T6Nl8Lo0a3aiv7q8vb7OELg8tWT2UPlGPjRW6A==
   dependencies:
     "@babel/parser" "^7.9.4"
     "@rollup/plugin-json" "^4.0.3"
