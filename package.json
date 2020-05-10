@@ -2,7 +2,7 @@
   "name": "tailwind-pre-processor",
   "version": "0.0.1",
   "author": "xiaoluoboding <xiaoluoboding@gmail.com>",
-  "description": "Manage your GitHub stars with the best one desktop app.",
+  "description": "An implementation of tailwindcss using less / stylus / Sass/SCSS.",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
