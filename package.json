@@ -12,11 +12,11 @@
     "sassc": "sass src/assets/styles/sass/index.scss src/assets/styles/sass/tailwindsass.css"
   },
   "dependencies": {
-    "vue": "^3.0.0-beta.4",
+    "vue": "^3.0.0-beta.12",
     "vue-router": "4.0.0-alpha.10"
   },
   "devDependencies": {
-    "@vue/compiler-sfc": "^3.0.0-beta.4",
+    "@vue/compiler-sfc": "^3.0.0-beta.12",
     "vite": "^0.13.2"
   }
 }
