@@ -9,20 +9,30 @@
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
-                <router-link
-                  v-for="item in menuList"
-                  :key="item.id"
-                  class="px-3 py-2 rounded-md text-sm font-medium
-                    text-gray-300 hover:text-white hover:bg-gray-700
-                    focus:outline-none focus:text-white"
-                  :class="{
-                    'text-white': item.id === activeMenu,
-                    'bg-gray-900': item.id === activeMenu
-                  }"
-                  :to="item.to"
-                >
-                  {{ item.name }}
-                </router-link>
+                <template v-for="item in menuList">
+                  <router-link
+                    v-if="item.to.startsWith('/')"
+                    :key="item.id"
+                    class="px-3 py-2 rounded-md text-sm font-medium
+                      text-gray-300 hover:text-white hover:bg-gray-700
+                      focus:outline-none focus:text-white"
+                    :class="{
+                      'text-white': item.id === activeMenu,
+                      'bg-gray-900': item.id === activeMenu
+                    }"
+                    :to="item.to"
+                  >
+                    {{ item.name }}
+                  </router-link>
+                  <a
+                    class="px-3 py-2 rounded-md text-sm font-medium
+                      text-gray-300 hover:text-white hover:bg-gray-700
+                      focus:outline-none focus:text-white"
+                    :class="{
+                      'text-white': item.id === activeMenu,
+                      'bg-gray-900': item.id === activeMenu
+                    }" :href="item.to" target="_blank" :key="item.id" v-else>{{ item.name }}</a>
+                </template>
               </div>
             </div>
           </div>
