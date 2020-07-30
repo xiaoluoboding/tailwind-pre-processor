@@ -45,13 +45,31 @@ const routes = [
         path: 'navigation',
         name: 'Navigation',
         component: () => import('../components/components/Navigation.vue')
+      },
+      {
+        path: 'animation',
+        name: 'Animation',
+        component: () => import('../components/components/Animation.vue')
       }
     ]
   },
   {
     path: '/about',
     name: 'About',
-    component: () => import('../views/About.vue')
+    component: () => import('../layouts/index.vue'),
+    children: [
+      {
+        path: '',
+        redirect: {
+          name: 'AboutIndex'
+        }
+      },
+      {
+        path: 'about-index',
+        name: 'AboutIndex',
+        component: () => import('../views/About.vue')
+      }
+    ]
   }
 ]
 

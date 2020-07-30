@@ -1,5 +1,5 @@
 <template>
-  <div class="site-home">
+  <div class="site-home antialiased sm:subpixel-antialiased md:antialiased lg:subpixel-antialiased xl:antialiased">
     <router-view />
   </div>
 </template>
@@ -12,8 +12,8 @@ export default {
 
 <style>
 /* @import './assets/styles/less/tailwindless.css'; */
-@import './assets/styles/sass/tailwindsass.css';
-/* @import './assets/styles/stylus/tailwindstylus.css'; */
+/* @import './assets/styles/sass/tailwindsass.css'; */
+@import './assets/styles/stylus/tailwindstylus.css';
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

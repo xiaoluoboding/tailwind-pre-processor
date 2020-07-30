@@ -13,7 +13,7 @@
                   v-for="item in menuList"
                   :key="item.id"
                   class="px-3 py-2 rounded-md text-sm font-medium
-                    text-gray-300 hover:text-white hover:bg-gray-700 
+                    text-gray-300 hover:text-white hover:bg-gray-700
                     focus:outline-none focus:text-white"
                   :class="{
                     'text-white': item.id === activeMenu,
@@ -131,8 +131,13 @@
           <li
             v-for="item in componentsList"
             :key="item.id"
+            :class="{'text-blue-500': item.name === $route.name}"
           >
             <router-link :to="item.to">{{ item.name }}</router-link>
+            <span v-if="item.version"
+              class="ml-3 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium leading-4 bg-green-100 text-green-900">
+              {{item.version}}
+            </span>
           </li>
         </ul>
       </div>
@@ -149,14 +154,15 @@ export default {
     menuList: [
       { id: 'Home', name: 'Home', to: '/home' },
       { id: 'Components', name: 'Components', to: '/components' },
-      { id: 'Projects', name: 'Projects', to: '/projects' },
+      // { id: 'Projects', name: 'Projects', to: '/projects' },
       { id: 'About', name: 'About', to: '/about' },
       { id: 'GitHub', name: 'GitHub', to: 'https://github.com/xiaoluoboding/tailwind-pre-processor' }
     ],
     activeMenu: 'Home',
     componentsList: [
       { id: 'Alert', name: 'Alert', to: '/components/alert' },
-      { id: 'Navigation', name: 'Navigation', to: '/components/navigation' }
+      { id: 'Navigation', name: 'Navigation', to: '/components/navigation' },
+      { id: 'Animation', name: 'Animation', to: '/components/animation', version: 'v1.6.0+' }
     ]
   }),
   watch: {
@@ -166,6 +172,9 @@ export default {
         this.activeMenu = this.menuList[idx].id
       }
     }
+  },
+  mounted () {
+    // console.log(this.$route)
   },
   methods: {
     toggleShowMenu () {

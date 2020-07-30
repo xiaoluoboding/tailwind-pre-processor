@@ -7,9 +7,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lessc": "lessc src/assets/styles/less/index.less > src/assets/styles/less/tailwindless.css",
-    "stylc": "stylus src/assets/styles/stylus/index.styl -m -o src/assets/styles/stylus/tailwindstylus.css",
-    "sassc": "sass src/assets/styles/sass/index.scss src/assets/styles/sass/tailwindsass.css"
+    "lessc": "lessc assets/styles/less/index.less > assets/styles/less/tailwindless.css",
+    "stylc": "stylus assets/styles/stylus/index.styl -m -o assets/styles/stylus/tailwindstylus.css",
+    "sassc": "sass assets/styles/sass/index.scss assets/styles/sass/tailwindsass.css"
   },
   "dependencies": {
     "vue": "^3.0.0-rc.1",
