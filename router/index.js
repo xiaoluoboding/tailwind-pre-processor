@@ -50,6 +50,11 @@ const routes = [
         path: 'animation',
         name: 'Animation',
         component: () => import('../components/components/Animation.vue')
+      },
+      {
+        path: 'gradient-color',
+        name: 'Gradient Color',
+        component: () => import('../components/components/GradientColor.vue')
       }
     ]
   },

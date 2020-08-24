@@ -172,7 +172,8 @@ export default {
     componentsList: [
       { id: 'Alert', name: 'Alert', to: '/components/alert' },
       { id: 'Navigation', name: 'Navigation', to: '/components/navigation' },
-      { id: 'Animation', name: 'Animation', to: '/components/animation', version: 'v1.6.0+' }
+      { id: 'Animation', name: 'Animation', to: '/components/animation', version: 'v1.6.0+' },
+      { id: 'Gradient Color', name: 'GradientColor', to: '/components/gradient-color', version: 'v1.7.0+' }
     ]
   }),
   watch: {
