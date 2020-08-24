@@ -251,7 +251,7 @@ class-generator($themePairs, $variantList, $size = null, $prefix, $property, $pr
           if (match('^placeholder', $prefix)) {
             loop-placeholder($variant)
           } else if (match('gradientColorStops', $propAlias)) {
-            loop-gradient-color()
+            loop-gradient-color($variant)
           } else {
             loop-color-theme($variant)
           }
