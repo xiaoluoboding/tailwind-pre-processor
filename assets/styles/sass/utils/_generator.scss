@@ -258,10 +258,43 @@
   }
 }
 
-@mixin color-generator($themePairs, $variantList, $size, $prefix, $property, $propAlias) {
+@mixin loop-gradient-color($themePairs, $size, $prefix, $property, $variant, $propAlias) {
+  @each $modifier, $value in $themePairs {
+    // get the right selector
+    $selector: get-selector($prefix, $modifier, $variant, $size, $property);
 
-  @if (str-index($prefix, 'placeholder') !=null) {
+    .#{$selector} {
+      @if ($modifier=='transparent') or ($modifier=='current') {
+        #{$property}: #{$value};
+      }
+      
+      @else {
+        // transparent color function
+        $transparentColor: scale-color($value, $alpha: -100%);
+
+        @if (str-index($prefix, 'from')) {
+          #{$property}: #{$value};
+          --gradient-color-stops: var(--gradient-from-color),var(--gradient-to-color, #{$transparentColor});
+        }
+        @else if (str-index($prefix, 'via')) {
+          #{$property}: #{$value};
+          --gradient-color-stops: var(--gradient-from-color),var(--gradient-via-color),var(--gradient-to-color, #{$transparentColor});
+        }
+        @else {
+          #{$property}: #{$value};
+        }
+      }
+    }
+  }
+}
+
+@mixin color-generator($themePairs, $variantList, $size, $prefix, $property, $propAlias) {
+  @if (str-index($prefix, 'placeholder') != null) {
     @include loop-placeholder($themePairs, $size, $prefix, $property, null, $propAlias);
+  }
+
+  @else if ($propAlias == 'gradientColorStops') {
+    @include loop-gradient-color($themePairs, $size, $prefix, $property, null, $propAlias);
   }
 
   @else {
@@ -270,8 +303,12 @@
 
   @each $variant in $variantList {
     @if ($variant != 'responsive') {
-      @if (str-index($prefix, 'placeholder') !=null) {
+      @if (str-index($prefix, 'placeholder') != null) {
         @include loop-placeholder($themePairs, $size, $prefix, $property, $variant, $propAlias);
+      }
+
+      @else if ($propAlias == 'gradientColorStops') {
+        @include loop-gradient-color($themePairs, $size, $prefix, $property, $variant, $propAlias);
       }
 
       @else {

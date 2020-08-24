@@ -1,20 +1,15 @@
-@function getThemeColor($rules, $classPrefix) {
-  $colorPrefixes: ('bg', 'border', 'text', 'placeholder', 'divide');
-  $themePairs: ();
-  // get the right color themePairs
-  @each $prefix in $colorPrefixes {
-    $key: $prefix + '-gray';
-    @if (map-has-key($rules, $key)) {
-      $color: str-replace($classPrefix, ($prefix + '-'), '');
-     
-      $themePairs: if(
-        $color == $prefix,
-        map-get($colors, 'common'),
-        map-get($colors, $color)
-      );
-    }
-  }
-  @return $themePairs;
+@function getColorPairs($rules, $classPrefix) {
+  $colorPairs: ();
+
+  $dashIndex: str-index($classPrefix, '-');
+
+  $colorPairs: if(
+    $dashIndex != null,
+    map-get($colors, str-slice($classPrefix, $dashIndex + 1)),
+    map-get($colors, 'common')
+  );
+
+  @return $colorPairs;
 }
 
 /// 
@@ -37,11 +32,11 @@
     /// 
     @if (type-of($rules) == 'map') {
       @each $prefix, $property in $rules {
-        $colorPrefixes: ('backgroundColor', 'borderColor', 'textColor', 'placeholderColor', 'divideColor');
+        $colorPrefixes: ('backgroundColor', 'borderColor', 'textColor', 'placeholderColor', 'divideColor', 'gradientColorStops');
 
         @if (index($colorPrefixes, $propAlias) != null) {
-          // @debug $prefix;
-          $colorPairs: getThemeColor($rules, $prefix);
+          $colorPairs: getColorPairs($rules, $prefix);
+          // @debug $colorPairs;
           @include color-generator($colorPairs, $variantList, $size, $prefix, $property, $propAlias);
         }
 
