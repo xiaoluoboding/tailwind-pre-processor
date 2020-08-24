@@ -5014,6 +5014,10 @@ video {
   display: none;
 }
 
+.contents {
+  display: contents;
+}
+
 .divide-transparent > :not(template) ~ :not(template) {
   border-color: transparent;
 }
@@ -5660,6 +5664,26 @@ video {
 
 .divide-y-reverse > :not(template) ~ :not(template) {
   --divide-y-reverse: 1;
+}
+
+.divide-solid {
+  border-style: solid;
+}
+
+.divide-dashed {
+  border-style: dashed;
+}
+
+.divide-dotted {
+  border-style: dotted;
+}
+
+.divide-double {
+  border-style: double;
+}
+
+.divide-none {
+  border-style: none;
 }
 
 .fill-current {
@@ -21107,6 +21131,10 @@ video {
     display: none;
   }
 
+  .sm\:contents {
+    display: contents;
+  }
+
   .sm\:divide-transparent > :not(template) ~ :not(template) {
     border-color: transparent;
   }
@@ -21753,6 +21781,26 @@ video {
 
   .sm\:divide-y-reverse > :not(template) ~ :not(template) {
     --divide-y-reverse: 1;
+  }
+
+  .sm\:divide-solid {
+    border-style: solid;
+  }
+
+  .sm\:divide-dashed {
+    border-style: dashed;
+  }
+
+  .sm\:divide-dotted {
+    border-style: dotted;
+  }
+
+  .sm\:divide-double {
+    border-style: double;
+  }
+
+  .sm\:divide-none {
+    border-style: none;
   }
 
   .sm\:fill-current {
@@ -37200,6 +37248,10 @@ video {
     display: none;
   }
 
+  .md\:contents {
+    display: contents;
+  }
+
   .md\:divide-transparent > :not(template) ~ :not(template) {
     border-color: transparent;
   }
@@ -37846,6 +37898,26 @@ video {
 
   .md\:divide-y-reverse > :not(template) ~ :not(template) {
     --divide-y-reverse: 1;
+  }
+
+  .md\:divide-solid {
+    border-style: solid;
+  }
+
+  .md\:divide-dashed {
+    border-style: dashed;
+  }
+
+  .md\:divide-dotted {
+    border-style: dotted;
+  }
+
+  .md\:divide-double {
+    border-style: double;
+  }
+
+  .md\:divide-none {
+    border-style: none;
   }
 
   .md\:fill-current {
@@ -53293,6 +53365,10 @@ video {
     display: none;
   }
 
+  .lg\:contents {
+    display: contents;
+  }
+
   .lg\:divide-transparent > :not(template) ~ :not(template) {
     border-color: transparent;
   }
@@ -53939,6 +54015,26 @@ video {
 
   .lg\:divide-y-reverse > :not(template) ~ :not(template) {
     --divide-y-reverse: 1;
+  }
+
+  .lg\:divide-solid {
+    border-style: solid;
+  }
+
+  .lg\:divide-dashed {
+    border-style: dashed;
+  }
+
+  .lg\:divide-dotted {
+    border-style: dotted;
+  }
+
+  .lg\:divide-double {
+    border-style: double;
+  }
+
+  .lg\:divide-none {
+    border-style: none;
   }
 
   .lg\:fill-current {
@@ -69386,6 +69482,10 @@ video {
     display: none;
   }
 
+  .xl\:contents {
+    display: contents;
+  }
+
   .xl\:divide-transparent > :not(template) ~ :not(template) {
     border-color: transparent;
   }
@@ -70032,6 +70132,26 @@ video {
 
   .xl\:divide-y-reverse > :not(template) ~ :not(template) {
     --divide-y-reverse: 1;
+  }
+
+  .xl\:divide-solid {
+    border-style: solid;
+  }
+
+  .xl\:divide-dashed {
+    border-style: dashed;
+  }
+
+  .xl\:divide-dotted {
+    border-style: dotted;
+  }
+
+  .xl\:divide-double {
+    border-style: double;
+  }
+
+  .xl\:divide-none {
+    border-style: none;
   }
 
   .xl\:fill-current {

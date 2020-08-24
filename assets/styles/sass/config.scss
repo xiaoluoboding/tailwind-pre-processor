@@ -306,7 +306,8 @@ $theme: (
     'table-header-group': 'table-header-group',
     'table-row-group': 'table-row-group',
     'table-row': 'table-row',
-    hidden: 'none'
+    hidden: 'none',
+    contents: 'contents'
   ),
   divideColor: map-merge((), $colors),
   divideOpacity: map-merge((), $opacity),
@@ -317,6 +318,13 @@ $theme: (
     '4': '4px',
     '8': '8px',
     'reverse': 'reverse'
+  ),
+  divideStyle: (
+    solid: 'solid',
+    dashed: 'dashed',
+    dotted: 'dotted',
+    double: 'double',
+    none: 'none'
   ),
   fill: (
     current: 'currentColor',
@@ -934,6 +942,7 @@ $preset: (
       'border-bottom-width': 'var(--divide-y-reverse)'
     )
   ),
+  divideStyle: divide 'border-style',
   fill: fill 'fill',
   flex: flex 'flex',
   flexDirection: flex 'flex-direction',
@@ -1140,6 +1149,7 @@ $variants: (
   divideColor: 'responsive',
   divideOpacity: 'responsive',
   divideWidth: 'responsive',
+  divideStyle: 'responsive',
   fill: 'responsive',
   flex: 'responsive',
   flexDirection: 'responsive',
