@@ -187,7 +187,25 @@ $theme = {
     local: 'local',
     scroll: 'scroll'
   },
+  backgroundClip: {
+    'clip-border': 'border-box',
+    'clip-padding': 'padding-box',
+    'clip-content': 'content-box',
+    'clip-text': 'text'
+  },
   backgroundColor: extend($colors),
+  backgroundImage: {
+    none: 'none',
+    'gradient-to-t': 'linear-gradient(to top, var(--gradient-color-stops))',
+    'gradient-to-tr': 'linear-gradient(to top right, var(--gradient-color-stops))',
+    'gradient-to-r': 'linear-gradient(to right, var(--gradient-color-stops))',
+    'gradient-to-br': 'linear-gradient(to bottom right, var(--gradient-color-stops))',
+    'gradient-to-b': 'linear-gradient(to bottom, var(--gradient-color-stops))',
+    'gradient-to-bl': 'linear-gradient(to bottom left, var(--gradient-color-stops))',
+    'gradient-to-l': 'linear-gradient(to left, var(--gradient-color-stops))',
+    'gradient-to-tl': 'linear-gradient(to top left, var(--gradient-color-stops))'
+  },
+  gradientColorStops: extend($colors),
   backgroundOpacity: extend($opacity),
   backgroundPosition: {
     bottom: 'bottom',
@@ -832,6 +850,12 @@ $preset = {
   alignSelf: self 'align-self',
   appearance: appearance 'appearance',
   backgroundAttachment: bg 'background-attachment',
+  backgroundClip: {
+    'bg': {
+      'background-clip': 'background-clip',
+      '-webkit-background-clip': '-webkit-background-clip'
+    }
+  },
   backgroundColor: {
     bg: 'background-color',
     'bg-gray': 'background-color',
@@ -844,6 +868,42 @@ $preset = {
     'bg-indigo': 'background-color',
     'bg-purple': 'background-color',
     'bg-pink': 'background-color'
+  },
+  backgroundImage: bg 'background-image',
+  gradientColorStops: {
+    'from': '--gradient-from-color',
+    'from-gray': '--gradient-from-color',
+    'from-red': '--gradient-from-color',
+    'from-orange': '--gradient-from-color',
+    'from-yellow': '--gradient-from-color',
+    'from-green': '--gradient-from-color',
+    'from-teal': '--gradient-from-color',
+    'from-blue': '--gradient-from-color',
+    'from-indigo': '--gradient-from-color',
+    'from-purple': '--gradient-from-color',
+    'from-pink': '--gradient-from-color',
+    'via': '--gradient-via-color',
+    'via-gray': '--gradient-via-color',
+    'via-red': '--gradient-via-color',
+    'via-orange': '--gradient-via-color',
+    'via-yellow': '--gradient-via-color',
+    'via-green': '--gradient-via-color',
+    'via-teal': '--gradient-via-color',
+    'via-blue': '--gradient-via-color',
+    'via-indigo': '--gradient-via-color',
+    'via-purple': '--gradient-via-color',
+    'via-pink': '--gradient-via-color',
+    'to': '--gradient-to-color',
+    'to-gray': '--gradient-to-color',
+    'to-red': '--gradient-to-color',
+    'to-orange': '--gradient-to-color',
+    'to-yellow': '--gradient-to-color',
+    'to-green': '--gradient-to-color',
+    'to-teal': '--gradient-to-color',
+    'to-blue': '--gradient-to-color',
+    'to-indigo': '--gradient-to-color',
+    'to-purple': '--gradient-to-color',
+    'to-pink': '--gradient-to-color'
   },
   backgroundOpacity: 'bg-opacity' '--bg-opacity',
   backgroundPosition: bg 'background-position',
@@ -1133,7 +1193,10 @@ $variants = {
   alignSelf: 'responsive',
   appearance: 'responsive',
   backgroundAttachment: 'responsive',
+  backgroundClip: 'responsive',
   backgroundColor: 'responsive' 'hover' 'focus',
+  backgroundImage: 'responsive',
+  gradientColorStops: 'responsive' 'hover' 'focus',
   backgroundOpacity: 'responsive' 'hover' 'focus',
   backgroundPosition: 'responsive' 'hover' 'focus',
   backgroundRepeat: 'responsive',

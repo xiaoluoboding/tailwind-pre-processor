@@ -21,14 +21,14 @@ $import(size = null) {
       for $key, $property in $rules {
         $prefix = unquote($key)
 
-        $colorPrefixes = 'bg' 'border' 'text' 'placeholder' 'divide'
+        $colorPrefixes = 'backgroundColor' 'borderColor' 'textColor' 'placeholderColor' 'divideColor' 'gradientColorStops'
 
         // get the right color themePairs
-        for prefix in $colorPrefixes {
-          if ((prefix + '-gray') in $rules) {
-            $color = replace((prefix + '-'), '', $key)
-            $themePairs = $color is not prefix ? $colors[$color] : $colors.common
-          }
+        if ($propAlias in $colorPrefixes) {
+          $color = split('-', $prefix)[1]
+          // p($color)
+
+          $themePairs = $color is not null ? $colors[$color] : $colors.common
         }
 
         class-generator($themePairs, $variantList, $size, $prefix, $property, $propAlias)

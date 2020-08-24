@@ -175,6 +175,7 @@ class-generator($themePairs, $variantList, $size = null, $prefix, $property, $pr
   // loop color
   loop-color-theme($variant = null) {
     for key, value in $themePairs {
+      // p($themePairs)
       // unquote theme pairs
       $modifier = replace('\/', '\/', key)
       $value = convent-string(value)
@@ -196,10 +197,42 @@ class-generator($themePairs, $variantList, $size = null, $prefix, $property, $pr
       }
     }
   }
+  
+  // loop gradient color
+  loop-gradient-color($variant = null) {
+    for key, value in $themePairs {
+      // p($themePairs)
+      // unquote theme pairs
+      $modifier = replace('\/', '\/', key)
+      $value = convent-string(value)
+      
+      $selector = get-selector($size, $prefix, $modifier, $variant, $property)
+
+      .{$selector} {
+        if (match('^(transparent|current)', $modifier)) {
+          {$property} $value
+        } else {
+          // transparent color function
+          if (match('from', $prefix)) {
+            {$property} $value
+            --gradient-color-stops unquote('var(--gradient-from-color),var(--gradient-to-color, ' + rgba($value, 0) + ')')
+          } else if (match('via', $prefix)) {
+            {$property} $value
+            // --gradient-color-stops var(--gradient-from-color),var(--gradient-via-color),var(--gradient-to-color, {$transparentColor})
+            --gradient-color-stops unquote('var(--gradient-from-color),var(--gradient-via-color),var(--gradient-to-color, ' + rgba($value, 0) + ')')
+          } else {
+            {$property} $value
+          }
+        }
+      }
+    }
+  }
 
   if (match('Color', $propAlias)) {
     if (match('^placeholder', $prefix)) {
       loop-placeholder()
+    } else if (match('gradientColorStops', $propAlias)) {
+      loop-gradient-color()
     } else {
       loop-color-theme()
     }
@@ -217,6 +250,8 @@ class-generator($themePairs, $variantList, $size = null, $prefix, $property, $pr
         if (match('Color', $propAlias)) {
           if (match('^placeholder', $prefix)) {
             loop-placeholder($variant)
+          } else if (match('gradientColorStops', $propAlias)) {
+            loop-gradient-color()
           } else {
             loop-color-theme($variant)
           }
