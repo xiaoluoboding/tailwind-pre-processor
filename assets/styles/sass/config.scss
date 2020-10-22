@@ -1,175 +1,97 @@
+@import 'color';
+
 $screens: (
   'sm': 640px,
   'md': 768px,
   'lg': 1024px,
   'xl': 1280px
 );
-$colors: (
-  'common': (
-    'transparent': 'transparent',
-    'current': 'currentColor',
-    'black': #000,
-    'white': #fff
-  ),
-  'gray': (
-    '100': #f7fafc,
-    '200': #edf2f7,
-    '300': #e2e8f0,
-    '400': #cbd5e0,
-    '500': #a0aec0,
-    '600': #718096,
-    '700': #4a5568,
-    '800': #2d3748,
-    '900': #1a202c
-  ),
-  'red': (
-    '100': #fff5f5,
-    '200': #fed7d7,
-    '300': #feb2b2,
-    '400': #fc8181,
-    '500': #f56565,
-    '600': #e53e3e,
-    '700': #c53030,
-    '800': #9b2c2c,
-    '900': #742a2a
-  ),
-  'orange': (
-    '100': #fffaf0,
-    '200': #feebc8,
-    '300': #fbd38d,
-    '400': #f6ad55,
-    '500': #ed8936,
-    '600': #dd6b20,
-    '700': #c05621,
-    '800': #9c4221,
-    '900': #7b341e
-  ),
-  'yellow': (
-    '100': #fffff0,
-    '200': #fefcbf,
-    '300': #faf089,
-    '400': #f6e05e,
-    '500': #ecc94b,
-    '600': #d69e2e,
-    '700': #b7791f,
-    '800': #975a16,
-    '900': #744210
-  ),
-  'green': (
-    '100': #f0fff4,
-    '200': #c6f6d5,
-    '300': #9ae6b4,
-    '400': #68d391,
-    '500': #48bb78,
-    '600': #38a169,
-    '700': #2f855a,
-    '800': #276749,
-    '900': #22543d
-  ),
-  'teal': (
-    '100': #e6fffa,
-    '200': #b2f5ea,
-    '300': #81e6d9,
-    '400': #4fd1c5,
-    '500': #38b2ac,
-    '600': #319795,
-    '700': #2c7a7b,
-    '800': #285e61,
-    '900': #234e52
-  ),
-  'blue': (
-    '100': #ebf8ff,
-    '200': #bee3f8,
-    '300': #90cdf4,
-    '400': #63b3ed,
-    '500': #4299e1,
-    '600': #3182ce,
-    '700': #2b6cb0,
-    '800': #2c5282,
-    '900': #2a4365
-  ),
-  'indigo': (
-    '100': #ebf4ff,
-    '200': #c3dafe,
-    '300': #a3bffa,
-    '400': #7f9cf5,
-    '500': #667eea,
-    '600': #5a67d8,
-    '700': #4c51bf,
-    '800': #434190,
-    '900': #3c366b,
-  ),
-  'purple': (
-    '100': #faf5ff,
-    '200': #e9d8fd,
-    '300': #d6bcfa,
-    '400': #b794f4,
-    '500': #9f7aea,
-    '600': #805ad5,
-    '700': #6b46c1,
-    '800': #553c9a,
-    '900': #44337a
-  ),
-  'pink': (
-    '100': #fff5f7,
-    '200': #fed7e2,
-    '300': #fbb6ce,
-    '400': #f687b3,
-    '500': #ed64a6,
-    '600': #d53f8c,
-    '700': #b83280,
-    '800': #97266d,
-    '900': #702459
-  )
-);
 $opacity: (
   '0': '0',
+  '10': '0.1',
+  '20': '0.2',
   '25': '0.25',
+  '30': '0.3',
+  '40': '0.4',
   '50': '0.5',
+  '60': '0.6',
+  '70': '0.7',
   '75': '0.75',
-  '100': '1'
+  '80': '0.8',
+  '90': '0.9',
+  '100': '1',
 );
 $spacing: (
   px: '1px',
   '0': '0',
+  // '0.5': '0.125rem',
   '1': '0.25rem',
+  // '1.5': '0.375rem',
   '2': '0.5rem',
+  // '2.5': '0.625rem',
   '3': '0.75rem',
+  // '3.5': '0.825rem',
   '4': '1rem',
   '5': '1.25rem',
   '6': '1.5rem',
+  '7': '1.75rem',
   '8': '2rem',
+  '9': '2.25rem',
   '10': '2.5rem',
   '12': '3rem',
+  '14': '3.5rem',
   '16': '4rem',
   '20': '5rem',
   '24': '6rem',
+  '28': '7rem',
   '32': '8rem',
+  '36': '9rem',
   '40': '10rem',
+  '44': '11rem',
   '48': '12rem',
+  '52': '13rem',
   '56': '14rem',
-  '64': '16rem'
+  '60': '15rem',
+  '64': '16rem',
+  '72': '18rem',
+  '80': '20rem',
+  '96': '24rem'
 );
 $negative-spacing: (
   '-px': '-1px',
   '-0': '-0',
+  // '-0.5': '-0.125rem',
   '-1': '-0.25rem',
+  // '-1.5': '-0.375rem',
   '-2': '-0.5rem',
+  // '-2.5': '-0.625rem',
   '-3': '-0.75rem',
+  // '-3.5': '-0.825rem',
   '-4': '-1rem',
   '-5': '-1.25rem',
   '-6': '-1.5rem',
+  '-7': '-1.75rem',
   '-8': '-2rem',
+  '-9': '-2.25rem',
   '-10': '-2.5rem',
   '-12': '-3rem',
+  '-14': '-3.5rem',
   '-16': '-4rem',
   '-20': '-5rem',
   '-24': '-6rem',
+  '-28': '-7rem',
   '-32': '-8rem',
+  '-36': '-9rem',
   '-40': '-10rem',
+  '-44': '-11rem',
   '-48': '-12rem',
+  '-52': '-13rem',
   '-56': '-14rem',
-  '-64': '-16rem'
+  '-60': '-15rem',
+  '-64': '-16rem',
+  '-72': '-18rem',
+  '-80': '-20rem',
+  '-96': '-24rem'
 );
 
 $theme: (
@@ -259,6 +181,9 @@ $theme: (
     default: '0.25rem',
     md: '0.375rem',
     lg: '0.5rem',
+    xl: '0.75rem',
+    '2xl': '1rem',
+    '3xl': '1.5rem',
     full: '9999px',
   ),
   borderStyle: (
@@ -380,7 +305,7 @@ $theme: (
   fontFamily: (
     sans: inspect((system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji")),
     serif: inspect((Georgia Cambria "Times New Roman" Times serif)),
-    mono: inspect((Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace))
+    mono: inspect((SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace))
   ),
   fontSize: (
     xs: '0.75rem',
@@ -392,15 +317,18 @@ $theme: (
     '3xl': '1.875rem',
     '4xl': '2.25rem',
     '5xl': '3rem',
-    '6xl': '4rem',
+    '6xl': '3.75rem',
+    '7xl': '4.5rem',
+    '8xl': '6rem',
+    '9xl': '8rem',
   ),
   fontStyle: (
     italic: 'italic',
     'not-italic': 'normal'
   ),
   fontWeight: (
-    'hairline': '100',
-    'thin': '200',
+    'thin': '100',
+    'extralight': '200',
     'light': '300',
     'normal': '400',
     'medium': '500',
@@ -410,11 +338,23 @@ $theme: (
     'black': '900',
   ),
   gap: map-merge((), $spacing),
+  gridAutoColumns: (
+    auto: 'auto',
+    min: 'min-content',
+    max: 'max-content',
+    fr: 'minmax(0, 1fr)'
+  ),
   gridAutoFlow: (
     row: 'row',
     col: 'col',
     'row-dense': 'row dense',
     'col-dense': 'column dense'
+  ),
+  gridAutoRows: (
+    auto: 'auto',
+    min: 'min-content',
+    max: 'max-content',
+    fr: 'minmax(0, 1fr)',
   ),
   gridColumn: (
     auto: 'auto',
@@ -430,6 +370,7 @@ $theme: (
     'span-10': 'span 10 / span 10',
     'span-11': 'span 11 / span 11',
     'span-12': 'span 12 / span 12',
+    'span-full': '1 / -1'
   ),
   gridColumnStart: (
     auto: 'auto',
@@ -471,6 +412,7 @@ $theme: (
     'span-4': 'span 4 / span 4',
     'span-5': 'span 5 / span 5',
     'span-6': 'span 6 / span 6',
+    'span-full': '1 / -1'
   ),
   gridRowStart: (
     auto: 'auto',
@@ -532,6 +474,20 @@ $theme: (
     between: 'space-between',
     around: 'space-around'
   ),
+  justifyItems: (
+    auto: 'auto',
+    start: 'start',
+    end: 'end',
+    center: 'center',
+    stretch: 'stretch'
+  ),
+  justifySelf: (
+    auto: 'auto',
+    start: 'start',
+    end: 'end',
+    center: 'center',
+    stretch: 'stretch'
+  ),
   letterSpacing: (
     tighter: '-0.05em',
     tight: '-0.025em',
@@ -573,6 +529,7 @@ $theme: (
   ),
   maxWidth: (
     none: 'none',
+    '0': '0rem',
     xs: '20rem',
     sm: '24rem',
     md: '28rem',
@@ -583,17 +540,22 @@ $theme: (
     '4xl': '56rem',
     '5xl': '64rem',
     '6xl': '72rem',
-    full: '100%'
+    '7xl': '80rem',
+    full: '100%',
+    min: 'min-content',
+    max: 'max-content'
   ),
   maxWidthScreen: map-merge((), $screens),
   minHeight: (
     '0': '0',
     full: '100%',
-    screen: '100vh',
+    screen: '100vh'
   ),
   minWidth: (
     '0': '0',
     full: '100%',
+    min: 'min-content',
+    max: 'max-content'
   ),
   objectFit: (
     contain: 'contain',
@@ -650,6 +612,29 @@ $theme: (
   spaceBetween: map-merge(map-merge((
     'reverse': 'reverse'
   ), $spacing), $negative-spacing),
+  placeContent: (
+    center: 'center',
+    start: 'start',
+    end: 'end',
+    between: 'space-between',
+    around: 'space-around',
+    evenly: 'space-evenly',
+    stretch: 'stretch'
+  ),
+  placeItems: (
+    auto: 'auto',
+    start: 'start',
+    end: 'end',
+    center: 'center',
+    stretch: 'stretch'
+  ),
+  placeSelf: (
+    auto: 'auto',
+    start: 'start',
+    end: 'end',
+    center: 'center',
+    stretch: 'stretch'
+  ),
   placeholderColor: map-merge((), $colors),
   placeholderOpacity: map-merge((), $opacity),
   pointerEvents: (
@@ -793,6 +778,8 @@ $theme: (
     '11/12': '91.666667%',
     full: '100%',
     screen: '100vw',
+    min: 'min-content',
+    max: 'max-content'
   ), $spacing),
   scale: (
     '0': '0',
@@ -810,22 +797,46 @@ $theme: (
     '-180': '-180deg',
     '-90': '-90deg',
     '-45': '-45deg',
+    '-12': '-12deg',
+    '-6': '-6deg',
+    '-3': '-3deg',
+    '-2': '-2deg',
+    '-1': '-1deg',
     '0': '0',
+    '1': '1deg',
+    '2': '2deg',
+    '3': '3deg',
+    '6': '6deg',
+    '12': '12deg',
     '45': '45deg',
     '90': '90deg',
     '180': '180deg',
   ),
   translate: map-merge(map-merge((
-    '-full': '-100%',
-    '-1/2': '-50%',
     '1/2': '50%',
-    full: '100%'
+    '1/3': '33.333333%',
+    '2/3': '66.666667%',
+    '1/4': '25%',
+    '2/4': '50%',
+    '3/4': '75%',
+    full: '100%',
+    '-1/2': '-50%',
+    '-1/3': '-33.333333%',
+    '-2/3': '-66.666667%',
+    '-1/4': '-25%',
+    '-2/4': '-50%',
+    '-3/4': '-75%',
+    '-full': '-100%'
   ), $spacing), $negative-spacing),
   skew: (
     '-12': '-12deg',
     '-6': '-6deg',
     '-3': '-3deg',
+    '-2': '-2deg',
+    '-1': '-1deg',
     '0': '0',
+    '1': '1deg',
+    '2': '2deg',
     '3': '3deg',
     '6': '6deg',
     '12': '12deg',
@@ -841,7 +852,7 @@ $theme: (
   ),
   transitionTimingFunction: (
     linear: 'linear',
-    'in': 'cubic-bezier(0.4, 0, 1, 1)',
+    in: 'cubic-bezier(0.4, 0, 1, 1)',
     out: 'cubic-bezier(0, 0, 0.2, 1)',
     'in-out': 'cubic-bezier(0.4, 0, 0.2, 1)'
   ),
@@ -1019,7 +1030,9 @@ $preset: (
     'row-gap': 'row-gap',
     'column-gap': 'column-gap'
   ),
+  gridAutoColumns: 'auto-cols' 'grid-auto-columns',
   gridAutoFlow: 'grid-flow' 'grid-auto-flow',
+  gridAutoRows: 'auto-rows' 'grid-auto-rows',
   gridColumn: col 'grid-column',
   gridColumnEnd: 'col-end' 'grid-column-end',
   gridColumnStart: 'col-start' 'grid-column-start',
@@ -1050,6 +1063,8 @@ $preset: (
     left: 'left'
   ),
   justifyContent: justify 'justify-content',
+  justifyItems: 'justify-items' 'justify-items',
+  justifySelf: 'justify-self' 'justify-self',
   letterSpacing: tracking 'letter-spacing',
   lineHeight: leading 'line-height',
   listStylePosition: list 'list-style-position',
@@ -1104,6 +1119,9 @@ $preset: (
     pb: 'padding-bottom',
     pl: 'padding-left'
   ),
+  placeContent: 'place-content' 'place-content',
+  placeItems: 'place-items' 'place-items',
+  placeSelf: 'place-self' 'place-self',
   placeholderColor: (
     'placeholder': 'color',
     'placeholder-gray': 'color',
@@ -1229,6 +1247,8 @@ $variants: (
   height: 'responsive',
   inset: 'responsive',
   justifyContent: 'responsive',
+  justifyItems: 'responsive',
+  justifySelf: 'responsive',
   letterSpacing: 'responsive',
   lineHeight: 'responsive',
   listStylePosition: 'responsive',
@@ -1247,6 +1267,9 @@ $variants: (
   overflow: 'responsive',
   overscrollBehavior: 'responsive',
   padding: 'responsive',
+  placeContent: 'responsive',
+  placeItems: 'responsive',
+  placeSelf: 'responsive',
   placeholderColor: ('responsive', 'focus'),
   placeholderOpacity: ('responsive', 'focus'),
   pointerEvents: 'responsive',
@@ -1269,7 +1292,9 @@ $variants: (
   wordBreak: 'responsive',
   zIndex: 'responsive',
   gap: 'responsive',
+  gridAutoColumns: 'responsive',
   gridAutoFlow: 'responsive',
+  gridAutoRows: 'responsive',
   gridTemplateColumns: 'responsive',
   gridColumn: 'responsive',
   gridColumnStart: 'responsive',
