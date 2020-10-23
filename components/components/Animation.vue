@@ -4,9 +4,7 @@
       <!-- Spin -->
       <figure class="p-8">
         <figcaption class="text-gray-700 text-lg mb-2 font-semibold">Spin</figcaption>
-        <div
-          class="bg-white rounded-lg overflow-hidden border border-gray-400 p-4 bg-white text-center py-8"
-        >
+        <div class="rounded-lg overflow-hidden border border-gray-400 p-4 bg-white text-center py-8">
           <div class="flex justify-center">
             <button
               type="button"
@@ -41,9 +39,7 @@
       <!-- Ping -->
       <figure class="p-8">
         <figcaption class="text-gray-700 text-lg mb-2 font-semibold">Ping</figcaption>
-        <div
-          class="bg-white rounded-lg overflow-hidden border border-gray-400 p-4 bg-white text-center py-8"
-        >
+        <div class="rounded-lg overflow-hidden border border-gray-400 p-4 bg-white text-center py-8">
           <div class="flex justify-center">
             <span class="relative inline-flex rounded-md shadow-sm">
               <button
@@ -63,9 +59,7 @@
       <!-- Pulse -->
       <figure class="p-8">
         <figcaption class="text-gray-700 text-lg mb-2 font-semibold">Pulse</figcaption>
-        <div
-          class="bg-white rounded-lg overflow-hidden border border-gray-400 p-4 bg-white text-center py-8"
-        >
+        <div class="rounded-lg overflow-hidden border border-gray-400 p-4 bg-white text-center py-8">
           <div class="flex justify-center">
             <div class="border border-gray-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
               <div class="flex space-x-4 animate-pulse">
@@ -85,9 +79,7 @@
       <!-- Bounce -->
       <figure class="p-8">
         <figcaption class="text-gray-700 text-lg mb-2 font-semibold">Bounce</figcaption>
-        <div
-          class="bg-white rounded-lg overflow-hidden border border-gray-400 p-4 bg-white text-center py-8"
-        >
+        <div class="rounded-lg overflow-hidden border border-gray-400 p-4 bg-white text-center py-8">
           <div class="flex justify-center">
             <svg
               class="animate-bounce w-6 h-6 text-gray-900"

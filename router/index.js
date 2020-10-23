@@ -55,6 +55,11 @@ const routes = [
         path: 'gradient-color',
         name: 'Gradient Color',
         component: () => import('../components/components/GradientColor.vue')
+      },
+      {
+        path: 'font-variant-numeric',
+        name: 'FontVariantNumeric',
+        component: () => import('../components/components/FontVariantNumeric.vue')
       }
     ]
   },

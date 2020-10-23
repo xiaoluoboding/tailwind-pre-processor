@@ -305,7 +305,8 @@ $theme: (
   fontFamily: (
     sans: inspect((system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji")),
     serif: inspect((Georgia Cambria "Times New Roman" Times serif)),
-    mono: inspect((SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace))
+    mono: inspect((SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace)),
+    source: inspect(("Source Sans Pro", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"))
   ),
   fontSize: (
     xs: '0.75rem',

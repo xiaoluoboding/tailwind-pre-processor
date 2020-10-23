@@ -698,6 +698,12 @@ video {
     -moz-osx-font-smoothing: auto;
   }
 }
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://mdn.mozillademos.org/files/15757/SourceSansPro-Regular.otf") format("opentype");
+}
 .ordinal,
 .slashed-zero,
 .lining-nums,
@@ -712,6 +718,42 @@ video {
   --font-variant-numeric-spacing: var(--tailwind-empty,/*!*/ /*!*/);
   --font-variant-numeric-fraction: var(--tailwind-empty,/*!*/ /*!*/);
   font-variant-numeric: var(--font-variant-numeric-ordinal) var(--font-variant-numeric-slashed-zero) var(--font-variant-numeric-figure) var(--font-variant-numeric-spacing) var(--font-variant-numeric-fraction);
+}
+
+.normal-nums {
+  font-variant-numeric: normal !important;
+}
+
+.ordinal {
+  --font-variant-numeric-ordinal: ordinal !important;
+}
+
+.slashed-zero {
+  --font-variant-numeric-slashed-zero: slashed-zero !important;
+}
+
+.lining-nums {
+  --font-variant-numeric-figure: lining-nums !important;
+}
+
+.oldstyle-nums {
+  --font-variant-numeric-figure: oldstyle-nums !important;
+}
+
+.proportional-nums {
+  --font-variant-numeric-spacing: proportional-nums !important;
+}
+
+.tabular-nums {
+  --font-variant-numeric-spacing: tabular-nums !important;
+}
+
+.diagonal-fractions {
+  --font-variant-numeric-fraction: diagonal-fractions !important;
+}
+
+.stacked-fractions {
+  --font-variant-numeric-fraction: stacked-fractions !important;
 }
 
 .content-center {
@@ -10124,6 +10166,10 @@ video {
 
 .font-mono {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.font-source {
+  font-family: "Source Sans Pro", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .text-xs {
@@ -33613,6 +33659,10 @@ video {
     font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .sm\:font-source {
+    font-family: "Source Sans Pro", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+
   .sm\:text-xs {
     font-size: 0.75rem;
   }
@@ -57098,6 +57148,10 @@ video {
 
   .md\:font-mono {
     font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .md\:font-source {
+    font-family: "Source Sans Pro", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .md\:text-xs {
@@ -80587,6 +80641,10 @@ video {
     font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .lg\:font-source {
+    font-family: "Source Sans Pro", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+
   .lg\:text-xs {
     font-size: 0.75rem;
   }
@@ -104072,6 +104130,10 @@ video {
 
   .xl\:font-mono {
     font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .xl\:font-source {
+    font-family: "Source Sans Pro", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .xl\:text-xs {

@@ -144,10 +144,10 @@
             :class="{'text-blue-500': item.name === $route.name}"
           >
             <router-link :to="item.to">{{ item.name }}</router-link>
-            <span v-if="item.version"
-              class="ml-3 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium leading-4 bg-green-100 text-green-900">
+            <div v-if="item.version"
+              class="items-center px-3 py-1 rounded-full text-center text-sm font-medium leading-4 bg-green-100 text-green-900">
               {{item.version}}
-            </span>
+            </div>
           </li>
         </ul>
       </div>
@@ -173,7 +173,8 @@ export default {
       { id: 'Alert', name: 'Alert', to: '/components/alert' },
       { id: 'Navigation', name: 'Navigation', to: '/components/navigation' },
       { id: 'Animation', name: 'Animation', to: '/components/animation', version: 'v1.6.0+' },
-      { id: 'Gradient Color', name: 'GradientColor', to: '/components/gradient-color', version: 'v1.7.0+' }
+      { id: 'Gradient Color', name: 'GradientColor', to: '/components/gradient-color', version: 'v1.7.0+' },
+      { id: 'Font Variant Numeric', name: 'FontVariantNumeric', to: '/components/font-variant-numeric', version: 'v1.8.0+' }
     ]
   }),
   watch: {
