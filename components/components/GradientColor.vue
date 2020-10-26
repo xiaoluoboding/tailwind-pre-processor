@@ -1,6 +1,12 @@
 <template>
   <div class="container mx-auto">
     <div class="animation-component mb-8 grid grid-cols-1 gap-4 w-4/5 mx-auto">
+      <div class="flex items-center p-8">
+        <h1 class="text-2xl font-semibold">Gradient Color</h1>
+        <dl class="items-center ml-2 px-3 py-1 rounded-full text-center text-sm font-medium leading-4 bg-green-100 text-green-900">
+          <dd>v1.7.0+</dd>
+        </dl>
+      </div>
       <!-- Starting color -->
       <figure class="p-8">
         <figcaption class="text-gray-700 text-lg mb-2 font-semibold">Starting color</figcaption>
