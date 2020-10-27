@@ -170,7 +170,8 @@ export default {
       { id: 'Navigation', name: 'Navigation', to: '/components/navigation' },
       { id: 'Animation', name: 'Animation', to: '/components/animation' },
       { id: 'Gradient Color', name: 'GradientColor', to: '/components/gradient-color' },
-      { id: 'Font Variant Numeric', name: 'FontVariantNumeric', to: '/components/font-variant-numeric' }
+      { id: 'Font Variant Numeric', name: 'FontVariantNumeric', to: '/components/font-variant-numeric' },
+      { id: 'Grid Auto Columns', name: 'GridAutoColumns', to: '/components/grid-auto-columns' }
     ]
   }),
   watch: {

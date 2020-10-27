@@ -17,21 +17,21 @@ loop-outline($variant, $size = null) {
   for $key, $property in $outline {
     $baseSelector = join('-', 'outline', $key)
 
-    $sizeSelector = ($size == null) ? $baseSelector : join('\\:', $size, $baseSelector)
+    $sizeSelector = ($size == null) ? $baseSelector : join('\:', $size, $baseSelector)
 
     .{$sizeSelector} {
       for $prop, $value in $property {
-        {$prop} $value
+        {$prop} unquote($value)
       }
     }
       
     $variantSelector = ($variant + "\:" + $baseSelector + ":" + $variant)
     
-    $selector = ($size == null) ? $variantSelector : join('\\:', $size, $variantSelector)
+    $selector = ($size == null) ? $variantSelector : join('\:', $size, $variantSelector)
     
     .{$selector} {
       for $prop, $value in $property {
-        {$prop} $value
+        {$prop} unquote($value)
       }
     }
   }

@@ -60,6 +60,11 @@ const routes = [
         path: 'font-variant-numeric',
         name: 'FontVariantNumeric',
         component: () => import('../components/components/FontVariantNumeric.vue')
+      },
+      {
+        path: 'grid-auto-columns',
+        name: 'GridAutoColumns',
+        component: () => import('../components/components/GridAutoColumns.vue')
       }
     ]
   },

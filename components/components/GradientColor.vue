@@ -68,7 +68,7 @@
       <figure class="p-8">
         <figcaption class="text-gray-700 text-lg mb-2 font-semibold">Focus</figcaption>
         <div
-          class="bg-white rounded-lg overflow-hidden border border-gray-400 p-4 bg-white text-center py-8"
+          class="bg-white rounded-lg overflow-hidden border border-gray-400 p-4 text-center py-8"
         >
           <div class="flex justify-center">
             <button type="button" class="bg-gradient-to-r from-teal-400 to-blue-500 focus:from-pink-500 focus:to-orange-500 text-white font-semibold px-4 py-2 rounded">
@@ -81,7 +81,7 @@
       <figure class="p-8">
         <figcaption class="text-gray-700 text-lg mb-2 font-semibold">Cropping to text</figcaption>
         <div
-          class="bg-white rounded-lg overflow-hidden border border-gray-400 p-4 bg-white text-center py-8"
+          class="bg-white rounded-lg overflow-hidden border border-gray-400 p-4 text-center py-8"
         >
           <div class="flex justify-center">
             <div class="text-center text-5xl font-extrabold leading-none tracking-tight">
