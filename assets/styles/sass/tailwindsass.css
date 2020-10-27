@@ -756,6 +756,160 @@ video {
   --font-variant-numeric-fraction: stacked-fractions !important;
 }
 
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.outline-white {
+  outline: 2px dotted white;
+  outline-offset: 2px;
+}
+
+.focus\:outline-white:focus {
+  outline: 2px dotted white;
+  outline-offset: 2px;
+}
+
+.outline-black {
+  outline: 2px dotted black;
+  outline-offset: 2px;
+}
+
+.focus\:outline-black:focus {
+  outline: 2px dotted black;
+  outline-offset: 2px;
+}
+
+@media (min-width: 640px) {
+  .sm\:outline-none {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .sm\:focus\:outline-none:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .sm\:outline-white {
+    outline: 2px dotted white;
+    outline-offset: 2px;
+  }
+
+  .sm\:focus\:outline-white:focus {
+    outline: 2px dotted white;
+    outline-offset: 2px;
+  }
+
+  .sm\:outline-black {
+    outline: 2px dotted black;
+    outline-offset: 2px;
+  }
+
+  .sm\:focus\:outline-black:focus {
+    outline: 2px dotted black;
+    outline-offset: 2px;
+  }
+}
+@media (min-width: 768px) {
+  .md\:outline-none {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .md\:focus\:outline-none:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .md\:outline-white {
+    outline: 2px dotted white;
+    outline-offset: 2px;
+  }
+
+  .md\:focus\:outline-white:focus {
+    outline: 2px dotted white;
+    outline-offset: 2px;
+  }
+
+  .md\:outline-black {
+    outline: 2px dotted black;
+    outline-offset: 2px;
+  }
+
+  .md\:focus\:outline-black:focus {
+    outline: 2px dotted black;
+    outline-offset: 2px;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\:outline-none {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .lg\:focus\:outline-none:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .lg\:outline-white {
+    outline: 2px dotted white;
+    outline-offset: 2px;
+  }
+
+  .lg\:focus\:outline-white:focus {
+    outline: 2px dotted white;
+    outline-offset: 2px;
+  }
+
+  .lg\:outline-black {
+    outline: 2px dotted black;
+    outline-offset: 2px;
+  }
+
+  .lg\:focus\:outline-black:focus {
+    outline: 2px dotted black;
+    outline-offset: 2px;
+  }
+}
+@media (min-width: 1280px) {
+  .xl\:outline-none {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .xl\:focus\:outline-none:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .xl\:outline-white {
+    outline: 2px dotted white;
+    outline-offset: 2px;
+  }
+
+  .xl\:focus\:outline-white:focus {
+    outline: 2px dotted white;
+    outline-offset: 2px;
+  }
+
+  .xl\:outline-black {
+    outline: 2px dotted black;
+    outline-offset: 2px;
+  }
+
+  .xl\:focus\:outline-black:focus {
+    outline: 2px dotted black;
+    outline-offset: 2px;
+  }
+}
 .content-center {
   align-content: center;
 }
@@ -13666,22 +13820,6 @@ video {
 
 .order-12 {
   order: 12;
-}
-
-.outline-none {
-  outline: 0;
-}
-
-.outline-auto {
-  outline: auto;
-}
-
-.focus\:outline-none:focus {
-  outline: 0;
-}
-
-.focus\:outline-auto:focus {
-  outline: auto;
 }
 
 .overflow-auto {
@@ -37159,22 +37297,6 @@ video {
     order: 12;
   }
 
-  .sm\:outline-none {
-    outline: 0;
-  }
-
-  .sm\:outline-auto {
-    outline: auto;
-  }
-
-  .sm\:focus\:outline-none:focus {
-    outline: 0;
-  }
-
-  .sm\:focus\:outline-auto:focus {
-    outline: auto;
-  }
-
   .sm\:overflow-auto {
     overflow: auto;
   }
@@ -60648,22 +60770,6 @@ video {
 
   .md\:order-12 {
     order: 12;
-  }
-
-  .md\:outline-none {
-    outline: 0;
-  }
-
-  .md\:outline-auto {
-    outline: auto;
-  }
-
-  .md\:focus\:outline-none:focus {
-    outline: 0;
-  }
-
-  .md\:focus\:outline-auto:focus {
-    outline: auto;
   }
 
   .md\:overflow-auto {
@@ -84141,22 +84247,6 @@ video {
     order: 12;
   }
 
-  .lg\:outline-none {
-    outline: 0;
-  }
-
-  .lg\:outline-auto {
-    outline: auto;
-  }
-
-  .lg\:focus\:outline-none:focus {
-    outline: 0;
-  }
-
-  .lg\:focus\:outline-auto:focus {
-    outline: auto;
-  }
-
   .lg\:overflow-auto {
     overflow: auto;
   }
@@ -107630,22 +107720,6 @@ video {
 
   .xl\:order-12 {
     order: 12;
-  }
-
-  .xl\:outline-none {
-    outline: 0;
-  }
-
-  .xl\:outline-auto {
-    outline: auto;
-  }
-
-  .xl\:focus\:outline-none:focus {
-    outline: 0;
-  }
-
-  .xl\:focus\:outline-auto:focus {
-    outline: auto;
   }
 
   .xl\:overflow-auto {

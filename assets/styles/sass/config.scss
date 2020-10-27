@@ -594,10 +594,10 @@ $theme: (
     '11': '11',
     '12': '12',
   ),
-  outline: (
-    none: '0',
-    auto: 'auto'
-  ),
+  // outline: (
+  //   none: '0',
+  //   auto: 'auto'
+  // ),
   overflow: (
     auto: 'auto',
     hidden: 'hidden',
@@ -1094,7 +1094,7 @@ $preset: (
   objectPosition: object 'object-position',
   opacity: opacity 'opacity',
   order: order 'order',
-  outline: outline 'outline',
+  // outline: outline 'outline',
   overflow: (
     overflow: 'overflow',
     'overflow-x': 'overflow-x',
@@ -1264,7 +1264,7 @@ $variants: (
   objectPosition: 'responsive',
   opacity: ('responsive', 'hover', 'focus'),
   order: 'responsive',
-  outline: ('responsive', 'focus'),
+  // outline: ('responsive', 'focus'),
   overflow: 'responsive',
   overscrollBehavior: 'responsive',
   padding: 'responsive',

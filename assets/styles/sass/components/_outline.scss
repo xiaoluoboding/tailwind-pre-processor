@@ -1,0 +1,54 @@
+$outline: (
+  'none': (
+    'outline': '2px solid transparent',
+    'outline-offset': '2px'
+  ),
+  'white': (
+    'outline': '2px dotted white',
+    'outline-offset': '2px'
+  ),
+  'black': (
+    'outline': '2px dotted black',
+    'outline-offset': '2px'
+  )
+);
+
+@mixin loop-outline($variant, $size: null) {
+  @each $key, $property in $outline {
+    $baseSelector: str-join('-', 'outline', $key);
+
+    $sizeSelector: if(
+      $size == null,
+      $baseSelector,
+      str-join('\\:', $size, $baseSelector)
+    );
+
+    .#{$sizeSelector} {
+      @each $prop, $value in $property {
+        #{$prop}: #{$value};
+      }
+    }
+      
+    $variantSelector: $variant+'\\:'+$baseSelector+':'+$variant;
+    
+    $selector: if(
+      $size == null,
+      $variantSelector,
+      str-join('\\:', $size, $variantSelector)
+    );
+    
+    .#{$selector} {
+      @each $prop, $value in $property {
+        #{$prop}: #{$value};
+      }
+    }
+  }
+}
+
+@include loop-outline('focus');
+
+@each $size, $width in $screens {
+  @media (min-width: $width) {
+    @include loop-outline('focus', $size);
+  }
+}
