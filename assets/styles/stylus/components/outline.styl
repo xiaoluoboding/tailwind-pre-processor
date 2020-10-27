@@ -1,0 +1,46 @@
+$outline = {
+  'none': {
+    'outline': '2px solid transparent',
+    'outline-offset': '2px'
+  },
+  'white': {
+    'outline': '2px dotted white',
+    'outline-offset': '2px'
+  },
+  'black': {
+    'outline': '2px dotted black',
+    'outline-offset': '2px'
+  }
+}
+
+loop-outline($variant, $size = null) {
+  for $key, $property in $outline {
+    $baseSelector = join('-', 'outline', $key)
+
+    $sizeSelector = ($size == null) ? $baseSelector : join('\\:', $size, $baseSelector)
+
+    .{$sizeSelector} {
+      for $prop, $value in $property {
+        {$prop} $value
+      }
+    }
+      
+    $variantSelector = ($variant + "\:" + $baseSelector + ":" + $variant)
+    
+    $selector = ($size == null) ? $variantSelector : join('\\:', $size, $variantSelector)
+    
+    .{$selector} {
+      for $prop, $value in $property {
+        {$prop} $value
+      }
+    }
+  }
+}
+
+loop-outline('focus')
+
+// loop, to style media query container
+for size, width in $screens
+  $width = unquote(width)
+  @media (min-width: $width)
+    loop-outline('focus', size)

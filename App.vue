@@ -12,8 +12,8 @@ export default {
 
 <style>
 /* @import './assets/styles/less/tailwindless.css'; */
-@import './assets/styles/sass/tailwindsass.css';
-/* @import './assets/styles/stylus/tailwindstylus.css'; */
+/* @import './assets/styles/sass/tailwindsass.css'; */
+@import './assets/styles/stylus/tailwindstylus.css';
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
