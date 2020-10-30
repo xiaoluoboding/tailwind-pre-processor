@@ -1028,8 +1028,8 @@ $preset: (
   fontWeight: font 'font-weight',
   gap: (
     gap: 'gap',
-    'row-gap': 'row-gap',
-    'column-gap': 'column-gap'
+    'gap-y': 'row-gap',
+    'gap-x': 'column-gap'
   ),
   gridAutoColumns: 'auto-cols' 'grid-auto-columns',
   gridAutoFlow: 'grid-flow' 'grid-auto-flow',
