@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@vue/compiler-sfc": "^3.0.2",
-    "tailwindcss": "^1.9.5",
+    "tailwindcss": "^1.9.6",
     "vite": "^1.0.0-rc.1"
   }
 }
