@@ -26,8 +26,8 @@ const routes = [
     ]
   },
   {
-    path: '/components',
-    name: 'Components',
+    path: '/utilities',
+    name: 'Utilities',
     component: () => import('../layouts/index.vue'),
     children: [
       {
@@ -39,32 +39,37 @@ const routes = [
       {
         path: 'alert',
         name: 'Alert',
-        component: () => import('../components/components/Alert.vue')
+        component: () => import('../components/utilities/Alert.vue')
       },
       {
         path: 'navigation',
         name: 'Navigation',
-        component: () => import('../components/components/Navigation.vue')
+        component: () => import('../components/utilities/Navigation.vue')
       },
       {
         path: 'animation',
         name: 'Animation',
-        component: () => import('../components/components/Animation.vue')
+        component: () => import('../components/utilities/Animation.vue')
       },
       {
         path: 'gradient-color',
         name: 'Gradient Color',
-        component: () => import('../components/components/GradientColor.vue')
+        component: () => import('../components/utilities/GradientColor.vue')
       },
       {
         path: 'font-variant-numeric',
         name: 'FontVariantNumeric',
-        component: () => import('../components/components/FontVariantNumeric.vue')
+        component: () => import('../components/utilities/FontVariantNumeric.vue')
       },
       {
         path: 'grid-auto-columns',
         name: 'GridAutoColumns',
-        component: () => import('../components/components/GridAutoColumns.vue')
+        component: () => import('../components/utilities/GridAutoColumns.vue')
+      },
+      {
+        path: 'text-overflow',
+        name: 'TextOverflow',
+        component: () => import('../components/utilities/TextOverflow.vue')
       }
     ]
   },

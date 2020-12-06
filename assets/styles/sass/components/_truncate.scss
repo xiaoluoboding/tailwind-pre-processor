@@ -1,0 +1,22 @@
+$truncate: 'truncate';
+
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.#{$truncate} {
+  @include truncate;
+}
+
+@each $size, $width in $screens {
+  $escaped-size: escape_leading_numbers($size);
+  $selector-antialiased: str-join('\\:', $escaped-size, $truncate);
+
+  @media (min-width: $width) {
+    .#{$selector-antialiased} {
+      @include antialiased;
+    }
+  }
+}

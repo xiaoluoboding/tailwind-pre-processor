@@ -694,6 +694,10 @@ $theme: (
     'line-through': 'line-through',
     'no-underline': 'none'
   ),
+  textOverflow: (
+    ellipsis: 'ellipsis',
+    clip: 'clip'
+  ),
   textTransform: (
     uppercase: 'uppercase',
     lowercase: 'lowercase',
@@ -1198,6 +1202,7 @@ $preset: (
   ),
   textOpacity: 'text-opacity' '--text-opacity',
   textDecoration: none 'text-decoration',
+  textOverflow: 'overflow' 'text-overflow',
   textTransform: none 'text-transform',
   transformOrigin: origin 'transform-origin',
   transitionDelay: delay 'transition-delay',
@@ -1298,6 +1303,7 @@ $variants: (
   textColor: ('responsive', 'hover', 'focus'),
   textOpacity: ('responsive', 'hover', 'focus'),
   textDecoration: ('responsive', 'hover', 'focus'),
+  textOverflow: 'responsive',
   textTransform: 'responsive',
   userSelect: 'responsive',
   verticalAlign: 'responsive',

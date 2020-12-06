@@ -957,6 +957,42 @@ video {
     outline-offset: 2px;
   }
 }
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .sm\:truncate {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+@media (min-width: 768px) {
+  .md\:truncate {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\:truncate {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+@media (min-width: 1280px) {
+  .xl\:truncate {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+@media (min-width: 1536px) {
+  .\32 xl\:truncate {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
 .content-center {
   align-content: center;
 }
@@ -23517,6 +23553,14 @@ video {
 
 .focus\:no-underline:focus {
   text-decoration: none;
+}
+
+.overflow-ellipsis {
+  text-overflow: ellipsis;
+}
+
+.overflow-clip {
+  text-overflow: clip;
 }
 
 .uppercase {
@@ -48378,6 +48422,14 @@ video {
     text-decoration: none;
   }
 
+  .sm\:overflow-ellipsis {
+    text-overflow: ellipsis;
+  }
+
+  .sm\:overflow-clip {
+    text-overflow: clip;
+  }
+
   .sm\:uppercase {
     text-transform: uppercase;
   }
@@ -73235,6 +73287,14 @@ video {
 
   .md\:focus\:no-underline:focus {
     text-decoration: none;
+  }
+
+  .md\:overflow-ellipsis {
+    text-overflow: ellipsis;
+  }
+
+  .md\:overflow-clip {
+    text-overflow: clip;
   }
 
   .md\:uppercase {
@@ -98096,6 +98156,14 @@ video {
     text-decoration: none;
   }
 
+  .lg\:overflow-ellipsis {
+    text-overflow: ellipsis;
+  }
+
+  .lg\:overflow-clip {
+    text-overflow: clip;
+  }
+
   .lg\:uppercase {
     text-transform: uppercase;
   }
@@ -122955,6 +123023,14 @@ video {
     text-decoration: none;
   }
 
+  .xl\:overflow-ellipsis {
+    text-overflow: ellipsis;
+  }
+
+  .xl\:overflow-clip {
+    text-overflow: clip;
+  }
+
   .xl\:uppercase {
     text-transform: uppercase;
   }
@@ -147812,6 +147888,14 @@ video {
 
   .\32 xl\:focus\:no-underline:focus {
     text-decoration: none;
+  }
+
+  .\32 xl\:overflow-ellipsis {
+    text-overflow: ellipsis;
+  }
+
+  .\32 xl\:overflow-clip {
+    text-overflow: clip;
   }
 
   .\32 xl\:uppercase {

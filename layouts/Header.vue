@@ -135,7 +135,7 @@
           {{activeMenu}}
         </h1>
         <ul
-          v-if="activeMenu === 'Components'"
+          v-if="activeMenu === 'Utilities'"
           class="flex items-center px-8 space-x-4"
         >
           <li
@@ -159,19 +159,20 @@ export default {
     isShowMobileMenu: false,
     menuList: [
       { id: 'Home', name: 'Home', to: '/home' },
-      { id: 'Components', name: 'Components', to: '/components' },
+      { id: 'Utilities', name: 'Utiliites', to: '/utilities' },
       // { id: 'Projects', name: 'Projects', to: '/projects' },
       { id: 'About', name: 'About', to: '/about' },
       { id: 'GitHub', name: 'GitHub', to: 'https://github.com/xiaoluoboding/tailwind-pre-processor' }
     ],
     activeMenu: 'Home',
     componentsList: [
-      { id: 'Alert', name: 'Alert', to: '/components/alert' },
-      { id: 'Navigation', name: 'Navigation', to: '/components/navigation' },
-      { id: 'Animation', name: 'Animation', to: '/components/animation' },
-      { id: 'Gradient Color', name: 'GradientColor', to: '/components/gradient-color' },
-      { id: 'Font Variant Numeric', name: 'FontVariantNumeric', to: '/components/font-variant-numeric' },
-      { id: 'Grid Auto Columns', name: 'GridAutoColumns', to: '/components/grid-auto-columns' }
+      { id: 'Alert', name: 'Alert', to: '/utilities/alert' },
+      { id: 'Navigation', name: 'Navigation', to: '/utilities/navigation' },
+      { id: 'Animation', name: 'Animation', to: '/utilities/animation' },
+      { id: 'Gradient Color', name: 'GradientColor', to: '/utilities/gradient-color' },
+      { id: 'Font Variant Numeric', name: 'FontVariantNumeric', to: '/utilities/font-variant-numeric' },
+      { id: 'Grid Auto Columns', name: 'GridAutoColumns', to: '/utilities/grid-auto-columns' },
+      { id: 'Text Overflow', name: 'TextOverflow', to: '/utilities/text-overflow' }
     ]
   }),
   watch: {
