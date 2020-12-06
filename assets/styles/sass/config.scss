@@ -1,4 +1,4 @@
-@import 'color';
+@import 'colors-palette';
 
 $screens: (
   'sm': 640px,
@@ -6,6 +6,19 @@ $screens: (
   'lg': 1024px,
   'xl': 1280px,
   '2xl': 1536px
+);
+$colors: (
+  'common': map-get($colors-palette, 'common'),
+  'gray': map-get($colors-palette, 'coolGray'),
+  'red': map-get($colors-palette, 'red'),
+  'orange': map-get($colors-palette, 'orange'),
+  'yellow': map-get($colors-palette, 'yellow'),
+  'green': map-get($colors-palette, 'green'),
+  'teal': map-get($colors-palette, 'teal'),
+  'blue': map-get($colors-palette, 'blue'),
+  'indigo': map-get($colors-palette, 'indigo'),
+  'purple': map-get($colors-palette, 'purple'),
+  'pink': map-get($colors-palette, 'pink'),
 );
 $opacity: (
   '0': '0',
