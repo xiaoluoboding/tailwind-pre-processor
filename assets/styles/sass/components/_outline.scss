@@ -15,12 +15,13 @@ $outline: (
 
 @mixin loop-outline($variant, $size: null) {
   @each $key, $property in $outline {
+    $escaped-size: escape_leading_numbers($size);
     $baseSelector: str-join('-', 'outline', $key);
 
     $sizeSelector: if(
       $size == null,
       $baseSelector,
-      str-join('\\:', $size, $baseSelector)
+      str-join('\\:', $escaped-size, $baseSelector)
     );
 
     .#{$sizeSelector} {
@@ -34,7 +35,7 @@ $outline: (
     $selector: if(
       $size == null,
       $variantSelector,
-      str-join('\\:', $size, $variantSelector)
+      str-join('\\:', $escaped-size, $variantSelector)
     );
     
     .#{$selector} {

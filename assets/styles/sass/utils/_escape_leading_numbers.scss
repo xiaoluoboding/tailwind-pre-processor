@@ -1,0 +1,9 @@
+/// escape leading numbers [escape_leading_numbers]
+/// @author {xiaoluoboding}
+/// @param {string} $string - string with leading numbers
+/// @return {string} $escaped-string
+@function escape_leading_numbers($s) {
+  $first-char: str_slice(#{$s}, 0, 1);
+  $found: index('1' '2' '3' '4' '5' '6' '7' '8' '9' '0', $first-char);
+  @return if($found, unquote(str-insert(str-slice(#{$s}, 2), "\\3#{$first-char} ", 1)), $s);
+}

@@ -66,7 +66,9 @@
 
 // generate responsive utilities
 @each $size, $width in $screens {
+  $escaped-size: escape_leading_numbers($size);
+
   @media (min-width: $width) {
-    @include importUtilities($size);
+    @include importUtilities($escaped-size);
   }
 }

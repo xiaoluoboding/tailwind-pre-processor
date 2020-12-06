@@ -20,8 +20,9 @@ $subpixel-antialiased: 'subpixel-antialiased';
 }
 
 @each $size, $width in $screens {
-  $selector-antialiased: str-join('\\:', $size, $antialiased);
-  $selector-subpixel-antialiased: str-join('\\:', $size, $subpixel-antialiased);
+  $escaped-size: escape_leading_numbers($size);
+  $selector-antialiased: str-join('\\:', $escaped-size, $antialiased);
+  $selector-subpixel-antialiased: str-join('\\:', $escaped-size, $subpixel-antialiased);
 
   @media (min-width: $width) {
     .#{$selector-antialiased} {
