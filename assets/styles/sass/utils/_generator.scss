@@ -12,7 +12,9 @@
   $spaceBetweenModifier: '> :not(template) ~ :not(template)';
 
   // replace modifier, turn 1/2 into 1\/2
-  $replacedModifier: str-replace($modifier, '\/', '\\\/');
+  $escapedModifier: str-replace($modifier, '\/', '\\\/');
+  // replace modifier, turn 0.5 into 0\.5
+  $replacedModifier: str-replace($escapedModifier, '\.', '\\\.');
   // get positive or negative class
   $baseClass: if(
     str-begin-with($replacedModifier, '-'),
