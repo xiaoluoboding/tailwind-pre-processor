@@ -9,7 +9,7 @@
 /// @return {string}  - utility selector
 ///
 @function get-selector($prefix, $modifier, $variant, $size, $property) {
-  $spaceBetweenModifier: '> :not(template) ~ :not(template)';
+  $spaceBetweenModifier: '> :not([hidden]) ~ :not([hidden])';
 
   // replace modifier, turn 1/2 into 1\/2
   $escapedModifier: str-replace($modifier, '\/', '\\\/');
@@ -120,6 +120,7 @@
       $opacity-variable: #{nth(map-get($preset, $propOpacity), 2)};
 
       // @debug $selector;
+      // @debug $opacity-variable;
 
       // generate multiple line properties class
       @each $pseudo in $pseudoList {
@@ -130,7 +131,6 @@
 
           @else {
             #{$opacity-variable}: 1;
-            #{$property}: #{$value};
             #{$property}: #{rgba-color($value, $opacity-variable)}
           }
         }
@@ -253,7 +253,7 @@
       
       @else {
         #{$opacity-variable}: 1;
-        #{$property}: #{$value};
+        // #{$property}: #{$value};
         #{$property}: #{rgba-color($value, $opacity-variable)}
       }
     }
@@ -276,11 +276,11 @@
 
         @if (str-index($prefix, 'from')) {
           #{$property}: #{$value};
-          --gradient-color-stops: var(--gradient-from-color),var(--gradient-to-color, #{$transparentColor});
+          --tw-gradient-stops: var(--tw-gradient-from),var(--tw-gradient-to, #{$transparentColor});
         }
         @else if (str-index($prefix, 'via')) {
           #{$property}: #{$value};
-          --gradient-color-stops: var(--gradient-from-color),var(--gradient-via-color),var(--gradient-to-color, #{$transparentColor});
+          --tw-gradient-stops: var(--tw-gradient-from),var(--tw-gradient-via),var(--tw-gradient-to, #{$transparentColor});
         }
         @else {
           #{$property}: #{$value};
