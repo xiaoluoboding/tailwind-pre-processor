@@ -32,7 +32,15 @@
     /// 
     @if (type-of($rules) == 'map') {
       @each $prefix, $property in $rules {
-        $colorPrefixes: ('backgroundColor', 'borderColor', 'textColor', 'placeholderColor', 'divideColor', 'gradientColorStops');
+        $colorPrefixes: (
+          'backgroundColor',
+          'borderColor',
+          'textColor',
+          'placeholderColor',
+          'divideColor',
+          'gradientColorStops',
+          'ringColor'
+        );
 
         @if (index($colorPrefixes, $propAlias) != null) {
           $colorPairs: getColorPairs($rules, $prefix);

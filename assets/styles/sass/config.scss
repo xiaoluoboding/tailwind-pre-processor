@@ -700,8 +700,7 @@ $theme: (
     y: 'vertical',
     x: 'horizontal'
   ),
-  // ringColor: map-merge((), $colors),
-  // ringOffsetColor: map-merge((), $colors),
+  ringColor: map-merge((), $colors),
   // ringOffsetWidth: (
   //   '0': '0px',
   //   '1': '1px',
@@ -1207,19 +1206,19 @@ $preset: (
   pointerEvents: 'pointer-events' 'pointer-events',
   position: none 'position',
   resize: resize 'resize',
-  // ringColor: (
-  //   ring: '--tw-ring-color',
-  //   'ring-gray': '--tw-ring-color',
-  //   'ring-red': '--tw-ring-color',
-  //   'ring-orange': '--tw-ring-color',
-  //   'ring-yellow': '--tw-ring-color',
-  //   'ring-green': '--tw-ring-color',
-  //   'ring-teal': '--tw-ring-color',
-  //   'ring-blue': '--tw-ring-color',
-  //   'ring-indigo': '--tw-ring-color',
-  //   'ring-purple': '--tw-ring-color',
-  //   'ring-pink': '--tw-ring-color'
-  // ),
+  ringColor: (
+    ring: '--tw-ring-color',
+    'ring-gray': '--tw-ring-color',
+    'ring-red': '--tw-ring-color',
+    'ring-orange': '--tw-ring-color',
+    'ring-yellow': '--tw-ring-color',
+    'ring-green': '--tw-ring-color',
+    'ring-teal': '--tw-ring-color',
+    'ring-blue': '--tw-ring-color',
+    'ring-indigo': '--tw-ring-color',
+    'ring-purple': '--tw-ring-color',
+    'ring-pink': '--tw-ring-color'
+  ),
   ringOpacity: 'ring-opacity' '--tw-ring-opacity',
   rotate: rotate '--tw-rotate',
   scale: (
@@ -1358,8 +1357,7 @@ $variants: (
   pointerEvents: 'responsive',
   position: 'responsive',
   resize: 'responsive',
-  // ringColor: ('responsive', 'focus-within', 'focus'),
-  // ringOffsetColor: ('responsive', 'focus-within', 'focus'),
+  ringColor: ('responsive', 'focus-within', 'focus'),
   // ringOffsetWidth: ('responsive', 'focus-within', 'focus'),
   ringOpacity: ('responsive', 'focus-within', 'focus'),
   // ringWidth: ('responsive', 'focus-within', 'focus'),
